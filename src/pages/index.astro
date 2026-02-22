@@ -1,17 +1,1165 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="TrophyLog — Your Hunt. Remembered.">
+
+	<!-- Navigation -->
+	<nav class="nav">
+		<div class="nav-inner">
+			<a href="/" class="nav-brand">TrophyLog</a>
+		</div>
+	</nav>
+
+	<!-- Hero -->
+	<section class="hero">
+		<div class="hero-glow"></div>
+		<div class="hero-content reveal">
+			<h1 class="hero-title">Your hunt.<br /><span class="gradient-text">Remembered.</span></h1>
+			<p class="hero-sub">Manage your grounds. Log your trophies. Tell the story.</p>
+			<div class="hero-badges">
+				<a href="#" class="store-badge" aria-label="Download on the App Store">
+					<svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect x="0.5" y="0.5" width="119" height="39" rx="5.5" fill="rgba(17,25,22,0.6)" stroke="rgba(107,123,110,0.4)"/>
+						<g transform="translate(9, 11.5) scale(0.93)">
+							<path d="M14.94 8.87c-.12-2.2 1.8-3.28 1.88-3.33a4.07 4.07 0 0 0-3.2-1.73c-1.34-.14-2.66.8-3.35.8-.7 0-1.76-.79-2.9-.76a4.28 4.28 0 0 0-3.6 2.2c-1.56 2.7-.4 6.65.1 8.83.73 1.06 1.58 2.24 2.7 2.2 1.1-.05 1.5-.7 2.83-.7 1.32 0 1.69.7 2.83.68 1.17-.02 1.9-1.06 2.6-2.13a9.1 9.1 0 0 0 1.18-2.42s-2.26-.87-2.28-3.44zm-2.15-6.32c.6-.75.9-1.76.86-2.55a3.72 3.72 0 0 0-2.4 1.25 3.48 3.48 0 0 0-.86 2.5c.9.07 1.82-.42 2.4-1.2z" fill="#D8DDD9"/>
+						</g>
+						<text x="30" y="15" fill="#8B9B8E" font-family="Inter, sans-serif" font-size="7" font-weight="500">Download on the</text>
+						<text x="30" y="28" fill="#D8DDD9" font-family="Inter, sans-serif" font-size="14" font-weight="600">App Store</text>
+					</svg>
+				</a>
+				<a href="#" class="store-badge" aria-label="Get it on Google Play">
+					<svg viewBox="0 0 135 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect x="0.5" y="0.5" width="134" height="39" rx="5.5" fill="rgba(17,25,22,0.6)" stroke="rgba(107,123,110,0.4)"/>
+						<g transform="translate(10, 8) scale(0.96)">
+							<path d="M0 1.2C0 0.8 0.2 0.4 0.5 0.2L13.2 12.5 0.5 24.8C0.2 24.6 0 24.2 0 23.8V1.2Z" fill="#34A853"/>
+							<path d="M17.3 8.6L3.6 0.7C2.6 0.1 1.4-0.2 0.5 0.2L13.2 12.5 17.3 8.6Z" fill="#4285F4"/>
+							<path d="M0.5 24.8L13.2 12.5 17.3 16.4 3.6 24.3C2.6 24.9 1.4 25.2 0.5 24.8Z" fill="#EA4335"/>
+							<path d="M21.2 12.5L17.3 8.6 13.2 12.5 17.3 16.4 21.2 12.5C22 11.9 22 13.1 21.2 12.5Z" fill="#FBBC04"/>
+						</g>
+						<text x="36" y="15" fill="#8B9B8E" font-family="Inter, sans-serif" font-size="7" font-weight="500">GET IT ON</text>
+						<text x="36" y="28" fill="#D8DDD9" font-family="Inter, sans-serif" font-size="14" font-weight="600">Google Play</text>
+					</svg>
+				</a>
+			</div>
+		</div>
+		<div class="hero-phone reveal reveal-delay-1">
+			<div class="phone-glow phone-glow-green"></div>
+			<div class="phone-frame">
+				<div class="phone-notch"></div>
+				<div class="phone-screen">
+					<div class="phone-screen-inner">
+						<div class="ph-status-bar"></div>
+						<div class="ph-header">
+							<div class="ph-title-block"></div>
+						</div>
+						<div class="ph-card"></div>
+						<div class="ph-card ph-card-short"></div>
+						<div class="ph-card ph-card-short"></div>
+						<div class="ph-nav">
+							<div class="ph-nav-dot ph-nav-active"></div>
+							<div class="ph-nav-dot"></div>
+							<div class="ph-nav-dot"></div>
+							<div class="ph-nav-dot"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Divider -->
+	<div class="gradient-divider"></div>
+
+	<!-- Story -->
+	<section class="story">
+		<div class="section-inner section-narrow">
+			<p class="story-text reveal">
+				TrophyLog is built for hunters who take their craft seriously.
+				Manage your hunting grounds, coordinate with your group,
+				and keep a living record of every hunt — the place, the moment, the trophy.
+			</p>
+		</div>
+	</section>
+
+	<!-- Medal -->
+	<section class="medal">
+		<div class="section-inner">
+			<div class="medal-layout">
+				<div class="medal-content reveal">
+					<span class="section-label">The Medal</span>
+					<h2 class="section-title">Physical craft.<br /><span class="gradient-text-gold">Digital story.</span></h2>
+					<p class="section-body">
+						Mount a precision-engraved medal on your trophy.
+						Scan the QR code to unlock the full story — photos, video,
+						location, details. Every trophy becomes a living memory
+						anyone can experience.
+					</p>
+				</div>
+				<div class="medal-visual reveal reveal-delay-1">
+					<div class="medal-glow"></div>
+					<div class="medal-object">
+						<div class="medal-ring medal-ring-outer"></div>
+						<div class="medal-ring medal-ring-inner"></div>
+						<div class="medal-face">
+							<div class="medal-engrave">
+								<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="medal-qr-icon">
+									<rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+									<rect x="28" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+									<rect x="4" y="28" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+									<rect x="8" y="8" width="8" height="8" rx="1" fill="currentColor"/>
+									<rect x="32" y="8" width="8" height="8" rx="1" fill="currentColor"/>
+									<rect x="8" y="32" width="8" height="8" rx="1" fill="currentColor"/>
+									<rect x="28" y="28" width="4" height="4" fill="currentColor"/>
+									<rect x="36" y="28" width="8" height="4" fill="currentColor"/>
+									<rect x="28" y="36" width="4" height="8" fill="currentColor"/>
+									<rect x="36" y="40" width="8" height="4" fill="currentColor"/>
+								</svg>
+							</div>
+						</div>
+						<div class="medal-shine"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Divider -->
+	<div class="gradient-divider"></div>
+
+	<!-- Features -->
+	<section class="features">
+		<div class="section-inner">
+
+			<div class="feature-block reveal">
+				<div class="feature-phone">
+					<div class="phone-glow phone-glow-green"></div>
+					<div class="phone-frame phone-frame-sm">
+						<div class="phone-notch"></div>
+						<div class="phone-screen">
+							<div class="phone-screen-inner">
+								<div class="ph-status-bar"></div>
+								<div class="ph-header">
+									<div class="ph-title-block ph-title-wide"></div>
+								</div>
+								<div class="ph-map">
+									<div class="ph-map-area"></div>
+								</div>
+								<div class="ph-card ph-card-overlay"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="feature-content">
+					<span class="section-label">Hunting Grounds</span>
+					<h2 class="section-title">Your land.<br /><span class="gradient-text-green">Mapped and managed.</span></h2>
+					<p class="section-body">
+						Draw your hunting areas on the map. Track boundaries, mark stands,
+						and share access with your hunting group.
+						Everyone sees the same ground, updated in real time.
+					</p>
+				</div>
+			</div>
+
+			<div class="feature-block feature-block-reverse reveal">
+				<div class="feature-phone">
+					<div class="phone-glow phone-glow-gold"></div>
+					<div class="phone-frame phone-frame-sm">
+						<div class="phone-notch"></div>
+						<div class="phone-screen">
+							<div class="phone-screen-inner">
+								<div class="ph-status-bar"></div>
+								<div class="ph-header">
+									<div class="ph-title-block"></div>
+								</div>
+								<div class="ph-card ph-card-tall ph-card-image"></div>
+								<div class="ph-card"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="feature-content">
+					<span class="section-label">Hunt Log</span>
+					<h2 class="section-title">Every hunt.<br /><span class="gradient-text-gold">Every detail.</span></h2>
+					<p class="section-body">
+						Log your hunts with photos, coordinates, species, and notes.
+						Build a record that grows with every season.
+						Share stories with your group or keep them private.
+					</p>
+				</div>
+			</div>
+
+			<div class="feature-block reveal">
+				<div class="feature-phone">
+					<div class="phone-glow phone-glow-green"></div>
+					<div class="phone-frame phone-frame-sm">
+						<div class="phone-notch"></div>
+						<div class="phone-screen">
+							<div class="phone-screen-inner">
+								<div class="ph-status-bar"></div>
+								<div class="ph-header">
+									<div class="ph-title-block ph-title-wide"></div>
+								</div>
+								<div class="ph-card"></div>
+								<div class="ph-card"></div>
+								<div class="ph-card ph-card-short"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="feature-content">
+					<span class="section-label">Groups</span>
+					<h2 class="section-title">Hunt together.<br /><span class="gradient-text-green">Stay connected.</span></h2>
+					<p class="section-body">
+						Create hunting groups, invite members, and manage shared grounds.
+						Coordinate hunts and keep your entire party on the same page.
+					</p>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="cta">
+		<div class="cta-glow"></div>
+		<div class="section-inner section-narrow reveal">
+			<h2 class="cta-title"><span class="gradient-text">Start logging.</span></h2>
+			<p class="cta-body">Available on iOS and Android.</p>
+			<div class="hero-badges">
+				<a href="#" class="store-badge" aria-label="Download on the App Store">
+					<svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect x="0.5" y="0.5" width="119" height="39" rx="5.5" fill="rgba(17,25,22,0.6)" stroke="rgba(107,123,110,0.4)"/>
+						<g transform="translate(9, 11.5) scale(0.93)">
+							<path d="M14.94 8.87c-.12-2.2 1.8-3.28 1.88-3.33a4.07 4.07 0 0 0-3.2-1.73c-1.34-.14-2.66.8-3.35.8-.7 0-1.76-.79-2.9-.76a4.28 4.28 0 0 0-3.6 2.2c-1.56 2.7-.4 6.65.1 8.83.73 1.06 1.58 2.24 2.7 2.2 1.1-.05 1.5-.7 2.83-.7 1.32 0 1.69.7 2.83.68 1.17-.02 1.9-1.06 2.6-2.13a9.1 9.1 0 0 0 1.18-2.42s-2.26-.87-2.28-3.44zm-2.15-6.32c.6-.75.9-1.76.86-2.55a3.72 3.72 0 0 0-2.4 1.25 3.48 3.48 0 0 0-.86 2.5c.9.07 1.82-.42 2.4-1.2z" fill="#D8DDD9"/>
+						</g>
+						<text x="30" y="15" fill="#8B9B8E" font-family="Inter, sans-serif" font-size="7" font-weight="500">Download on the</text>
+						<text x="30" y="28" fill="#D8DDD9" font-family="Inter, sans-serif" font-size="14" font-weight="600">App Store</text>
+					</svg>
+				</a>
+				<a href="#" class="store-badge" aria-label="Get it on Google Play">
+					<svg viewBox="0 0 135 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect x="0.5" y="0.5" width="134" height="39" rx="5.5" fill="rgba(17,25,22,0.6)" stroke="rgba(107,123,110,0.4)"/>
+						<g transform="translate(10, 8) scale(0.96)">
+							<path d="M0 1.2C0 0.8 0.2 0.4 0.5 0.2L13.2 12.5 0.5 24.8C0.2 24.6 0 24.2 0 23.8V1.2Z" fill="#34A853"/>
+							<path d="M17.3 8.6L3.6 0.7C2.6 0.1 1.4-0.2 0.5 0.2L13.2 12.5 17.3 8.6Z" fill="#4285F4"/>
+							<path d="M0.5 24.8L13.2 12.5 17.3 16.4 3.6 24.3C2.6 24.9 1.4 25.2 0.5 24.8Z" fill="#EA4335"/>
+							<path d="M21.2 12.5L17.3 8.6 13.2 12.5 17.3 16.4 21.2 12.5C22 11.9 22 13.1 21.2 12.5Z" fill="#FBBC04"/>
+						</g>
+						<text x="36" y="15" fill="#8B9B8E" font-family="Inter, sans-serif" font-size="7" font-weight="500">GET IT ON</text>
+						<text x="36" y="28" fill="#D8DDD9" font-family="Inter, sans-serif" font-size="14" font-weight="600">Google Play</text>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="section-inner">
+			<div class="footer-inner">
+				<span class="footer-brand">TrophyLog</span>
+				<span class="footer-copy">&copy; {new Date().getFullYear()}</span>
+			</div>
+		</div>
+	</footer>
+
+</Layout>
+
+<style>
+	/* ——————————————————————————————————————
+	   EFFECTS & GRADIENTS
+	   —————————————————————————————————————— */
+
+	.gradient-text {
+		background: linear-gradient(135deg, #C9A04E 0%, #E8C973 50%, #C9A04E 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.gradient-text-gold {
+		background: linear-gradient(135deg, #C9A04E 0%, #E8C973 40%, #D4A853 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.gradient-text-green {
+		background: linear-gradient(135deg, #4ADE80 0%, #86EFAC 50%, #4ADE80 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.gradient-divider {
+		height: 1px;
+		max-width: 600px;
+		margin: 0 auto;
+		background: linear-gradient(90deg, transparent 0%, rgba(201, 160, 78, 0.3) 50%, transparent 100%);
+	}
+
+	/* ——————————————————————————————————————
+	   SCROLL REVEAL
+	   —————————————————————————————————————— */
+
+	.reveal {
+		opacity: 0;
+		transform: translateY(40px);
+		transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+					transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.reveal.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.reveal-delay-1 {
+		transition-delay: 0.15s;
+	}
+
+	.reveal-delay-2 {
+		transition-delay: 0.3s;
+	}
+
+	/* ——————————————————————————————————————
+	   NAV
+	   —————————————————————————————————————— */
+
+	.nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 100;
+		padding: 16px var(--page-padding);
+		background: rgba(8, 12, 10, 0.7);
+		-webkit-backdrop-filter: saturate(180%) blur(20px);
+		backdrop-filter: saturate(180%) blur(20px);
+		border-bottom: 1px solid rgba(201, 160, 78, 0.06);
+	}
+
+	.nav-inner {
+		max-width: var(--content-width);
+		margin: 0 auto;
+	}
+
+	.nav-brand {
+		font-family: var(--font-display);
+		font-size: 20px;
+		font-weight: 700;
+		color: var(--gold);
+		letter-spacing: 0.02em;
+	}
+
+	/* ——————————————————————————————————————
+	   HERO
+	   —————————————————————————————————————— */
+
+	.hero {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		padding: 140px var(--page-padding) 100px;
+		gap: 72px;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.hero-glow {
+		position: absolute;
+		top: -20%;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 800px;
+		height: 600px;
+		background: radial-gradient(ellipse, rgba(201, 160, 78, 0.08) 0%, rgba(74, 222, 128, 0.03) 40%, transparent 70%);
+		pointer-events: none;
+	}
+
+	.hero-content {
+		max-width: var(--content-narrow);
+		position: relative;
+		z-index: 1;
+	}
+
+	.hero-title {
+		font-family: var(--font-display);
+		font-size: clamp(52px, 10vw, 88px);
+		font-weight: 700;
+		line-height: 1.05;
+		color: var(--text);
+		letter-spacing: -0.02em;
+		margin-bottom: 28px;
+	}
+
+	.hero-sub {
+		font-size: clamp(17px, 2.5vw, 21px);
+		color: var(--text-secondary);
+		line-height: 1.6;
+		margin-bottom: 44px;
+		letter-spacing: 0.01em;
+	}
+
+	.hero-badges {
+		display: flex;
+		gap: 14px;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.store-badge {
+		transition: transform 0.2s ease, opacity 0.2s ease;
+	}
+
+	.store-badge svg {
+		height: 44px;
+		width: auto;
+	}
+
+	.store-badge:hover {
+		transform: translateY(-1px);
+		opacity: 0.85;
+	}
+
+	/* ——————————————————————————————————————
+	   PHONE FRAME
+	   —————————————————————————————————————— */
+
+	.hero-phone,
+	.feature-phone {
+		flex-shrink: 0;
+		position: relative;
+	}
+
+	.phone-glow {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 400px;
+		height: 500px;
+		border-radius: 50%;
+		filter: blur(80px);
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	.phone-glow-green {
+		background: radial-gradient(ellipse, rgba(74, 222, 128, 0.12) 0%, transparent 70%);
+	}
+
+	.phone-glow-gold {
+		background: radial-gradient(ellipse, rgba(201, 160, 78, 0.12) 0%, transparent 70%);
+	}
+
+	.phone-frame {
+		width: 280px;
+		height: 580px;
+		border-radius: 44px;
+		border: 1.5px solid rgba(74, 222, 128, 0.12);
+		background: #0F1612;
+		overflow: hidden;
+		position: relative;
+		z-index: 1;
+		box-shadow:
+			0 0 0 1px rgba(0, 0, 0, 0.3),
+			0 0 60px -10px rgba(74, 222, 128, 0.08),
+			0 50px 100px -20px rgba(0, 0, 0, 0.8),
+			0 25px 50px -12px rgba(0, 0, 0, 0.5);
+	}
+
+	.phone-frame-sm {
+		width: 260px;
+		height: 540px;
+		border-radius: 40px;
+	}
+
+	.phone-notch {
+		position: absolute;
+		top: 12px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100px;
+		height: 28px;
+		background: #080C0A;
+		border-radius: 16px;
+		z-index: 2;
+	}
+
+	.phone-frame-sm .phone-notch {
+		width: 88px;
+		height: 24px;
+		top: 10px;
+		border-radius: 14px;
+	}
+
+	.phone-screen {
+		width: 100%;
+		height: 100%;
+		padding: 6px;
+	}
+
+	.phone-screen-inner {
+		width: 100%;
+		height: 100%;
+		background: #0F1612;
+		border-radius: 38px;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.phone-frame-sm .phone-screen-inner {
+		border-radius: 34px;
+	}
+
+	/* Placeholder UI */
+	.ph-status-bar {
+		height: 48px;
+		flex-shrink: 0;
+	}
+
+	.ph-header {
+		padding: 4px 20px 16px;
+		flex-shrink: 0;
+	}
+
+	.ph-title-block {
+		width: 110px;
+		height: 20px;
+		background: var(--text);
+		border-radius: 4px;
+		opacity: 0.85;
+	}
+
+	.ph-title-wide {
+		width: 150px;
+	}
+
+	.ph-card {
+		margin: 0 14px 8px;
+		height: 68px;
+		background: #1A2420;
+		border-radius: 12px;
+		border: 1px solid rgba(234, 234, 234, 0.08);
+		flex-shrink: 0;
+	}
+
+	.ph-card-short {
+		height: 52px;
+	}
+
+	.ph-card-tall {
+		height: 150px;
+	}
+
+	.ph-card-image {
+		background: linear-gradient(145deg, #1A2420 0%, #243029 100%);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.ph-card-image::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 50%;
+		background: linear-gradient(to top, rgba(15, 22, 18, 0.8), transparent);
+	}
+
+	.ph-card-overlay {
+		margin-top: -36px;
+		position: relative;
+		z-index: 1;
+		height: 72px;
+		background: #1A2420;
+		border: 1px solid rgba(234, 234, 234, 0.08);
+	}
+
+	.ph-map {
+		flex: 1;
+		margin: 0 14px 0;
+		background: linear-gradient(145deg, #1E2E22 0%, #19291D 50%, #213028 100%);
+		border-radius: 12px;
+		position: relative;
+		min-height: 140px;
+		overflow: hidden;
+	}
+
+	.ph-map-area {
+		position: absolute;
+		top: 25%;
+		left: 15%;
+		width: 65%;
+		height: 45%;
+		background: rgba(74, 222, 128, 0.15);
+		border: 1.5px solid rgba(74, 222, 128, 0.4);
+		border-radius: 4px;
+		transform: rotate(-3deg);
+	}
+
+	.ph-nav {
+		margin-top: auto;
+		height: 48px;
+		border-top: 1px solid rgba(234, 234, 234, 0.06);
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		padding: 0 32px;
+		flex-shrink: 0;
+	}
+
+	.ph-nav-dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: var(--text-tertiary);
+	}
+
+	.ph-nav-active {
+		background: #4ADE80;
+		box-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
+	}
+
+	/* ——————————————————————————————————————
+	   STORY
+	   —————————————————————————————————————— */
+
+	.story {
+		padding: var(--section-gap) var(--page-padding);
+	}
+
+	.section-inner {
+		max-width: var(--content-width);
+		margin: 0 auto;
+	}
+
+	.section-narrow {
+		max-width: var(--content-narrow);
+	}
+
+	.story-text {
+		font-size: clamp(22px, 3.2vw, 32px);
+		line-height: 1.55;
+		color: var(--text-secondary);
+		text-align: center;
+		letter-spacing: -0.01em;
+	}
+
+	/* ——————————————————————————————————————
+	   SHARED SECTION STYLES
+	   —————————————————————————————————————— */
+
+	.section-label {
+		display: block;
+		font-size: 12px;
+		font-weight: 600;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+		color: var(--gold);
+		margin-bottom: 20px;
+	}
+
+	.section-title {
+		font-family: var(--font-display);
+		font-size: clamp(34px, 5.5vw, 52px);
+		font-weight: 700;
+		line-height: 1.12;
+		color: var(--text);
+		margin-bottom: 24px;
+		letter-spacing: -0.02em;
+	}
+
+	.section-body {
+		font-size: 18px;
+		line-height: 1.75;
+		color: var(--text-secondary);
+		max-width: 440px;
+	}
+
+	/* ——————————————————————————————————————
+	   MEDAL
+	   —————————————————————————————————————— */
+
+	.medal {
+		padding: var(--section-gap) var(--page-padding);
+	}
+
+	.medal-layout {
+		display: flex;
+		align-items: center;
+		gap: clamp(56px, 10vw, 140px);
+	}
+
+	.medal-content {
+		flex: 1;
+	}
+
+	.medal-visual {
+		flex-shrink: 0;
+		position: relative;
+	}
+
+	.medal-glow {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 500px;
+		height: 500px;
+		background: radial-gradient(circle, rgba(201, 160, 78, 0.1) 0%, rgba(201, 160, 78, 0.03) 40%, transparent 65%);
+		pointer-events: none;
+	}
+
+	.medal-object {
+		width: 300px;
+		height: 300px;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.medal-ring {
+		position: absolute;
+		border-radius: 50%;
+		border-style: solid;
+	}
+
+	.medal-ring-outer {
+		width: 280px;
+		height: 280px;
+		border-width: 1px;
+		border-color: rgba(201, 160, 78, 0.1);
+		animation: medal-pulse 4s ease-in-out infinite;
+	}
+
+	.medal-ring-inner {
+		width: 250px;
+		height: 250px;
+		border-width: 1px;
+		border-color: rgba(201, 160, 78, 0.06);
+		animation: medal-pulse 4s ease-in-out infinite 0.5s;
+	}
+
+	@keyframes medal-pulse {
+		0%, 100% { opacity: 0.5; transform: scale(1); }
+		50% { opacity: 1; transform: scale(1.03); }
+	}
+
+	.medal-face {
+		width: 200px;
+		height: 200px;
+		border-radius: 50%;
+		background: conic-gradient(
+			from 135deg,
+			#8B6914 0deg,
+			#C9A04E 60deg,
+			#E8C973 120deg,
+			#D4A853 180deg,
+			#8B6914 240deg,
+			#C9A04E 300deg,
+			#8B6914 360deg
+		);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		box-shadow:
+			0 0 0 2px rgba(201, 160, 78, 0.25),
+			0 0 40px rgba(201, 160, 78, 0.15),
+			0 30px 80px -20px rgba(0, 0, 0, 0.6),
+			inset 0 2px 4px rgba(255, 255, 255, 0.1),
+			inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+	}
+
+	.medal-engrave {
+		width: 64px;
+		height: 64px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.medal-qr-icon {
+		width: 48px;
+		height: 48px;
+		color: rgba(8, 12, 10, 0.35);
+	}
+
+	.medal-shine {
+		position: absolute;
+		top: -10%;
+		left: -10%;
+		width: 120%;
+		height: 120%;
+		background: linear-gradient(
+			135deg,
+			transparent 30%,
+			rgba(255, 255, 255, 0.08) 45%,
+			rgba(255, 255, 255, 0.15) 50%,
+			rgba(255, 255, 255, 0.08) 55%,
+			transparent 70%
+		);
+		pointer-events: none;
+		animation: medal-rotate 8s linear infinite;
+	}
+
+	@keyframes medal-rotate {
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(360deg); }
+	}
+
+	/* ——————————————————————————————————————
+	   FEATURES
+	   —————————————————————————————————————— */
+
+	.features {
+		padding: var(--section-gap) var(--page-padding);
+	}
+
+	.feature-block {
+		display: flex;
+		align-items: center;
+		gap: clamp(48px, 8vw, 120px);
+		margin-bottom: var(--section-gap);
+	}
+
+	.feature-block:last-child {
+		margin-bottom: 0;
+	}
+
+	.feature-block-reverse {
+		flex-direction: row-reverse;
+	}
+
+	.feature-content {
+		flex: 1;
+	}
+
+	/* ——————————————————————————————————————
+	   CTA
+	   —————————————————————————————————————— */
+
+	.cta {
+		padding: var(--section-gap) var(--page-padding);
+		text-align: center;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.cta-glow {
+		position: absolute;
+		bottom: -30%;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 700px;
+		height: 400px;
+		background: radial-gradient(ellipse, rgba(201, 160, 78, 0.06) 0%, transparent 70%);
+		pointer-events: none;
+	}
+
+	.cta-title {
+		font-family: var(--font-display);
+		font-size: clamp(40px, 7vw, 64px);
+		font-weight: 700;
+		margin-bottom: 16px;
+		letter-spacing: -0.02em;
+	}
+
+	.cta-body {
+		font-size: 18px;
+		color: var(--text-secondary);
+		margin-bottom: 44px;
+	}
+
+	/* ——————————————————————————————————————
+	   FOOTER
+	   —————————————————————————————————————— */
+
+	.footer {
+		padding: 48px var(--page-padding);
+		border-top: 1px solid rgba(201, 160, 78, 0.06);
+	}
+
+	.footer-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.footer-brand {
+		font-family: var(--font-display);
+		font-size: 16px;
+		font-weight: 700;
+		color: var(--gold);
+		opacity: 0.7;
+	}
+
+	.footer-copy {
+		font-size: 14px;
+		color: var(--text-tertiary);
+	}
+
+	/* ——————————————————————————————————————
+	   RESPONSIVE — TABLET
+	   —————————————————————————————————————— */
+
+	@media (max-width: 900px) {
+		.feature-block,
+		.feature-block-reverse {
+			flex-direction: column;
+			text-align: center;
+			gap: 48px;
+		}
+
+		.feature-content .section-body {
+			max-width: none;
+			margin: 0 auto;
+		}
+
+		.medal-layout {
+			flex-direction: column;
+			text-align: center;
+			gap: 56px;
+		}
+
+		.medal-content .section-body {
+			max-width: none;
+			margin: 0 auto;
+		}
+	}
+
+	/* ——————————————————————————————————————
+	   RESPONSIVE — MOBILE
+	   —————————————————————————————————————— */
+
+	@media (max-width: 640px) {
+
+		/* Reduce section spacing */
+		:root {
+			--section-gap: clamp(72px, 12vh, 120px);
+		}
+
+		/* Nav */
+		.nav {
+			padding: 12px var(--page-padding);
+		}
+
+		.nav-brand {
+			font-size: 18px;
+		}
+
+		/* Hero */
+		.hero {
+			min-height: calc(100vh - 60px);
+			min-height: calc(100dvh - 60px);
+			gap: 40px;
+			padding-top: 90px;
+			padding-bottom: 60px;
+		}
+
+		.hero-title {
+			font-size: clamp(40px, 12vw, 56px);
+			margin-bottom: 20px;
+		}
+
+		.hero-sub {
+			font-size: 17px;
+			margin-bottom: 32px;
+		}
+
+		.hero-glow {
+			width: 100%;
+			height: 300px;
+		}
+
+		/* Phones — scale down properly */
+		.phone-frame {
+			width: 220px;
+			height: 460px;
+			border-radius: 36px;
+		}
+
+		.phone-frame .phone-notch {
+			width: 76px;
+			height: 22px;
+			top: 10px;
+			border-radius: 12px;
+		}
+
+		.phone-frame .phone-screen-inner {
+			border-radius: 30px;
+		}
+
+		.phone-frame-sm {
+			width: 200px;
+			height: 420px;
+			border-radius: 32px;
+		}
+
+		.phone-frame-sm .phone-notch {
+			width: 68px;
+			height: 20px;
+			top: 8px;
+			border-radius: 11px;
+		}
+
+		.phone-frame-sm .phone-screen-inner {
+			border-radius: 26px;
+		}
+
+		/* Contain glows to prevent horizontal scroll */
+		.phone-glow {
+			width: 260px;
+			height: 340px;
+		}
+
+		.medal-glow {
+			width: 320px;
+			height: 320px;
+		}
+
+		/* Section typography */
+		.section-title {
+			font-size: clamp(28px, 7vw, 38px);
+		}
+
+		.section-body {
+			font-size: 16px;
+			line-height: 1.7;
+		}
+
+		.section-label {
+			font-size: 11px;
+			margin-bottom: 14px;
+		}
+
+		.story-text {
+			font-size: clamp(18px, 5vw, 24px);
+		}
+
+		/* Medal — smaller on mobile */
+		.medal-object {
+			width: 220px;
+			height: 220px;
+		}
+
+		.medal-face {
+			width: 150px;
+			height: 150px;
+		}
+
+		.medal-ring-outer {
+			width: 200px;
+			height: 200px;
+		}
+
+		.medal-ring-inner {
+			width: 180px;
+			height: 180px;
+		}
+
+		.medal-engrave {
+			width: 48px;
+			height: 48px;
+		}
+
+		.medal-qr-icon {
+			width: 36px;
+			height: 36px;
+		}
+
+		/* Feature blocks — phone above text */
+		.feature-block,
+		.feature-block-reverse {
+			gap: 36px;
+			margin-bottom: clamp(72px, 12vh, 120px);
+		}
+
+		/* CTA */
+		.cta-title {
+			font-size: clamp(32px, 9vw, 48px);
+		}
+
+		.cta-body {
+			font-size: 16px;
+			margin-bottom: 32px;
+		}
+
+		.cta-glow {
+			width: 100%;
+			height: 300px;
+		}
+
+		/* Store badges — larger tap targets */
+		.store-badge svg {
+			height: 48px;
+		}
+
+		/* Footer */
+		.footer {
+			padding: 32px var(--page-padding);
+		}
+
+		/* Gradient divider */
+		.gradient-divider {
+			max-width: 80%;
+		}
+	}
+
+	/* ——————————————————————————————————————
+	   RESPONSIVE — SMALL MOBILE
+	   —————————————————————————————————————— */
+
+	@media (max-width: 380px) {
+		.hero-title {
+			font-size: 36px;
+		}
+
+		.phone-frame {
+			width: 200px;
+			height: 420px;
+			border-radius: 32px;
+		}
+
+		.phone-frame-sm {
+			width: 180px;
+			height: 380px;
+			border-radius: 28px;
+		}
+
+		.section-title {
+			font-size: 26px;
+		}
+
+		.store-badge svg {
+			height: 44px;
+		}
+	}
+</style>
+
+<script>
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+				}
+			});
+		},
+		{
+			threshold: 0.15,
+			rootMargin: '0px 0px -40px 0px',
+		}
+	);
+
+	document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>
