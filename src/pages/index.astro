@@ -195,36 +195,34 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 	</section>
 
-	<!-- CTA -->
-	<section class="cta">
+	<!-- Signup -->
+	<section class="cta" id="signup">
 		<div class="cta-glow"></div>
 		<div class="section-inner section-narrow reveal">
-			<h2 class="cta-title"><span class="gradient-text">Start logging.</span></h2>
-			<p class="cta-body">Available on iOS and Android.</p>
-			<div class="hero-badges">
-				<a href="#" class="store-badge" aria-label="Download on the App Store">
-					<svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<rect x="0.5" y="0.5" width="119" height="39" rx="5.5" fill="rgba(17,25,22,0.6)" stroke="rgba(107,123,110,0.4)"/>
-						<g transform="translate(9, 11.5) scale(0.93)">
-							<path d="M14.94 8.87c-.12-2.2 1.8-3.28 1.88-3.33a4.07 4.07 0 0 0-3.2-1.73c-1.34-.14-2.66.8-3.35.8-.7 0-1.76-.79-2.9-.76a4.28 4.28 0 0 0-3.6 2.2c-1.56 2.7-.4 6.65.1 8.83.73 1.06 1.58 2.24 2.7 2.2 1.1-.05 1.5-.7 2.83-.7 1.32 0 1.69.7 2.83.68 1.17-.02 1.9-1.06 2.6-2.13a9.1 9.1 0 0 0 1.18-2.42s-2.26-.87-2.28-3.44zm-2.15-6.32c.6-.75.9-1.76.86-2.55a3.72 3.72 0 0 0-2.4 1.25 3.48 3.48 0 0 0-.86 2.5c.9.07 1.82-.42 2.4-1.2z" fill="#D8DDD9"/>
-						</g>
-						<text x="30" y="15" fill="#8B9B8E" font-family="Inter, sans-serif" font-size="7" font-weight="500">Download on the</text>
-						<text x="30" y="28" fill="#D8DDD9" font-family="Inter, sans-serif" font-size="14" font-weight="600">App Store</text>
-					</svg>
-				</a>
-				<a href="#" class="store-badge" aria-label="Get it on Google Play">
-					<svg viewBox="0 0 135 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<rect x="0.5" y="0.5" width="134" height="39" rx="5.5" fill="rgba(17,25,22,0.6)" stroke="rgba(107,123,110,0.4)"/>
-						<g transform="translate(10, 8) scale(0.96)">
-							<path d="M0 1.2C0 0.8 0.2 0.4 0.5 0.2L13.2 12.5 0.5 24.8C0.2 24.6 0 24.2 0 23.8V1.2Z" fill="#34A853"/>
-							<path d="M17.3 8.6L3.6 0.7C2.6 0.1 1.4-0.2 0.5 0.2L13.2 12.5 17.3 8.6Z" fill="#4285F4"/>
-							<path d="M0.5 24.8L13.2 12.5 17.3 16.4 3.6 24.3C2.6 24.9 1.4 25.2 0.5 24.8Z" fill="#EA4335"/>
-							<path d="M21.2 12.5L17.3 8.6 13.2 12.5 17.3 16.4 21.2 12.5C22 11.9 22 13.1 21.2 12.5Z" fill="#FBBC04"/>
-						</g>
-						<text x="36" y="15" fill="#8B9B8E" font-family="Inter, sans-serif" font-size="7" font-weight="500">GET IT ON</text>
-						<text x="36" y="28" fill="#D8DDD9" font-family="Inter, sans-serif" font-size="14" font-weight="600">Google Play</text>
-					</svg>
-				</a>
+			<h2 class="cta-title"><span class="gradient-text">Be the first to know.</span></h2>
+			<p class="cta-body">Sign up for updates and get early access when TrophyLog launches.</p>
+
+			<form class="signup-form" id="signup-form" novalidate>
+				<div class="form-field">
+					<input type="text" name="name" placeholder="Your name" autocomplete="name" required />
+					<span class="field-error"></span>
+				</div>
+				<div class="form-field">
+					<input type="email" name="email" placeholder="your@email.com" autocomplete="email" required />
+					<span class="field-error"></span>
+				</div>
+				<label class="form-checkbox">
+					<input type="checkbox" name="betaTester" />
+					<span class="checkbox-mark"></span>
+					<span class="checkbox-label">I'd like to help beta test TrophyLog</span>
+				</label>
+				<button type="submit" class="form-submit">Sign up</button>
+				<p class="form-error" id="form-error"></p>
+			</form>
+
+			<div class="signup-success" id="signup-success" hidden>
+				<h3 class="success-title"><span class="gradient-text">You're on the list!</span></h3>
+				<p class="success-body">We'll be in touch soon.</p>
 			</div>
 		</div>
 	</section>
