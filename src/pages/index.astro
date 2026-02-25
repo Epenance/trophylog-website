@@ -1260,4 +1260,82 @@ import Layout from '../layouts/Layout.astro';
 	);
 
 	document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+	// Signup form
+	const SIGNUP_ENDPOINT = '/api/signup'; // Change this to your backend URL
+
+	const form = document.getElementById('signup-form');
+	const formError = document.getElementById('form-error');
+	const successEl = document.getElementById('signup-success');
+
+	form.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		formError.textContent = '';
+
+		const nameInput = form.querySelector('input[name="name"]');
+		const emailInput = form.querySelector('input[name="email"]');
+		const betaTesterInput = form.querySelector('input[name="betaTester"]');
+
+		// Clear previous errors
+		form.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+		form.querySelectorAll('.field-error').forEach(el => el.textContent = '');
+
+		let valid = true;
+
+		if (!nameInput.value.trim()) {
+			nameInput.classList.add('invalid');
+			nameInput.nextElementSibling.textContent = 'Please enter your name';
+			valid = false;
+		}
+
+		if (!emailInput.value.trim()) {
+			emailInput.classList.add('invalid');
+			emailInput.nextElementSibling.textContent = 'Please enter your email';
+			valid = false;
+		} else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) {
+			emailInput.classList.add('invalid');
+			emailInput.nextElementSibling.textContent = 'Please enter a valid email';
+			valid = false;
+		}
+
+		if (!valid) return;
+
+		const submitBtn = form.querySelector('.form-submit');
+		submitBtn.disabled = true;
+		submitBtn.textContent = 'Signing up...';
+
+		try {
+			const res = await fetch(SIGNUP_ENDPOINT, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					name: nameInput.value.trim(),
+					email: emailInput.value.trim(),
+					betaTester: betaTesterInput.checked,
+				}),
+			});
+
+			if (!res.ok) throw new Error('Request failed');
+
+			form.style.opacity = '0';
+			form.style.transform = 'translateY(-10px)';
+			form.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+
+			setTimeout(() => {
+				form.hidden = true;
+				successEl.hidden = false;
+				successEl.style.opacity = '0';
+				successEl.style.transform = 'translateY(10px)';
+				requestAnimationFrame(() => {
+					successEl.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+					successEl.style.opacity = '1';
+					successEl.style.transform = 'translateY(0)';
+				});
+			}, 400);
+		} catch {
+			formError.textContent = 'Something went wrong. Please try again.';
+			submitBtn.disabled = false;
+			submitBtn.textContent = 'Sign up';
+		}
+	});
 </script>
