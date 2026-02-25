@@ -17,6 +17,7 @@ import Layout from '../layouts/Layout.astro';
 		<div class="hero-content reveal">
 			<h1 class="hero-title">Your hunt.<br /><span class="gradient-text">Remembered.</span></h1>
 			<p class="hero-sub">Manage your grounds. Log your trophies. Tell the story.</p>
+			<a href="#signup" class="hero-cta">Join the waitlist</a>
 		</div>
 		<div class="hero-phone reveal reveal-delay-1">
 			<div class="phone-glow phone-glow-green"></div>
@@ -402,8 +403,31 @@ import Layout from '../layouts/Layout.astro';
 		font-size: clamp(17px, 2.5vw, 21px);
 		color: var(--text-secondary);
 		line-height: 1.6;
-		margin-bottom: 0;
+		margin-bottom: 44px;
 		letter-spacing: 0.01em;
+	}
+
+	.hero-cta {
+		display: inline-block;
+		padding: 14px 36px;
+		border: 1.5px solid var(--gold);
+		border-radius: 10px;
+		color: var(--gold);
+		font-family: var(--font-body);
+		font-size: 16px;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+	}
+
+	.hero-cta:hover {
+		background: var(--gold);
+		color: var(--bg);
+		transform: translateY(-1px);
+	}
+
+	.hero-cta:active {
+		transform: translateY(0);
 	}
 
 	/* ——————————————————————————————————————
