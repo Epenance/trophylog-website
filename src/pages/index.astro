@@ -378,27 +378,6 @@ import Layout from '../layouts/Layout.astro';
 		letter-spacing: 0.01em;
 	}
 
-	.hero-badges {
-		display: flex;
-		gap: 14px;
-		justify-content: center;
-		flex-wrap: wrap;
-	}
-
-	.store-badge {
-		transition: transform 0.2s ease, opacity 0.2s ease;
-	}
-
-	.store-badge svg {
-		height: 44px;
-		width: auto;
-	}
-
-	.store-badge:hover {
-		transform: translateY(-1px);
-		opacity: 0.85;
-	}
-
 	/* ——————————————————————————————————————
 	   PHONE FRAME
 	   —————————————————————————————————————— */
@@ -853,6 +832,161 @@ import Layout from '../layouts/Layout.astro';
 		margin-bottom: 44px;
 	}
 
+	/* Signup Form */
+	.signup-form {
+		max-width: 480px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.form-field {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.form-field input {
+		width: 100%;
+		padding: 14px 18px;
+		background: var(--surface);
+		border: 1px solid var(--surface-highlight);
+		border-radius: 10px;
+		color: var(--text);
+		font-family: var(--font-body);
+		font-size: 16px;
+		outline: none;
+		transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.form-field input::placeholder {
+		color: var(--text-tertiary);
+	}
+
+	.form-field input:focus {
+		border-color: var(--gold);
+		box-shadow: 0 0 0 3px var(--gold-muted);
+	}
+
+	.form-field input.invalid {
+		border-color: #B45A5A;
+	}
+
+	.field-error {
+		font-size: 13px;
+		color: #D4806A;
+		margin-top: 6px;
+		min-height: 0;
+	}
+
+	.form-checkbox {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		cursor: pointer;
+		padding: 8px 0;
+		user-select: none;
+	}
+
+	.form-checkbox input {
+		position: absolute;
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+
+	.checkbox-mark {
+		width: 22px;
+		height: 22px;
+		flex-shrink: 0;
+		border-radius: 6px;
+		border: 1px solid var(--surface-highlight);
+		background: var(--surface);
+		transition: background 0.2s ease, border-color 0.2s ease;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.checkbox-mark::after {
+		content: '';
+		width: 12px;
+		height: 12px;
+		border-radius: 3px;
+		background: var(--gold);
+		opacity: 0;
+		transform: scale(0.5);
+		transition: opacity 0.15s ease, transform 0.15s ease;
+	}
+
+	.form-checkbox input:checked + .checkbox-mark {
+		border-color: var(--gold);
+	}
+
+	.form-checkbox input:checked + .checkbox-mark::after {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	.checkbox-label {
+		font-size: 15px;
+		color: var(--text-secondary);
+	}
+
+	.form-submit {
+		width: 100%;
+		padding: 16px;
+		margin-top: 8px;
+		background: var(--gold);
+		color: var(--bg);
+		border: none;
+		border-radius: 10px;
+		font-family: var(--font-body);
+		font-size: 16px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: opacity 0.2s ease, transform 0.2s ease;
+	}
+
+	.form-submit:hover {
+		opacity: 0.9;
+		transform: translateY(-1px);
+	}
+
+	.form-submit:active {
+		transform: translateY(0);
+	}
+
+	.form-submit:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+		transform: none;
+	}
+
+	.form-error {
+		font-size: 14px;
+		color: #D4806A;
+		text-align: center;
+		min-height: 0;
+	}
+
+	.signup-success {
+		text-align: center;
+	}
+
+	.success-title {
+		font-family: var(--font-display);
+		font-size: clamp(34px, 5.5vw, 52px);
+		font-weight: 700;
+		margin-bottom: 12px;
+		letter-spacing: -0.02em;
+	}
+
+	.success-body {
+		font-size: 18px;
+		color: var(--text-secondary);
+	}
+
 	/* ——————————————————————————————————————
 	   FOOTER
 	   —————————————————————————————————————— */
@@ -1072,11 +1206,6 @@ import Layout from '../layouts/Layout.astro';
 			height: 300px;
 		}
 
-		/* Store badges — larger tap targets */
-		.store-badge svg {
-			height: 48px;
-		}
-
 		/* Footer */
 		.footer {
 			padding: 32px var(--page-padding);
@@ -1111,10 +1240,6 @@ import Layout from '../layouts/Layout.astro';
 
 		.section-title {
 			font-size: 26px;
-		}
-
-		.store-badge svg {
-			height: 44px;
 		}
 	}
 </style>
