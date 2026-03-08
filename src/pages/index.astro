@@ -25,19 +25,7 @@ import Layout from '../layouts/Layout.astro';
 				<div class="phone-notch"></div>
 				<div class="phone-screen">
 					<div class="phone-screen-inner">
-						<div class="ph-status-bar"></div>
-						<div class="ph-header">
-							<div class="ph-title-block"></div>
-						</div>
-						<div class="ph-card"></div>
-						<div class="ph-card ph-card-short"></div>
-						<div class="ph-card ph-card-short"></div>
-						<div class="ph-nav">
-							<div class="ph-nav-dot ph-nav-active"></div>
-							<div class="ph-nav-dot"></div>
-							<div class="ph-nav-dot"></div>
-							<div class="ph-nav-dot"></div>
-						</div>
+						<img src="/screenshots/IMG_0828.PNG" alt="TrophyLog home screen" class="phone-screenshot" />
 					</div>
 				</div>
 			</div>
@@ -74,26 +62,8 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 				<div class="medal-visual reveal reveal-delay-1">
 					<div class="medal-glow"></div>
-					<div class="medal-object">
-						<div class="medal-ring medal-ring-outer"></div>
-						<div class="medal-ring medal-ring-inner"></div>
-						<div class="medal-face">
-							<div class="medal-engrave">
-								<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="medal-qr-icon">
-									<rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
-									<rect x="28" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
-									<rect x="4" y="28" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
-									<rect x="8" y="8" width="8" height="8" rx="1" fill="currentColor"/>
-									<rect x="32" y="8" width="8" height="8" rx="1" fill="currentColor"/>
-									<rect x="8" y="32" width="8" height="8" rx="1" fill="currentColor"/>
-									<rect x="28" y="28" width="4" height="4" fill="currentColor"/>
-									<rect x="36" y="28" width="8" height="4" fill="currentColor"/>
-									<rect x="28" y="36" width="4" height="8" fill="currentColor"/>
-									<rect x="36" y="40" width="8" height="4" fill="currentColor"/>
-								</svg>
-							</div>
-						</div>
-						<div class="medal-shine"></div>
+					<div class="medal-image-wrap">
+						<img src="/trophy_medals_mix.jpg" alt="Precision-engraved hunting medals in a velvet-lined case" class="medal-photo" />
 					</div>
 				</div>
 			</div>
@@ -114,14 +84,7 @@ import Layout from '../layouts/Layout.astro';
 						<div class="phone-notch"></div>
 						<div class="phone-screen">
 							<div class="phone-screen-inner">
-								<div class="ph-status-bar"></div>
-								<div class="ph-header">
-									<div class="ph-title-block ph-title-wide"></div>
-								</div>
-								<div class="ph-map">
-									<div class="ph-map-area"></div>
-								</div>
-								<div class="ph-card ph-card-overlay"></div>
+								<img src="/screenshots/IMG_0830.PNG" alt="TrophyLog map view with hunting areas" class="phone-screenshot" />
 							</div>
 						</div>
 					</div>
@@ -144,12 +107,7 @@ import Layout from '../layouts/Layout.astro';
 						<div class="phone-notch"></div>
 						<div class="phone-screen">
 							<div class="phone-screen-inner">
-								<div class="ph-status-bar"></div>
-								<div class="ph-header">
-									<div class="ph-title-block"></div>
-								</div>
-								<div class="ph-card ph-card-tall ph-card-image"></div>
-								<div class="ph-card"></div>
+								<img src="/screenshots/IMG_0831.PNG" alt="TrophyLog hunt log with completed hunts" class="phone-screenshot" />
 							</div>
 						</div>
 					</div>
@@ -172,13 +130,7 @@ import Layout from '../layouts/Layout.astro';
 						<div class="phone-notch"></div>
 						<div class="phone-screen">
 							<div class="phone-screen-inner">
-								<div class="ph-status-bar"></div>
-								<div class="ph-header">
-									<div class="ph-title-block ph-title-wide"></div>
-								</div>
-								<div class="ph-card"></div>
-								<div class="ph-card"></div>
-								<div class="ph-card ph-card-short"></div>
+								<img src="/screenshots/IMG_0838.PNG" alt="TrophyLog groups screen" class="phone-screenshot" />
 							</div>
 						</div>
 					</div>
@@ -522,114 +474,13 @@ import Layout from '../layouts/Layout.astro';
 		border-radius: 34px;
 	}
 
-	/* Placeholder UI */
-	.ph-status-bar {
-		height: 48px;
-		flex-shrink: 0;
-	}
-
-	.ph-header {
-		padding: 4px 20px 16px;
-		flex-shrink: 0;
-	}
-
-	.ph-title-block {
-		width: 110px;
-		height: 20px;
-		background: var(--text);
-		border-radius: 4px;
-		opacity: 0.85;
-	}
-
-	.ph-title-wide {
-		width: 150px;
-	}
-
-	.ph-card {
-		margin: 0 14px 8px;
-		height: 68px;
-		background: #1A2420;
-		border-radius: 12px;
-		border: 1px solid rgba(234, 234, 234, 0.08);
-		flex-shrink: 0;
-	}
-
-	.ph-card-short {
-		height: 52px;
-	}
-
-	.ph-card-tall {
-		height: 150px;
-	}
-
-	.ph-card-image {
-		background: linear-gradient(145deg, #1A2420 0%, #243029 100%);
-		position: relative;
-		overflow: hidden;
-	}
-
-	.ph-card-image::after {
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		height: 50%;
-		background: linear-gradient(to top, rgba(15, 22, 18, 0.8), transparent);
-	}
-
-	.ph-card-overlay {
-		margin-top: -36px;
-		position: relative;
-		z-index: 1;
-		height: 72px;
-		background: #1A2420;
-		border: 1px solid rgba(234, 234, 234, 0.08);
-	}
-
-	.ph-map {
-		flex: 1;
-		margin: 0 14px 0;
-		background: linear-gradient(145deg, #1E2E22 0%, #19291D 50%, #213028 100%);
-		border-radius: 12px;
-		position: relative;
-		min-height: 140px;
-		overflow: hidden;
-	}
-
-	.ph-map-area {
-		position: absolute;
-		top: 25%;
-		left: 15%;
-		width: 65%;
-		height: 45%;
-		background: rgba(74, 222, 128, 0.15);
-		border: 1.5px solid rgba(74, 222, 128, 0.4);
-		border-radius: 4px;
-		transform: rotate(-3deg);
-	}
-
-	.ph-nav {
-		margin-top: auto;
-		height: 48px;
-		border-top: 1px solid rgba(234, 234, 234, 0.06);
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		padding: 0 32px;
-		flex-shrink: 0;
-	}
-
-	.ph-nav-dot {
-		width: 6px;
-		height: 6px;
-		border-radius: 50%;
-		background: var(--text-tertiary);
-	}
-
-	.ph-nav-active {
-		background: #4ADE80;
-		box-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
+	/* Phone Screenshots */
+	.phone-screenshot {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: top;
+		border-radius: inherit;
 	}
 
 	/* ——————————————————————————————————————
@@ -722,103 +573,18 @@ import Layout from '../layouts/Layout.astro';
 		pointer-events: none;
 	}
 
-	.medal-object {
-		width: 300px;
-		height: 300px;
+	.medal-image-wrap {
+		width: 400px;
 		position: relative;
-		display: flex;
-		align-items: center;
-		justify-content: center;
 	}
 
-	.medal-ring {
-		position: absolute;
-		border-radius: 50%;
-		border-style: solid;
-	}
-
-	.medal-ring-outer {
-		width: 280px;
-		height: 280px;
-		border-width: 1px;
-		border-color: rgba(201, 160, 78, 0.1);
-		animation: medal-pulse 4s ease-in-out infinite;
-	}
-
-	.medal-ring-inner {
-		width: 250px;
-		height: 250px;
-		border-width: 1px;
-		border-color: rgba(201, 160, 78, 0.06);
-		animation: medal-pulse 4s ease-in-out infinite 0.5s;
-	}
-
-	@keyframes medal-pulse {
-		0%, 100% { opacity: 0.5; transform: scale(1); }
-		50% { opacity: 1; transform: scale(1.03); }
-	}
-
-	.medal-face {
-		width: 200px;
-		height: 200px;
-		border-radius: 50%;
-		background: conic-gradient(
-			from 135deg,
-			#8B6914 0deg,
-			#C9A04E 60deg,
-			#E8C973 120deg,
-			#D4A853 180deg,
-			#8B6914 240deg,
-			#C9A04E 300deg,
-			#8B6914 360deg
-		);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		position: relative;
+	.medal-photo {
+		width: 100%;
+		height: auto;
+		border-radius: 16px;
 		box-shadow:
-			0 0 0 2px rgba(201, 160, 78, 0.25),
 			0 0 40px rgba(201, 160, 78, 0.15),
-			0 30px 80px -20px rgba(0, 0, 0, 0.6),
-			inset 0 2px 4px rgba(255, 255, 255, 0.1),
-			inset 0 -2px 4px rgba(0, 0, 0, 0.2);
-	}
-
-	.medal-engrave {
-		width: 64px;
-		height: 64px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.medal-qr-icon {
-		width: 48px;
-		height: 48px;
-		color: rgba(8, 12, 10, 0.35);
-	}
-
-	.medal-shine {
-		position: absolute;
-		top: -10%;
-		left: -10%;
-		width: 120%;
-		height: 120%;
-		background: linear-gradient(
-			135deg,
-			transparent 30%,
-			rgba(255, 255, 255, 0.08) 45%,
-			rgba(255, 255, 255, 0.15) 50%,
-			rgba(255, 255, 255, 0.08) 55%,
-			transparent 70%
-		);
-		pointer-events: none;
-		animation: medal-rotate 8s linear infinite;
-	}
-
-	@keyframes medal-rotate {
-		0% { transform: rotate(0deg); }
-		100% { transform: rotate(360deg); }
+			0 30px 80px -20px rgba(0, 0, 0, 0.6);
 	}
 
 	/* ——————————————————————————————————————
@@ -1243,34 +1009,8 @@ import Layout from '../layouts/Layout.astro';
 		}
 
 		/* Medal — smaller on mobile */
-		.medal-object {
-			width: 220px;
-			height: 220px;
-		}
-
-		.medal-face {
-			width: 150px;
-			height: 150px;
-		}
-
-		.medal-ring-outer {
-			width: 200px;
-			height: 200px;
-		}
-
-		.medal-ring-inner {
-			width: 180px;
-			height: 180px;
-		}
-
-		.medal-engrave {
-			width: 48px;
-			height: 48px;
-		}
-
-		.medal-qr-icon {
-			width: 36px;
-			height: 36px;
+		.medal-image-wrap {
+			width: 300px;
 		}
 
 		/* Feature blocks — phone above text */
