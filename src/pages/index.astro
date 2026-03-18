@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PhoneSlider from '../components/PhoneSlider.astro';
 ---
 
 <Layout title="TrophyLog — Your Hunt. Remembered.">
@@ -19,17 +20,15 @@ import Layout from '../layouts/Layout.astro';
 			<p class="hero-sub">Manage your grounds. Log your trophies. Tell the story.</p>
 			<a href="#signup" class="hero-cta">Join the waitlist</a>
 		</div>
-		<div class="hero-phone reveal reveal-delay-1">
-			<div class="phone-glow phone-glow-green"></div>
-			<div class="phone-frame">
-				<div class="phone-notch"></div>
-				<div class="phone-screen">
-					<div class="phone-screen-inner">
-						<img src="/screenshots/IMG_0828.PNG" alt="TrophyLog home screen" class="phone-screenshot" />
-					</div>
-				</div>
-			</div>
-		</div>
+		<PhoneSlider
+			class="reveal reveal-delay-1"
+			size="default"
+			glowColor="green"
+			ariaLabel="TrophyLog home screen"
+			images={[
+				{ src: "/screenshots/IMG_0828.PNG", alt: "TrophyLog home screen" },
+			]}
+		/>
 	</section>
 
 	<!-- Divider -->
@@ -78,17 +77,15 @@ import Layout from '../layouts/Layout.astro';
 		<div class="section-inner">
 
 			<div class="feature-block reveal">
-				<div class="feature-phone">
-					<div class="phone-glow phone-glow-green"></div>
-					<div class="phone-frame phone-frame-sm">
-						<div class="phone-notch"></div>
-						<div class="phone-screen">
-							<div class="phone-screen-inner">
-								<img src="/screenshots/IMG_0830.PNG" alt="TrophyLog map view with hunting areas" class="phone-screenshot" />
-							</div>
-						</div>
-					</div>
-				</div>
+				<PhoneSlider
+					size="sm"
+					glowColor="green"
+					ariaLabel="Hunting Grounds screenshots"
+					images={[
+						{ src: "/screenshots/IMG_0830.PNG", alt: "TrophyLog map view with hunting areas" },
+						{ src: "/screenshots/IMG_0829.PNG", alt: "TrophyLog areas list with regions" },
+					]}
+				/>
 				<div class="feature-content">
 					<span class="section-label">Hunting Grounds</span>
 					<h2 class="section-title">Your land.<br /><span class="gradient-text-green">Mapped and managed.</span></h2>
@@ -101,17 +98,19 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 
 			<div class="feature-block feature-block-reverse reveal">
-				<div class="feature-phone">
-					<div class="phone-glow phone-glow-gold"></div>
-					<div class="phone-frame phone-frame-sm">
-						<div class="phone-notch"></div>
-						<div class="phone-screen">
-							<div class="phone-screen-inner">
-								<img src="/screenshots/IMG_0831.PNG" alt="TrophyLog hunt log with completed hunts" class="phone-screenshot" />
-							</div>
-						</div>
-					</div>
-				</div>
+				<PhoneSlider
+					size="sm"
+					glowColor="gold"
+					ariaLabel="Hunt Log screenshots"
+					images={[
+						{ src: "/screenshots/IMG_0831.PNG", alt: "TrophyLog hunt log with completed hunts" },
+						{ src: "/screenshots/IMG_0832.PNG", alt: "Hunt detail with photos and location" },
+						{ src: "/screenshots/IMG_0833.PNG", alt: "Hunt companions and trophies" },
+						{ src: "/screenshots/IMG_0834.PNG", alt: "Trophy list view" },
+						{ src: "/screenshots/IMG_0835.PNG", alt: "Trophy detail with harvest info" },
+						{ src: "/screenshots/IMG_0836.PNG", alt: "Trophy detail with media" },
+					]}
+				/>
 				<div class="feature-content">
 					<span class="section-label">Hunt Log</span>
 					<h2 class="section-title">Every hunt.<br /><span class="gradient-text-gold">Every detail.</span></h2>
@@ -124,17 +123,15 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 
 			<div class="feature-block reveal">
-				<div class="feature-phone">
-					<div class="phone-glow phone-glow-green"></div>
-					<div class="phone-frame phone-frame-sm">
-						<div class="phone-notch"></div>
-						<div class="phone-screen">
-							<div class="phone-screen-inner">
-								<img src="/screenshots/IMG_0838.PNG" alt="TrophyLog groups screen" class="phone-screenshot" />
-							</div>
-						</div>
-					</div>
-				</div>
+				<PhoneSlider
+					size="sm"
+					glowColor="green"
+					ariaLabel="Groups screenshots"
+					images={[
+						{ src: "/screenshots/IMG_0838.PNG", alt: "TrophyLog groups screen" },
+						{ src: "/screenshots/IMG_0837.PNG", alt: "TrophyLog contacts screen" },
+					]}
+				/>
 				<div class="feature-content">
 					<span class="section-label">Groups</span>
 					<h2 class="section-title">Hunt together.<br /><span class="gradient-text-green">Stay connected.</span></h2>
