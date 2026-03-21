@@ -9,6 +9,7 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 	<nav class="nav">
 		<div class="nav-inner">
 			<a href="/" class="nav-brand">TrophyLog</a>
+			<a href="#signup" class="nav-cta" id="nav-cta" aria-hidden="true" tabindex="-1">Join the waitlist</a>
 		</div>
 	</nav>
 
@@ -294,6 +295,8 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 	.nav-inner {
 		max-width: var(--content-width);
 		margin: 0 auto;
+		display: flex;
+		align-items: center;
 	}
 
 	.nav-brand {
@@ -302,6 +305,44 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 		font-weight: 700;
 		color: var(--gold);
 		letter-spacing: 0.02em;
+	}
+
+	.nav-cta {
+		margin-left: auto;
+		padding: 10px 24px;
+		border: 1.5px solid var(--gold);
+		border-radius: 10px;
+		color: var(--gold);
+		font-family: var(--font-body);
+		font-size: 13px;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		opacity: 0;
+		pointer-events: none;
+		transform: translateY(-4px);
+		transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease, color 0.2s ease;
+	}
+
+	.nav-cta.visible {
+		opacity: 1;
+		pointer-events: auto;
+		transform: translateY(0);
+	}
+
+	.nav-cta:hover {
+		background: var(--gold);
+		color: var(--bg);
+	}
+
+	.nav-cta:active {
+		transform: translateY(0);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.nav-cta {
+			transition: none;
+			transform: none;
+		}
 	}
 
 	/* ——————————————————————————————————————
@@ -815,6 +856,11 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 			font-size: 18px;
 		}
 
+		.nav-cta {
+			padding: 8px 18px;
+			font-size: 12px;
+		}
+
 		/* Hero */
 		.hero {
 			min-height: calc(100vh - 60px);
@@ -933,6 +979,28 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 	);
 
 	document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+	// Nav CTA — show when hero CTA scrolls out of view
+	const heroCta = document.querySelector('.hero-cta');
+	const navCta = document.getElementById('nav-cta');
+
+	if (heroCta && navCta) {
+		const ctaObserver = new IntersectionObserver(
+			([entry]) => {
+				const show = !entry.isIntersecting;
+				navCta.classList.toggle('visible', show);
+				navCta.setAttribute('aria-hidden', String(!show));
+				navCta.setAttribute('tabindex', show ? '0' : '-1');
+			},
+			{ threshold: 0 }
+		);
+		ctaObserver.observe(heroCta);
+
+		navCta.addEventListener('click', (e) => {
+			e.preventDefault();
+			document.getElementById('signup')?.scrollIntoView({ behavior: 'smooth' });
+		});
+	}
 
 	// Signup form
 	const SIGNUP_ENDPOINT = '/api/signup'; // Change this to your backend URL
