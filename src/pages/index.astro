@@ -8,63 +8,112 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 	<!-- Navigation -->
 	<nav class="nav">
 		<div class="nav-inner">
-			<a href="/" class="nav-brand">TrophyLog</a>
-			<a href="#signup" class="nav-cta" id="nav-cta" aria-hidden="true" tabindex="-1">Join the waitlist</a>
+			<a href="/" class="nav-brand">
+				<svg class="nav-logo" viewBox="0 0 946.59 766.6" aria-hidden="true">
+					<path fill="currentColor" d="M453.32,764.64c6.73,4.91,11.91.57,14.73-12.48,13.21-61.18,29.36-123.62,66.26-175.72,75.87-112.41,201.49-168.53,281.23-278.61,46.15-62.56,91.35-138.15,113.93-212,8.7-28.45,24.38-82.19,13.3-85.59-1.69-.52-4.24-.55-7.77,4.03-8.8,11.39-18.34,33.8-26.69,48.64-57.07,101.43-178.18,300.16-265.64,317.04-41.8,8.07-37.77-63.87-32.96-102.83,3.59-29.11,14.01-52.69,23.38-79.29,7.03-19.95,11.46-42.47,4.29-42.93-16.65-1.08-65.91,79.85-80.67,115.78-28.44,69.22-29.22,133.8-68.62,195.33-20.03,31.29-35.61-1.54-32.56-59.81,1.93-36.91,12.14-68.44,18.52-102.35,1.25-6.64,1.58-12.94.4-14.99-3.86-6.71-17.76,17.02-20.65,22.74-35.16,69.62-68.06,177.21-63.92,267.93,2.89,63.23,12.98,150.22,61.67,193.7.36.32,1.26,1.05,1.77,1.42Z"/>
+					<path fill="currentColor" d="M300.55,512.24c-8.43-38.35-19.07-77.21-41.97-110.06-48.63-69.79-126.77-105.24-177.05-174.1C52.44,188.94,25.98,140.97,11.64,94.7,6.12,76.87-2.63,45.38.76,42.37c1.28-1.14,3.67-.27,5.17,1.84,5.23,7.36,11.61,21.14,16.85,30.45,36.24,63.37,112.79,186.27,167.35,198.24,26.37,4.2,23.2-40.11,20.44-64.58-2.58-18.22-9-32.98-14.85-49.68-4.52-12.48-8.16-27.72-2.79-26.92,11.66,1.74,41.52,49.93,50.87,72.43,18,43.35,20.03,82.99,43.49,122.36,13.33,19.12,22.78-1.08,20.28-37.59-1.01-23.16-7.78-42.9-11.85-64.15-.8-4.16-1.03-7.12-.25-8.13,2.85-3.69,11.05,9.4,12.97,12.94,21.11,44.13,43.4,111.01,40.72,167.91-2.07,43.79-7.84,95.67-38.66,122.2-.16.14-.5.41-.67.54-4,3.36-7.48.18-9.28-8.01Z"/>
+				</svg>
+				TrophyLog
+			</a>
+			<a href="#signup" class="nav-cta" id="nav-cta" aria-hidden="true" tabindex="-1">Get Early Access</a>
 		</div>
 	</nav>
 
 	<!-- Hero -->
 	<section class="hero">
-		<div class="hero-glow"></div>
+		<img src="/hero-deer.jpg" alt="" class="hero-bg" loading="eager" />
+		<div class="hero-overlay"></div>
 		<div class="hero-content reveal">
-			<h1 class="hero-title">Your hunt.<br /><span class="gradient-text">Remembered.</span></h1>
-			<p class="hero-sub">Manage your grounds. Log your trophies. Tell the story.</p>
-			<a href="#signup" class="hero-cta">Join the waitlist</a>
+			<svg class="hero-logo" viewBox="0 0 946.59 766.6" aria-hidden="true">
+				<path fill="currentColor" d="M453.32,764.64c6.73,4.91,11.91.57,14.73-12.48,13.21-61.18,29.36-123.62,66.26-175.72,75.87-112.41,201.49-168.53,281.23-278.61,46.15-62.56,91.35-138.15,113.93-212,8.7-28.45,24.38-82.19,13.3-85.59-1.69-.52-4.24-.55-7.77,4.03-8.8,11.39-18.34,33.8-26.69,48.64-57.07,101.43-178.18,300.16-265.64,317.04-41.8,8.07-37.77-63.87-32.96-102.83,3.59-29.11,14.01-52.69,23.38-79.29,7.03-19.95,11.46-42.47,4.29-42.93-16.65-1.08-65.91,79.85-80.67,115.78-28.44,69.22-29.22,133.8-68.62,195.33-20.03,31.29-35.61-1.54-32.56-59.81,1.93-36.91,12.14-68.44,18.52-102.35,1.25-6.64,1.58-12.94.4-14.99-3.86-6.71-17.76,17.02-20.65,22.74-35.16,69.62-68.06,177.21-63.92,267.93,2.89,63.23,12.98,150.22,61.67,193.7.36.32,1.26,1.05,1.77,1.42Z"/>
+				<path fill="currentColor" d="M300.55,512.24c-8.43-38.35-19.07-77.21-41.97-110.06-48.63-69.79-126.77-105.24-177.05-174.1C52.44,188.94,25.98,140.97,11.64,94.7,6.12,76.87-2.63,45.38.76,42.37c1.28-1.14,3.67-.27,5.17,1.84,5.23,7.36,11.61,21.14,16.85,30.45,36.24,63.37,112.79,186.27,167.35,198.24,26.37,4.2,23.2-40.11,20.44-64.58-2.58-18.22-9-32.98-14.85-49.68-4.52-12.48-8.16-27.72-2.79-26.92,11.66,1.74,41.52,49.93,50.87,72.43,18,43.35,20.03,82.99,43.49,122.36,13.33,19.12,22.78-1.08,20.28-37.59-1.01-23.16-7.78-42.9-11.85-64.15-.8-4.16-1.03-7.12-.25-8.13,2.85-3.69,11.05,9.4,12.97,12.94,21.11,44.13,43.4,111.01,40.72,167.91-2.07,43.79-7.84,95.67-38.66,122.2-.16.14-.5.41-.67.54-4,3.36-7.48.18-9.28-8.01Z"/>
+			</svg>
+			<h1 class="hero-title">TrophyLog</h1>
+			<p class="hero-tagline">Your hunt. <span class="gradient-text">Remembered.</span></p>
+			<p class="hero-desc">Manage your grounds. Log every hunt. Link trophies to scannable QR codes that tell their story.</p>
+			<div class="hero-ctas">
+				<a href="#signup" class="btn-primary hero-cta">Join the Beta</a>
+				<a href="#signup" class="btn-outline">Subscribe for Updates</a>
+			</div>
 		</div>
-		<PhoneSlider
-			class="reveal reveal-delay-1"
-			size="default"
-			glowColor="green"
-			ariaLabel="TrophyLog home screen"
-			images={[
-				{ src: "/screenshots/IMG_0828.PNG", alt: "TrophyLog home screen" },
-			]}
-		/>
-	</section>
-
-	<!-- Divider -->
-	<div class="gradient-divider"></div>
-
-	<!-- Story -->
-	<section class="story">
-		<div class="section-inner section-narrow">
-			<p class="story-text reveal">
-				TrophyLog is built for hunters who take their craft seriously.
-				Manage your hunting grounds, coordinate with your group,
-				and keep a living record of every hunt — the place, the moment, the trophy.
-			</p>
+		<div class="scroll-indicator" aria-hidden="true">
+			<svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+				<path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+			</svg>
 		</div>
 	</section>
 
-	<!-- Medal -->
-	<section class="medal">
+	<!-- Features Overview -->
+	<section class="features-overview">
 		<div class="section-inner">
-			<div class="medal-layout">
-				<div class="medal-content reveal">
-					<span class="section-label">The Medal</span>
-					<h2 class="section-title">Physical craft.<br /><span class="gradient-text-gold">Digital story.</span></h2>
-					<p class="section-body">
-						Mount a precision-engraved medal on your trophy.
-						Scan the QR code to unlock the full story — photos, video,
-						location, details. Every trophy becomes a living memory
-						anyone can experience.
-					</p>
-				</div>
-				<div class="medal-visual reveal reveal-delay-1">
-					<div class="medal-glow"></div>
-					<div class="medal-image-wrap">
-						<img src="/trophy_medals_mix.jpg" alt="Precision-engraved hunting medals in a velvet-lined case" class="medal-photo" />
+			<span class="section-label reveal">Features</span>
+			<h2 class="section-heading reveal">Everything a hunter needs</h2>
+			<div class="features-grid">
+				<div class="feature-card reveal" style="transition-delay: 0s">
+					<div class="feature-icon">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><path d="M8 2v16"/><path d="M16 6v16"/></svg>
 					</div>
+					<h3 class="feature-card-title">Hunting Grounds</h3>
+					<p class="feature-card-body">Map and manage your areas with precision. Track boundaries, stands, and points of interest.</p>
+				</div>
+				<div class="feature-card reveal" style="transition-delay: 0.1s">
+					<div class="feature-icon">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+					</div>
+					<h3 class="feature-card-title">Contacts & Groups</h3>
+					<p class="feature-card-body">Organize your hunting companions. Coordinate drives, share areas, and stay connected.</p>
+				</div>
+				<div class="feature-card reveal" style="transition-delay: 0.2s">
+					<div class="feature-icon">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+					</div>
+					<h3 class="feature-card-title">Hunt Journal</h3>
+					<p class="feature-card-body">Document every outing — weather, sightings, harvest. Build your legacy one entry at a time.</p>
+				</div>
+				<div class="feature-card reveal" style="transition-delay: 0.3s">
+					<div class="feature-icon">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><rect x="5" y="5" width="2" height="2" fill="currentColor" stroke="none"/><rect x="17" y="5" width="2" height="2" fill="currentColor" stroke="none"/><rect x="5" y="17" width="2" height="2" fill="currentColor" stroke="none"/><path d="M14 14h3v3"/><path d="M20 14v3"/><path d="M14 20h3"/></svg>
+					</div>
+					<h3 class="feature-card-title">QR Trophy Tags</h3>
+					<p class="feature-card-body">Link physical trophies to digital stories. Scan a plaque and relive the moment instantly.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- App Showcase -->
+	<section class="app-showcase">
+		<div class="section-inner section-wide">
+			<span class="section-label reveal">Inside the App</span>
+			<h2 class="section-heading reveal">Your command center in the field</h2>
+			<p class="section-subtext reveal">Weather, sun tracking, and a live overview of your hunting grounds — all at a glance.</p>
+			<div class="showcase-phones reveal">
+				<div class="showcase-phone showcase-side">
+					<PhoneSlider
+						size="sm"
+						glowColor="green"
+						ariaLabel="Areas screen"
+						images={[{ src: "/screenshots/screen-areas.jpg", alt: "Hunting areas list" }]}
+					/>
+					<span class="showcase-phone-label">Areas</span>
+				</div>
+				<div class="showcase-phone showcase-center">
+					<PhoneSlider
+						size="default"
+						glowColor="green"
+						ariaLabel="Dashboard screen"
+						images={[{ src: "/screenshots/screen-home.jpg", alt: "TrophyLog dashboard with weather and sun tracking" }]}
+					/>
+					<span class="showcase-phone-label">Dashboard</span>
+				</div>
+				<div class="showcase-phone showcase-side">
+					<PhoneSlider
+						size="sm"
+						glowColor="green"
+						ariaLabel="Map view"
+						images={[{ src: "/screenshots/screen-map.jpg", alt: "Satellite map of hunting area" }]}
+					/>
+					<span class="showcase-phone-label">Map View</span>
 				</div>
 			</div>
 		</div>
@@ -73,101 +122,91 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 	<!-- Divider -->
 	<div class="gradient-divider"></div>
 
-	<!-- Features -->
-	<section class="features">
+	<!-- Hunt Journal -->
+	<section class="hunt-journal">
 		<div class="section-inner">
-
-			<div class="feature-block reveal">
+			<div class="split-layout reveal">
+				<div class="split-content">
+					<span class="section-label">Hunt Journal</span>
+					<h2 class="section-title">Document every <span class="gradient-text-green">outing.</span></h2>
+					<p class="section-body">
+						Log hunts with photos, weather conditions, locations, and companions.
+						Whether it's a quick solo sit or a multi-day driven hunt — capture the full story.
+					</p>
+					<p class="section-body-sub">AI-guided setup gets you started in seconds, or add details at your own pace.</p>
+				</div>
 				<PhoneSlider
 					size="sm"
 					glowColor="green"
-					ariaLabel="Hunting Grounds screenshots"
+					ariaLabel="Hunt Journal screenshots"
 					images={[
-						{ src: "/screenshots/IMG_0830.PNG", alt: "TrophyLog map view with hunting areas" },
-						{ src: "/screenshots/IMG_0829.PNG", alt: "TrophyLog areas list with regions" },
+						{ src: "/screenshots/screen-hunts.jpg", alt: "Hunt log with completed hunts" },
+						{ src: "/screenshots/screen-create-hunt.jpg", alt: "Create a new hunt entry" },
+						{ src: "/screenshots/screen-hunt-detail.jpg", alt: "Detailed hunt view with photos and notes" },
 					]}
 				/>
-				<div class="feature-content">
-					<span class="section-label">Hunting Grounds</span>
-					<h2 class="section-title">Your land.<br /><span class="gradient-text-green">Mapped and managed.</span></h2>
-					<p class="section-body">
-						Draw your hunting areas on the map. Track boundaries, mark stands,
-						and share access with your hunting group.
-						Everyone sees the same ground, updated in real time.
-					</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Trophy Tags -->
+	<section class="trophy-tags">
+		<div class="section-inner">
+			<div class="trophy-header reveal">
+				<span class="section-label section-label-gold">Trophy Tags</span>
+				<h2 class="section-heading">Every trophy <span class="gradient-text-gold">tells a story.</span></h2>
+				<p class="trophy-desc">
+					Catalog your harvest with photos, species, and details.
+					Attach a TrophyLog QR tag to your medal, plaque, or mount —
+					when anyone scans it, they're taken straight to the story.
+				</p>
+			</div>
+			<div class="trophy-visuals reveal">
+				<div class="trophy-visual-phone">
+					<PhoneSlider
+						size="sm"
+						glowColor="gold"
+						ariaLabel="Trophy screenshots"
+						images={[
+							{ src: "/screenshots/screen-trophies.jpg", alt: "Trophy catalog with species and dates" },
+							{ src: "/screenshots/screen-hunt-detail2.jpg", alt: "Hunt detail showing linked trophies" },
+						]}
+					/>
+				</div>
+				<div class="trophy-visual-photo">
+					<img src="/screenshots/qr-trophy.jpg" alt="Mounted deer head with TrophyLog QR tag on wooden plaque" class="trophy-photo" />
+					<p class="trophy-photo-caption">Turn a wall of antlers into an interactive gallery. Share the tradition with the next generation.</p>
 				</div>
 			</div>
-
-			<div class="feature-block feature-block-reverse reveal">
-				<PhoneSlider
-					size="sm"
-					glowColor="gold"
-					ariaLabel="Hunt Log screenshots"
-					images={[
-						{ src: "/screenshots/IMG_0831.PNG", alt: "TrophyLog hunt log with completed hunts" },
-						{ src: "/screenshots/IMG_0832.PNG", alt: "Hunt detail with photos and location" },
-						{ src: "/screenshots/IMG_0833.PNG", alt: "Hunt companions and trophies" },
-						{ src: "/screenshots/IMG_0834.PNG", alt: "Trophy list view" },
-						{ src: "/screenshots/IMG_0835.PNG", alt: "Trophy detail with harvest info" },
-						{ src: "/screenshots/IMG_0836.PNG", alt: "Trophy detail with media" },
-					]}
-				/>
-				<div class="feature-content">
-					<span class="section-label">Hunt Log</span>
-					<h2 class="section-title">Every hunt.<br /><span class="gradient-text-gold">Every detail.</span></h2>
-					<p class="section-body">
-						Log your hunts with photos, coordinates, species, and notes.
-						Build a record that grows with every season.
-						Share stories with your group or keep them private.
-					</p>
-				</div>
-			</div>
-
-			<div class="feature-block reveal">
-				<PhoneSlider
-					size="sm"
-					glowColor="green"
-					ariaLabel="Groups screenshots"
-					images={[
-						{ src: "/screenshots/IMG_0838.PNG", alt: "TrophyLog groups screen" },
-						{ src: "/screenshots/IMG_0837.PNG", alt: "TrophyLog contacts screen" },
-					]}
-				/>
-				<div class="feature-content">
-					<span class="section-label">Groups</span>
-					<h2 class="section-title">Hunt together.<br /><span class="gradient-text-green">Stay connected.</span></h2>
-					<p class="section-body">
-						Create hunting groups, invite members, and manage shared grounds.
-						Coordinate hunts and keep your entire party on the same page.
-					</p>
-				</div>
-			</div>
-
 		</div>
 	</section>
 
 	<!-- Signup -->
-	<section class="cta" id="signup">
-		<div class="cta-glow"></div>
+	<section class="signup" id="signup">
+		<div class="signup-glow"></div>
 		<div class="section-inner section-narrow reveal">
-			<h2 class="cta-title"><span class="gradient-text">Be the first to know.</span></h2>
-			<p class="cta-body">Sign up for updates and get early access when TrophyLog launches.</p>
+			<span class="section-label">Get Early Access</span>
+			<h2 class="signup-heading"><span class="gradient-text">Stay in the loop</span></h2>
+			<p class="signup-subtext">Sign up for our newsletter and optionally join the beta to get early access to TrophyLog.</p>
 
 			<form class="signup-form" id="signup-form" novalidate>
 				<div class="form-field">
-					<input type="text" name="name" placeholder="Your name" autocomplete="name" required />
+					<label for="signup-name" class="form-label">Name</label>
+					<input type="text" id="signup-name" name="name" placeholder="Your name" autocomplete="name" required />
 					<span class="field-error"></span>
 				</div>
 				<div class="form-field">
-					<input type="email" name="email" placeholder="your@email.com" autocomplete="email" required />
+					<label for="signup-email" class="form-label">Email</label>
+					<input type="email" id="signup-email" name="email" placeholder="hunter@example.com" autocomplete="email" required />
 					<span class="field-error"></span>
 				</div>
 				<label class="form-checkbox">
 					<input type="checkbox" name="betaTester" />
 					<span class="checkbox-mark"></span>
-					<span class="checkbox-label">I'd like to help beta test TrophyLog</span>
+					<span class="checkbox-label">I'd like to participate in the beta and get early access</span>
 				</label>
-				<button type="submit" class="form-submit">Sign up</button>
+				<button type="submit" class="form-submit">Subscribe to Newsletter</button>
+				<p class="form-disclaimer">No spam, ever. Unsubscribe at any time.</p>
 				<p class="form-error" id="form-error"></p>
 			</form>
 
@@ -182,7 +221,13 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 	<footer class="footer">
 		<div class="section-inner">
 			<div class="footer-inner">
-				<span class="footer-brand">TrophyLog</span>
+				<a href="/" class="footer-brand">
+					<svg class="footer-logo" viewBox="0 0 946.59 766.6" aria-hidden="true">
+						<path fill="currentColor" d="M453.32,764.64c6.73,4.91,11.91.57,14.73-12.48,13.21-61.18,29.36-123.62,66.26-175.72,75.87-112.41,201.49-168.53,281.23-278.61,46.15-62.56,91.35-138.15,113.93-212,8.7-28.45,24.38-82.19,13.3-85.59-1.69-.52-4.24-.55-7.77,4.03-8.8,11.39-18.34,33.8-26.69,48.64-57.07,101.43-178.18,300.16-265.64,317.04-41.8,8.07-37.77-63.87-32.96-102.83,3.59-29.11,14.01-52.69,23.38-79.29,7.03-19.95,11.46-42.47,4.29-42.93-16.65-1.08-65.91,79.85-80.67,115.78-28.44,69.22-29.22,133.8-68.62,195.33-20.03,31.29-35.61-1.54-32.56-59.81,1.93-36.91,12.14-68.44,18.52-102.35,1.25-6.64,1.58-12.94.4-14.99-3.86-6.71-17.76,17.02-20.65,22.74-35.16,69.62-68.06,177.21-63.92,267.93,2.89,63.23,12.98,150.22,61.67,193.7.36.32,1.26,1.05,1.77,1.42Z"/>
+						<path fill="currentColor" d="M300.55,512.24c-8.43-38.35-19.07-77.21-41.97-110.06-48.63-69.79-126.77-105.24-177.05-174.1C52.44,188.94,25.98,140.97,11.64,94.7,6.12,76.87-2.63,45.38.76,42.37c1.28-1.14,3.67-.27,5.17,1.84,5.23,7.36,11.61,21.14,16.85,30.45,36.24,63.37,112.79,186.27,167.35,198.24,26.37,4.2,23.2-40.11,20.44-64.58-2.58-18.22-9-32.98-14.85-49.68-4.52-12.48-8.16-27.72-2.79-26.92,11.66,1.74,41.52,49.93,50.87,72.43,18,43.35,20.03,82.99,43.49,122.36,13.33,19.12,22.78-1.08,20.28-37.59-1.01-23.16-7.78-42.9-11.85-64.15-.8-4.16-1.03-7.12-.25-8.13,2.85-3.69,11.05,9.4,12.97,12.94,21.11,44.13,43.4,111.01,40.72,167.91-2.07,43.79-7.84,95.67-38.66,122.2-.16.14-.5.41-.67.54-4,3.36-7.48.18-9.28-8.01Z"/>
+					</svg>
+					TrophyLog
+				</a>
 				<span class="footer-copy">&copy; {new Date().getFullYear()}</span>
 			</div>
 			<div class="footer-badges">
@@ -267,12 +312,23 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 		transform: translateY(0);
 	}
 
-	.reveal-delay-1 {
-		transition-delay: 0.15s;
+	/* ——————————————————————————————————————
+	   SCROLL INDICATOR
+	   —————————————————————————————————————— */
+
+	@keyframes float {
+		0%, 100% { transform: translateY(0); opacity: 0.4; }
+		50% { transform: translateY(8px); opacity: 0.8; }
 	}
 
-	.reveal-delay-2 {
-		transition-delay: 0.3s;
+	.scroll-indicator {
+		position: absolute;
+		bottom: 32px;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 2;
+		color: var(--text-secondary);
+		animation: float 2.5s ease-in-out infinite;
 	}
 
 	/* ——————————————————————————————————————
@@ -300,11 +356,20 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 	}
 
 	.nav-brand {
+		display: flex;
+		align-items: center;
+		gap: 10px;
 		font-family: var(--font-display);
 		font-size: 20px;
 		font-weight: 700;
 		color: var(--gold);
 		letter-spacing: 0.02em;
+	}
+
+	.nav-logo {
+		width: 26px;
+		height: auto;
+		color: var(--gold);
 	}
 
 	.nav-cta {
@@ -343,6 +408,9 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 			transition: none;
 			transform: none;
 		}
+		.scroll-indicator {
+			animation: none;
+		}
 	}
 
 	/* ——————————————————————————————————————
@@ -356,77 +424,146 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-		padding: 140px var(--page-padding) 100px;
-		gap: 72px;
+		padding: 120px var(--page-padding) 80px;
 		position: relative;
 		overflow: hidden;
 	}
 
-	.hero-glow {
+	.hero-bg {
 		position: absolute;
-		top: -20%;
-		left: 50%;
-		transform: translateX(-50%);
-		width: 800px;
-		height: 600px;
-		background: radial-gradient(ellipse, rgba(201, 160, 78, 0.08) 0%, rgba(74, 222, 128, 0.03) 40%, transparent 70%);
-		pointer-events: none;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center 30%;
+		z-index: 0;
+	}
+
+	.hero-overlay {
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+		background:
+			radial-gradient(ellipse at center 45%, rgba(8, 12, 10, 0.6) 0%, transparent 70%),
+			linear-gradient(
+				to bottom,
+				rgba(8, 12, 10, 0.8) 0%,
+				rgba(8, 12, 10, 0.55) 20%,
+				rgba(8, 12, 10, 0.5) 40%,
+				rgba(8, 12, 10, 0.55) 60%,
+				rgba(8, 12, 10, 0.85) 80%,
+				rgba(8, 12, 10, 1) 100%
+			);
 	}
 
 	.hero-content {
-		max-width: var(--content-narrow);
 		position: relative;
-		z-index: 1;
+		z-index: 2;
+		max-width: var(--content-narrow);
+		text-shadow: 0 2px 20px rgba(8, 12, 10, 0.8);
+	}
+
+	.hero-logo {
+		width: 72px;
+		height: auto;
+		color: var(--green);
+		margin-bottom: 28px;
+		filter: drop-shadow(0 0 30px rgba(74, 222, 128, 0.2));
 	}
 
 	.hero-title {
 		font-family: var(--font-display);
-		font-size: clamp(52px, 10vw, 88px);
+		font-size: clamp(56px, 10vw, 80px);
 		font-weight: 700;
 		line-height: 1.05;
-		color: var(--text);
+		color: #fff;
 		letter-spacing: -0.02em;
-		margin-bottom: 28px;
+		margin-bottom: 16px;
+		text-shadow: 0 2px 30px rgba(8, 12, 10, 0.9), 0 4px 60px rgba(8, 12, 10, 0.5);
 	}
 
-	.hero-sub {
-		font-size: clamp(17px, 2.5vw, 21px);
-		color: var(--text-secondary);
-		line-height: 1.6;
-		margin-bottom: 44px;
+	.hero-tagline {
+		font-family: var(--font-display);
+		font-style: italic;
+		font-size: clamp(20px, 3vw, 28px);
+		color: rgba(216, 221, 217, 0.9);
+		margin-bottom: 24px;
 		letter-spacing: 0.01em;
+		text-shadow: 0 2px 20px rgba(8, 12, 10, 0.9);
 	}
 
-	.hero-cta {
+	.hero-desc {
+		font-size: clamp(15px, 2vw, 17px);
+		color: rgba(180, 195, 183, 0.9);
+		line-height: 1.65;
+		margin-bottom: 40px;
+		max-width: 520px;
+		margin-left: auto;
+		margin-right: auto;
+		text-shadow: 0 2px 16px rgba(8, 12, 10, 0.95);
+	}
+
+	.hero-ctas {
+		display: flex;
+		gap: 16px;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	/* ——————————————————————————————————————
+	   BUTTONS
+	   —————————————————————————————————————— */
+
+	.btn-primary {
 		display: inline-block;
-		padding: 14px 36px;
-		border: 1.5px solid var(--gold);
+		padding: 14px 32px;
+		background: var(--green);
+		color: var(--bg);
+		border: none;
 		border-radius: 10px;
-		color: var(--gold);
 		font-family: var(--font-body);
 		font-size: 16px;
 		font-weight: 600;
 		letter-spacing: 0.02em;
-		transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+		transition: opacity 0.2s ease, transform 0.2s ease;
 	}
 
-	.hero-cta:hover {
-		background: var(--gold);
-		color: var(--bg);
+	.btn-primary:hover {
+		opacity: 0.9;
 		transform: translateY(-1px);
 	}
 
-	.hero-cta:active {
+	.btn-primary:active {
+		transform: translateY(0);
+	}
+
+	.btn-outline {
+		display: inline-block;
+		padding: 14px 32px;
+		background: transparent;
+		color: var(--green);
+		border: 1.5px solid rgba(74, 222, 128, 0.3);
+		border-radius: 10px;
+		font-family: var(--font-body);
+		font-size: 16px;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+	}
+
+	.btn-outline:hover {
+		background: rgba(74, 222, 128, 0.08);
+		border-color: rgba(74, 222, 128, 0.5);
+		transform: translateY(-1px);
+	}
+
+	.btn-outline:active {
 		transform: translateY(0);
 	}
 
 	/* ——————————————————————————————————————
-	   STORY
+	   SECTION SHARED
 	   —————————————————————————————————————— */
-
-	.story {
-		padding: var(--section-gap) var(--page-padding);
-	}
 
 	.section-inner {
 		max-width: var(--content-width);
@@ -437,26 +574,38 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 		max-width: var(--content-narrow);
 	}
 
-	.story-text {
-		font-size: clamp(22px, 3.2vw, 32px);
-		line-height: 1.55;
-		color: var(--text-secondary);
-		text-align: center;
-		letter-spacing: -0.01em;
+	.section-wide {
+		max-width: 1100px;
 	}
-
-	/* ——————————————————————————————————————
-	   SHARED SECTION STYLES
-	   —————————————————————————————————————— */
 
 	.section-label {
 		display: block;
-		font-size: 12px;
+		font-size: 14px;
 		font-weight: 600;
-		letter-spacing: 0.16em;
+		letter-spacing: 0.1em;
 		text-transform: uppercase;
+		color: var(--green);
+		margin-bottom: 12px;
+	}
+
+	.section-label-gold {
 		color: var(--gold);
-		margin-bottom: 20px;
+	}
+
+	.section-heading {
+		font-family: var(--font-display);
+		font-size: clamp(32px, 5vw, 44px);
+		font-weight: 700;
+		color: var(--text);
+		margin-top: 4px;
+		letter-spacing: -0.02em;
+	}
+
+	.section-subtext {
+		font-size: 17px;
+		color: var(--text-secondary);
+		margin-top: 16px;
+		line-height: 1.6;
 	}
 
 	.section-title {
@@ -476,93 +625,197 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 		max-width: 440px;
 	}
 
-	/* ——————————————————————————————————————
-	   MEDAL
-	   —————————————————————————————————————— */
-
-	.medal {
-		padding: var(--section-gap) var(--page-padding);
+	.section-body-sub {
+		font-size: 16px;
+		line-height: 1.65;
+		color: var(--text-tertiary);
+		margin-top: 16px;
+		max-width: 440px;
 	}
 
-	.medal-layout {
+	/* ——————————————————————————————————————
+	   FEATURES OVERVIEW
+	   —————————————————————————————————————— */
+
+	.features-overview {
+		padding: var(--section-gap) var(--page-padding);
+		text-align: center;
+	}
+
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 20px;
+		margin-top: 48px;
+		text-align: left;
+	}
+
+	.feature-card {
+		background: var(--surface);
+		border: 1px solid rgba(74, 222, 128, 0.06);
+		border-radius: 16px;
+		padding: 28px;
+		transition: border-color 0.3s ease;
+	}
+
+	.feature-card:hover {
+		border-color: rgba(74, 222, 128, 0.15);
+	}
+
+	.feature-icon {
+		width: 48px;
+		height: 48px;
+		border-radius: 12px;
+		background: rgba(74, 222, 128, 0.1);
 		display: flex;
 		align-items: center;
-		gap: clamp(56px, 10vw, 140px);
+		justify-content: center;
+		margin-bottom: 20px;
+		color: var(--green);
 	}
 
-	.medal-content {
-		flex: 1;
+	.feature-icon svg {
+		width: 24px;
+		height: 24px;
 	}
 
-	.medal-visual {
-		flex-shrink: 0;
-		position: relative;
+	.feature-card-title {
+		font-size: 18px;
+		font-weight: 700;
+		color: var(--text);
+		margin-bottom: 10px;
 	}
 
-	.medal-glow {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 500px;
-		height: 500px;
-		background: radial-gradient(circle, rgba(201, 160, 78, 0.1) 0%, rgba(201, 160, 78, 0.03) 40%, transparent 65%);
-		pointer-events: none;
-	}
-
-	.medal-image-wrap {
-		width: 400px;
-		position: relative;
-	}
-
-	.medal-photo {
-		width: 100%;
-		height: auto;
-		border-radius: 16px;
-		box-shadow:
-			0 0 40px rgba(201, 160, 78, 0.15),
-			0 30px 80px -20px rgba(0, 0, 0, 0.6);
+	.feature-card-body {
+		font-size: 15px;
+		color: var(--text-secondary);
+		line-height: 1.6;
 	}
 
 	/* ——————————————————————————————————————
-	   FEATURES
+	   APP SHOWCASE
 	   —————————————————————————————————————— */
 
-	.features {
+	.app-showcase {
 		padding: var(--section-gap) var(--page-padding);
+		text-align: center;
 	}
 
-	.feature-block {
+	.showcase-phones {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		gap: 24px;
+		margin-top: 56px;
+	}
+
+	.showcase-phone {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.showcase-side {
+		margin-top: 48px;
+	}
+
+	.showcase-phone-label {
+		margin-top: 20px;
+		font-size: 14px;
+		color: var(--text-secondary);
+		font-weight: 500;
+	}
+
+	/* ——————————————————————————————————————
+	   SPLIT LAYOUT (Hunt Journal, Trophy Tags)
+	   —————————————————————————————————————— */
+
+	.split-layout {
 		display: flex;
 		align-items: center;
 		gap: clamp(48px, 8vw, 120px);
-		margin-bottom: var(--section-gap);
 	}
 
-	.feature-block:last-child {
-		margin-bottom: 0;
-	}
-
-	.feature-block-reverse {
+	.split-reverse {
 		flex-direction: row-reverse;
 	}
 
-	.feature-content {
+	.split-content {
 		flex: 1;
 	}
 
 	/* ——————————————————————————————————————
-	   CTA
+	   HUNT JOURNAL
 	   —————————————————————————————————————— */
 
-	.cta {
+	.hunt-journal {
+		padding: var(--section-gap) var(--page-padding);
+	}
+
+	/* ——————————————————————————————————————
+	   TROPHY TAGS
+	   —————————————————————————————————————— */
+
+	.trophy-tags {
+		padding: var(--section-gap) var(--page-padding);
+	}
+
+	.trophy-header {
+		text-align: center;
+		max-width: 600px;
+		margin: 0 auto 56px;
+	}
+
+	.trophy-desc {
+		font-size: 17px;
+		line-height: 1.7;
+		color: var(--text-secondary);
+		margin-top: 20px;
+	}
+
+	.trophy-visuals {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: clamp(40px, 6vw, 80px);
+	}
+
+	.trophy-visual-phone {
+		flex-shrink: 0;
+	}
+
+	.trophy-visual-photo {
+		max-width: 380px;
+	}
+
+	.trophy-photo {
+		width: 100%;
+		border-radius: 16px;
+		box-shadow:
+			0 0 40px rgba(201, 160, 78, 0.1),
+			0 24px 60px -15px rgba(0, 0, 0, 0.5);
+	}
+
+	.trophy-photo-caption {
+		font-size: 15px;
+		line-height: 1.6;
+		color: var(--text-tertiary);
+		margin-top: 20px;
+		font-style: italic;
+	}
+
+	/* ——————————————————————————————————————
+	   SIGNUP
+	   —————————————————————————————————————— */
+
+	.signup {
 		padding: var(--section-gap) var(--page-padding);
 		text-align: center;
 		position: relative;
 		overflow: hidden;
 	}
 
-	.cta-glow {
+	.signup-glow {
 		position: absolute;
 		bottom: -30%;
 		left: 50%;
@@ -573,39 +826,47 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 		pointer-events: none;
 	}
 
-	.cta-title {
+	.signup-heading {
 		font-family: var(--font-display);
 		font-size: clamp(40px, 7vw, 64px);
 		font-weight: 700;
+		margin-top: 4px;
 		margin-bottom: 16px;
 		letter-spacing: -0.02em;
 	}
 
-	.cta-body {
-		font-size: 18px;
+	.signup-subtext {
+		font-size: 17px;
 		color: var(--text-secondary);
-		margin-bottom: 44px;
+		margin-bottom: 40px;
 	}
 
-	/* Signup Form */
 	.signup-form {
-		max-width: 480px;
+		max-width: 520px;
 		margin: 0 auto;
+		padding: 32px;
+		background: var(--surface);
+		border: 1px solid rgba(107, 123, 110, 0.12);
+		border-radius: 16px;
 		display: flex;
 		flex-direction: column;
-		gap: 16px;
+		gap: 20px;
+		text-align: left;
 	}
 
-	.form-field {
-		display: flex;
-		flex-direction: column;
+	.form-label {
+		display: block;
+		font-size: 14px;
+		font-weight: 500;
+		color: var(--text);
+		margin-bottom: 8px;
 	}
 
 	.form-field input {
 		width: 100%;
-		padding: 14px 18px;
-		background: var(--surface);
-		border: 1px solid var(--surface-highlight);
+		padding: 14px 16px;
+		background: var(--surface-highlight);
+		border: 1px solid rgba(107, 123, 110, 0.15);
 		border-radius: 10px;
 		color: var(--text);
 		font-family: var(--font-body);
@@ -619,8 +880,8 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 	}
 
 	.form-field input:focus {
-		border-color: var(--gold);
-		box-shadow: 0 0 0 3px var(--gold-muted);
+		border-color: var(--green);
+		box-shadow: 0 0 0 3px var(--green-muted);
 	}
 
 	.form-field input.invalid {
@@ -639,7 +900,7 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 		align-items: center;
 		gap: 12px;
 		cursor: pointer;
-		padding: 8px 0;
+		padding: 4px 0;
 		user-select: none;
 	}
 
@@ -655,8 +916,8 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 		height: 22px;
 		flex-shrink: 0;
 		border-radius: 6px;
-		border: 1px solid var(--surface-highlight);
-		background: var(--surface);
+		border: 1px solid rgba(107, 123, 110, 0.2);
+		background: var(--surface-highlight);
 		transition: background 0.2s ease, border-color 0.2s ease;
 		display: flex;
 		align-items: center;
@@ -668,14 +929,14 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 		width: 12px;
 		height: 12px;
 		border-radius: 3px;
-		background: var(--gold);
+		background: var(--green);
 		opacity: 0;
 		transform: scale(0.5);
 		transition: opacity 0.15s ease, transform 0.15s ease;
 	}
 
 	.form-checkbox input:checked + .checkbox-mark {
-		border-color: var(--gold);
+		border-color: var(--green);
 	}
 
 	.form-checkbox input:checked + .checkbox-mark::after {
@@ -691,8 +952,8 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 	.form-submit {
 		width: 100%;
 		padding: 16px;
-		margin-top: 8px;
-		background: var(--gold);
+		margin-top: 4px;
+		background: var(--green);
 		color: var(--bg);
 		border: none;
 		border-radius: 10px;
@@ -716,6 +977,12 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 		opacity: 0.6;
 		cursor: not-allowed;
 		transform: none;
+	}
+
+	.form-disclaimer {
+		font-size: 13px;
+		color: var(--text-tertiary);
+		text-align: center;
 	}
 
 	.form-error {
@@ -758,11 +1025,20 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 	}
 
 	.footer-brand {
+		display: flex;
+		align-items: center;
+		gap: 8px;
 		font-family: var(--font-display);
 		font-size: 16px;
 		font-weight: 700;
 		color: var(--gold);
 		opacity: 0.7;
+	}
+
+	.footer-logo {
+		width: 20px;
+		height: auto;
+		color: var(--gold);
 	}
 
 	.footer-copy {
@@ -812,27 +1088,41 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 	   —————————————————————————————————————— */
 
 	@media (max-width: 900px) {
-		.feature-block,
-		.feature-block-reverse {
+		.features-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.showcase-side {
+			display: none;
+		}
+
+		.showcase-phone-label {
+			margin-top: 16px;
+		}
+
+		.split-layout,
+		.split-reverse {
 			flex-direction: column;
 			text-align: center;
 			gap: 48px;
 		}
 
-		.feature-content .section-body {
+		.split-content .section-body,
+		.split-content .section-body-sub {
 			max-width: none;
-			margin: 0 auto;
+			margin-left: auto;
+			margin-right: auto;
 		}
 
-		.medal-layout {
+		.trophy-visuals {
 			flex-direction: column;
-			text-align: center;
-			gap: 56px;
+			gap: 40px;
 		}
 
-		.medal-content .section-body {
-			max-width: none;
+		.trophy-visual-photo {
+			max-width: 320px;
 			margin: 0 auto;
+			text-align: center;
 		}
 	}
 
@@ -842,7 +1132,6 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 
 	@media (max-width: 640px) {
 
-		/* Reduce section spacing */
 		:root {
 			--section-gap: clamp(72px, 12vh, 120px);
 		}
@@ -854,6 +1143,11 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 
 		.nav-brand {
 			font-size: 18px;
+			gap: 8px;
+		}
+
+		.nav-logo {
+			width: 22px;
 		}
 
 		.nav-cta {
@@ -865,33 +1159,63 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 		.hero {
 			min-height: calc(100vh - 60px);
 			min-height: calc(100dvh - 60px);
-			gap: 40px;
 			padding-top: 90px;
 			padding-bottom: 60px;
 		}
 
-		.hero-title {
-			font-size: clamp(40px, 12vw, 56px);
+		.hero-logo {
+			width: 56px;
 			margin-bottom: 20px;
 		}
 
-		.hero-sub {
-			font-size: 17px;
-			margin-bottom: 0;
+		.hero-title {
+			font-size: clamp(44px, 12vw, 60px);
+			margin-bottom: 12px;
 		}
 
-		.hero-glow {
+		.hero-tagline {
+			font-size: 18px;
+			margin-bottom: 20px;
+		}
+
+		.hero-desc {
+			font-size: 15px;
+			margin-bottom: 32px;
+		}
+
+		.hero-ctas {
+			flex-direction: column;
+			align-items: center;
+			gap: 12px;
+		}
+
+		.btn-primary,
+		.btn-outline {
 			width: 100%;
-			height: 300px;
+			max-width: 280px;
+			text-align: center;
 		}
 
-		/* Contain glows to prevent horizontal scroll */
-		.medal-glow {
-			width: 320px;
-			height: 320px;
+		.scroll-indicator {
+			bottom: 20px;
+		}
+
+		/* Features */
+		.features-grid {
+			grid-template-columns: 1fr;
+			gap: 16px;
+			margin-top: 32px;
+		}
+
+		.feature-card {
+			padding: 24px;
 		}
 
 		/* Section typography */
+		.section-heading {
+			font-size: clamp(26px, 7vw, 36px);
+		}
+
 		.section-title {
 			font-size: clamp(28px, 7vw, 38px);
 		}
@@ -901,40 +1225,48 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 			line-height: 1.7;
 		}
 
-		.section-label {
-			font-size: 11px;
-			margin-bottom: 14px;
+		.section-body-sub {
+			font-size: 15px;
 		}
 
-		.story-text {
-			font-size: clamp(18px, 5vw, 24px);
+		/* Showcase */
+		.showcase-phones {
+			margin-top: 40px;
 		}
 
-		/* Medal — smaller on mobile */
-		.medal-image-wrap {
-			width: 300px;
-		}
-
-		/* Feature blocks — phone above text */
-		.feature-block,
-		.feature-block-reverse {
+		/* Split layout */
+		.split-layout,
+		.split-reverse {
 			gap: 36px;
-			margin-bottom: clamp(72px, 12vh, 120px);
 		}
 
-		/* CTA */
-		.cta-title {
+		/* Signup */
+		.signup-heading {
 			font-size: clamp(32px, 9vw, 48px);
 		}
 
-		.cta-body {
-			font-size: 16px;
-			margin-bottom: 32px;
+		.signup-subtext {
+			font-size: 15px;
+			margin-bottom: 28px;
 		}
 
-		.cta-glow {
+		.signup-form {
+			padding: 24px;
+			gap: 16px;
+		}
+
+		.signup-glow {
 			width: 100%;
 			height: 300px;
+		}
+
+		/* Trophy */
+		.trophy-header {
+			margin-bottom: 40px;
+		}
+
+		.trophy-visual-photo {
+			max-width: 280px;
 		}
 
 		/* Footer */
@@ -942,7 +1274,7 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 			padding: 32px var(--page-padding);
 		}
 
-		/* Gradient divider */
+		/* Divider */
 		.gradient-divider {
 			max-width: 80%;
 		}
@@ -954,16 +1286,21 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 
 	@media (max-width: 380px) {
 		.hero-title {
-			font-size: 36px;
+			font-size: 38px;
 		}
 
 		.section-title {
 			font-size: 26px;
 		}
+
+		.section-heading {
+			font-size: 24px;
+		}
 	}
 </style>
 
 <script>
+	// Scroll reveal
 	const observer = new IntersectionObserver(
 		(entries) => {
 			entries.forEach((entry) => {
@@ -1003,47 +1340,47 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 	}
 
 	// Signup form
-	const SIGNUP_ENDPOINT = '/api/signup'; // Change this to your backend URL
+	const SIGNUP_ENDPOINT = '/api/signup';
 
-	const form = document.getElementById('signup-form');
-	const formError = document.getElementById('form-error');
-	const successEl = document.getElementById('signup-success');
+	const form = document.getElementById('signup-form') as HTMLFormElement;
+	const formError = document.getElementById('form-error') as HTMLElement;
+	const successEl = document.getElementById('signup-success') as HTMLElement;
 
-	form.addEventListener('submit', async (e) => {
+	form.addEventListener('submit', async (e: Event) => {
 		e.preventDefault();
 		formError.textContent = '';
 
-		const nameInput = form.querySelector('input[name="name"]');
-		const emailInput = form.querySelector('input[name="email"]');
-		const betaTesterInput = form.querySelector('input[name="betaTester"]');
+		const nameInput = form.querySelector('input[name="name"]') as HTMLInputElement;
+		const emailInput = form.querySelector('input[name="email"]') as HTMLInputElement;
+		const betaTesterInput = form.querySelector('input[name="betaTester"]') as HTMLInputElement;
 
 		// Clear previous errors
-		form.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
-		form.querySelectorAll('.field-error').forEach(el => el.textContent = '');
+		form.querySelectorAll('.invalid').forEach((el) => el.classList.remove('invalid'));
+		form.querySelectorAll('.field-error').forEach((el) => (el.textContent = ''));
 
 		let valid = true;
 
 		if (!nameInput.value.trim()) {
 			nameInput.classList.add('invalid');
-			nameInput.nextElementSibling.textContent = 'Please enter your name';
+			(nameInput.nextElementSibling as HTMLElement).textContent = 'Please enter your name';
 			valid = false;
 		}
 
 		if (!emailInput.value.trim()) {
 			emailInput.classList.add('invalid');
-			emailInput.nextElementSibling.textContent = 'Please enter your email';
+			(emailInput.nextElementSibling as HTMLElement).textContent = 'Please enter your email';
 			valid = false;
 		} else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) {
 			emailInput.classList.add('invalid');
-			emailInput.nextElementSibling.textContent = 'Please enter a valid email';
+			(emailInput.nextElementSibling as HTMLElement).textContent = 'Please enter a valid email';
 			valid = false;
 		}
 
 		if (!valid) return;
 
-		const submitBtn = form.querySelector('.form-submit');
+		const submitBtn = form.querySelector('.form-submit') as HTMLButtonElement;
 		submitBtn.disabled = true;
-		submitBtn.textContent = 'Signing up...';
+		submitBtn.textContent = 'Subscribing...';
 
 		try {
 			const res = await fetch(SIGNUP_ENDPOINT, {
@@ -1076,7 +1413,7 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 		} catch {
 			formError.textContent = 'Something went wrong. Please try again.';
 			submitBtn.disabled = false;
-			submitBtn.textContent = 'Sign up';
+			submitBtn.textContent = 'Subscribe to Newsletter';
 		}
 	});
 </script>
