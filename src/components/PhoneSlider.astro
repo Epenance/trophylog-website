@@ -26,24 +26,24 @@ const glowClass = `phone-glow phone-glow-${glowColor}`;
     <div class="phone-notch"></div>
     <div class="phone-screen">
       {isSlider ? (
-        <div
-          class="phone-screen-inner slider-track"
-          role="region"
-          aria-roledescription="carousel"
-          aria-label={ariaLabel}
-          style={`width:${images.length * 100}%;touch-action:pan-y;`}
-          data-slide-count={images.length}
-        >
-          {images.map((img, i) => (
-            <div
-              class="slider-slide"
-              role="tabpanel"
-              aria-label={`Slide ${i + 1} of ${images.length}`}
-              style={`width:${100 / images.length}%;`}
-            >
-              <img src={img.src} alt={img.alt} class="phone-screenshot" />
-            </div>
-          ))}
+        <div class="phone-screen-inner">
+          <div
+            class="slider-track"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label={ariaLabel}
+            data-slide-count={images.length}
+          >
+            {images.map((img, i) => (
+              <div
+                class="slider-slide"
+                role="tabpanel"
+                aria-label={`Slide ${i + 1} of ${images.length}`}
+              >
+                <img src={img.src} alt={img.alt} class="phone-screenshot" draggable="false" />
+              </div>
+            ))}
+          </div>
         </div>
       ) : (
         <div class="phone-screen-inner">
@@ -168,38 +168,23 @@ const glowClass = `phone-glow phone-glow-${glowColor}`;
   .slider-track {
     display: flex;
     flex-direction: row;
+    width: 100%;
+    height: 100%;
     transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
   }
 
   .slider-slide {
+    flex: 0 0 100%;
     height: 100%;
-    flex-shrink: 0;
     overflow: hidden;
   }
 
   .slider-slide .phone-screenshot {
     border-radius: 0;
-  }
-
-  /* First and last slides keep their outer radii */
-  .slider-slide:first-child .phone-screenshot {
-    border-top-left-radius: 38px;
-    border-bottom-left-radius: 38px;
-  }
-
-  .slider-slide:last-child .phone-screenshot {
-    border-top-right-radius: 38px;
-    border-bottom-right-radius: 38px;
-  }
-
-  .phone-frame-sm .slider-slide:first-child .phone-screenshot {
-    border-top-left-radius: 34px;
-    border-bottom-left-radius: 34px;
-  }
-
-  .phone-frame-sm .slider-slide:last-child .phone-screenshot {
-    border-top-right-radius: 34px;
-    border-bottom-right-radius: 34px;
+    -webkit-user-drag: none;
   }
 
   /* Dots */
@@ -278,27 +263,6 @@ const glowClass = `phone-glow phone-glow-${glowColor}`;
       height: 340px;
     }
 
-    /* Slider slide radii must match responsive screen-inner radii */
-    .slider-slide:first-child .phone-screenshot {
-      border-top-left-radius: 30px;
-      border-bottom-left-radius: 30px;
-    }
-
-    .slider-slide:last-child .phone-screenshot {
-      border-top-right-radius: 30px;
-      border-bottom-right-radius: 30px;
-    }
-
-    .phone-frame-sm .slider-slide:first-child .phone-screenshot {
-      border-top-left-radius: 26px;
-      border-bottom-left-radius: 26px;
-    }
-
-    .phone-frame-sm .slider-slide:last-child .phone-screenshot {
-      border-top-right-radius: 26px;
-      border-bottom-right-radius: 26px;
-    }
-
     .slider-dots {
       margin-top: 12px;
     }
@@ -336,7 +300,6 @@ const glowClass = `phone-glow phone-glow-${glowColor}`;
       if (slideCount <= 1) return;
 
       const dots = wrap.querySelectorAll('.slider-dot');
-      const step = 100 / slideCount;
       let current = 0;
 
       // State for drag
@@ -351,7 +314,7 @@ const glowClass = `phone-glow phone-glow-${glowColor}`;
       function goTo(index: number) {
         current = Math.max(0, Math.min(slideCount - 1, index));
         (track as HTMLElement).style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
-        (track as HTMLElement).style.transform = `translateX(-${current * step}%)`;
+        (track as HTMLElement).style.transform = `translateX(-${current * 100}%)`;
         dots.forEach((d, i) => {
           const isActive = i === current;
           d.classList.toggle('active', isActive);
@@ -403,16 +366,15 @@ const glowClass = `phone-glow phone-glow-${glowColor}`;
             canceled = true;
             dragging = false;
             (track as HTMLElement).style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
-            (track as HTMLElement).style.transform = `translateX(-${current * step}%)`;
+            (track as HTMLElement).style.transform = `translateX(-${current * 100}%)`;
             return;
           }
         }
 
         e.preventDefault();
         dragOffset = dx;
-        const pxToPct = (dx / trackWidth()) * slideCount * 100;
-        const base = current * step;
-        (track as HTMLElement).style.transform = `translateX(-${base - pxToPct / slideCount}%)`;
+        const dragPct = (dx / trackWidth()) * 100;
+        (track as HTMLElement).style.transform = `translateX(-${current * 100 - dragPct}%)`;
       });
 
       screen.addEventListener('pointerup', (e: PointerEvent) => {
@@ -422,7 +384,7 @@ const glowClass = `phone-glow phone-glow-${glowColor}`;
 
         if (canceled || !locked) {
           (track as HTMLElement).style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
-          (track as HTMLElement).style.transform = `translateX(-${current * step}%)`;
+          (track as HTMLElement).style.transform = `translateX(-${current * 100}%)`;
           return;
         }
 
@@ -438,7 +400,7 @@ const glowClass = `phone-glow phone-glow-${glowColor}`;
       screen.addEventListener('pointercancel', () => {
         dragging = false;
         (track as HTMLElement).style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
-        (track as HTMLElement).style.transform = `translateX(-${current * step}%)`;
+        (track as HTMLElement).style.transform = `translateX(-${current * 100}%)`;
       });
     });
   }
