@@ -1340,7 +1340,7 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 	}
 
 	// Signup form
-	const SIGNUP_ENDPOINT = '/api/signup';
+	const SIGNUP_ENDPOINT = 'https://api.trophylog.com/api/v1/waitlist/subscribe';
 
 	const form = document.getElementById('signup-form') as HTMLFormElement;
 	const formError = document.getElementById('form-error') as HTMLElement;
@@ -1392,6 +1392,13 @@ import PhoneSlider from '../components/PhoneSlider.astro';
 					betaTester: betaTesterInput.checked,
 				}),
 			});
+
+			if (res.status === 429) {
+				formError.textContent = 'Too many requests. Please wait a moment and try again.';
+				submitBtn.disabled = false;
+				submitBtn.textContent = 'Subscribe to Newsletter';
+				return;
+			}
 
 			if (!res.ok) throw new Error('Request failed');
 
