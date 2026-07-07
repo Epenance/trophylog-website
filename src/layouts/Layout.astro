@@ -12,7 +12,7 @@ const { title } = Astro.props;
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content="TrophyLog — Your hunt. Remembered. Manage hunting grounds, log trophies, and bridge the physical and digital with QR-coded medals." />
 
@@ -20,7 +20,7 @@ const { title } = Astro.props;
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,700&display=swap"
 			rel="stylesheet"
 		/>
 
@@ -34,29 +34,34 @@ const { title } = Astro.props;
 <style is:global>
 	:root {
 		/* Backgrounds */
-		--bg: #080C0A;
-		--surface: #111916;
-		--surface-highlight: #1A2420;
+		--bg: #050706;
+		--surface: #0D110F;
+		--surface-2: #1A2420;
+
+		/* Lines */
+		--line: rgba(216, 221, 217, 0.08);
+		--line-2: rgba(216, 221, 217, 0.14);
 
 		/* Accent */
 		--gold: #C9A04E;
-		--gold-muted: rgba(201, 160, 78, 0.15);
+		--gold-2: #E8C973;
 		--green: #4ADE80;
-		--green-muted: rgba(74, 222, 128, 0.15);
+		--accent: var(--green);
+		--accent-soft: rgba(74, 222, 128, 0.14);
+		--accent-text: #080C0A;
 
 		/* Text */
-		--text: #D8DDD9;
-		--text-secondary: #6B7B6E;
-		--text-tertiary: #4A5A4D;
+		--text: #EAEFE9;
+		--text-2: #9AA89D;
+		--text-3: #5A6B5E;
 
 		/* Layout */
-		--content-width: 960px;
-		--content-narrow: 680px;
-		--section-gap: clamp(120px, 15vh, 200px);
-		--page-padding: clamp(20px, 5vw, 48px);
+		--maxw: 1400px;
+		--narrow: 720px;
+		--page-pad: clamp(20px, 5vw, 48px);
 
 		/* Typography */
-		--font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+		--font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
 		--font-body: 'Inter', system-ui, -apple-system, sans-serif;
 	}
 
@@ -81,7 +86,7 @@ const { title } = Astro.props;
 
 	body {
 		font-family: var(--font-body);
-		font-size: 18px;
+		font-size: 17px;
 		line-height: 1.6;
 		color: var(--text);
 		background-color: var(--bg);
@@ -99,8 +104,16 @@ const { title } = Astro.props;
 		text-decoration: none;
 	}
 
+	button {
+		font-family: inherit;
+		cursor: pointer;
+		border: none;
+		background: none;
+		color: inherit;
+	}
+
 	::selection {
-		background: var(--gold-muted);
+		background: var(--accent-soft);
 		color: var(--text);
 	}
 </style>
