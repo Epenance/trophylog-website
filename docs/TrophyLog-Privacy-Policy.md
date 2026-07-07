@@ -17,7 +17,7 @@
 - **CVR (business reg. no.):** [CVR number]
 - **Address:** [Street, Postal code, City, Denmark]
 - **Contact / privacy enquiries:** [privacy@your-domain]
-- **Data Protection Officer:** [Name / email, or "We have not appointed a DPO as we are not required to" — confirm]
+- **Data Protection Officer:** Martin Hobert — contact@trophylog.com
 
 ### 2. Scope
 
@@ -94,7 +94,7 @@ We may update this policy. Material changes will be notified in the app or by em
 - **CVR-nr.:** [CVR-nummer]
 - **Adresse:** [Vej, postnr., by, Danmark]
 - **Kontakt / spørgsmål om privatliv:** [privacy@dit-domæne]
-- **Databeskyttelsesrådgiver (DPO):** [Navn / e-mail, eller "Vi har ikke udpeget en DPO, da vi ikke er forpligtet til det" — bekræft]
+- **Databeskyttelsesrådgiver (DPO):** Martin Hobert — contact@trophylog.com
 
 ### 2. Omfang
 
