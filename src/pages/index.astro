@@ -136,8 +136,7 @@ import Layout from '../layouts/Layout.astro';
 				<p class="q-medal-body">Hand-finished in Denmark. Engraved with species, date, and location. Two sizes, two woods. The QR stays with the mount — sell the rifle, sell the land; the medal and the memory belong to the hunt.</p>
 				<p class="q-medal-body">Scan it. The whole hunt plays back.</p>
 				<div class="q-medal-ctas">
-					<a href="#signup" class="q-btn q-btn-primary">Reserve from €89</a>
-					<span class="q-medal-note">— ships in two weeks</span>
+					<span class="q-btn q-btn-disabled">Coming soon</span>
 				</div>
 			</div>
 			<div class="q-story-visual reveal">
@@ -229,8 +228,8 @@ import Layout from '../layouts/Layout.astro';
 					<div class="q-faq-a">CSV import for hunts and trophies is live in beta. Photo-to-entry import for hand-written journals ships this spring. You can always backdate entries to any date.</div>
 				</div>
 				<div class="q-faq-item">
-					<button class="q-faq-q"><span><span class="num">04</span>What does the QR medal cost?</span><span class="mark">+</span></button>
-					<div class="q-faq-a">From €89 for the 120mm walnut plaque, up to €149 for the 180mm oak with engraved plate. Worldwide shipping, two-week lead time. Bulk pricing for hunting groups available.</div>
+					<button class="q-faq-q"><span><span class="num">04</span>When can I get a QR medal?</span><span class="mark">+</span></button>
+					<div class="q-faq-a">The physical medals are coming soon. Hand-finished walnut and oak plaques with an engraved QR tile — we'll announce pricing and availability to the beta waitlist first.</div>
 				</div>
 			</div>
 		</div>
@@ -594,6 +593,12 @@ import Layout from '../layouts/Layout.astro';
 	.q-btn-primary:hover {
 		transform: translateY(-2px);
 		letter-spacing: 0.18em;
+	}
+
+	.q-btn-disabled {
+		background: var(--surface-2);
+		color: var(--text-3);
+		cursor: default;
 	}
 
 	.q-btn-ghost {
@@ -1233,15 +1238,18 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.q-signup form {
-		display: flex;
+		display: grid;
 		gap: 10px;
-		max-width: 560px;
+		max-width: 480px;
 		margin: 0 auto;
 	}
 
+	.q-signup form .q-btn {
+		justify-content: center;
+	}
+
 	.q-signup input {
-		flex: 1;
-		min-width: 0;
+		width: 100%;
 		padding: 18px 22px;
 		border: 1px solid var(--line-2);
 		background: var(--surface);
@@ -1298,12 +1306,6 @@ import Layout from '../layouts/Layout.astro';
 	.q-signup-success .success-body {
 		color: var(--text-2);
 		font-size: 15px;
-	}
-
-	@media (max-width: 640px) {
-		.q-signup form {
-			flex-direction: column;
-		}
 	}
 
 	/* ——————————————————————————————————————
