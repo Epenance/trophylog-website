@@ -1,5 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PhoneSlider from '../components/PhoneSlider.astro';
+
+const bookingShots = [
+	{ src: '/screenshots/screen-booking-create.png', alt: 'New booking form with an availability timeline showing free and taken hours' },
+	{ src: '/screenshots/screen-booking-agenda.png', alt: 'Upcoming bookings agenda with confirmed hunts across areas' },
+	{ src: '/screenshots/screen-booking-calendar.png', alt: 'Monthly calendar of group bookings' },
+];
 ---
 
 <Layout title="TrophyLog — Your Hunt. Remembered.">
@@ -82,11 +89,33 @@ import Layout from '../layouts/Layout.astro';
 	<section class="q-section">
 		<div class="q-inner">
 			<div class="q-chapter reveal">
-				<div class="q-chapter-num">II.<small>The Sit</small></div>
-				<h2>The weather,<br />the wind, <em>the wait</em>.</h2>
+				<div class="q-chapter-num">II.<small>The Booking</small></div>
+				<h2>Who sits where,<br /><em>settled</em>.</h2>
 			</div>
 
 			<div class="q-story-grid reverse reveal">
+				<div class="q-story-copy">
+					<p class="lead">Two hunters, one high seat, the same grey dawn. Every group has had that conversation — TrophyLog ends it.</p>
+					<p>Mark any stand, field, or blind as bookable, and your group claims their time like a calendar. Pick the hours, see at a glance what's already taken, and add the companions who are coming along.</p>
+					<p>You set the rules: bookings confirm instantly, or wait for a nod from whoever runs the ground. The season ahead in an agenda; the month at a single glance.</p>
+					<a href="#signup" class="read-more">Claim your spot in the beta →</a>
+				</div>
+				<div class="q-story-visual">
+					<PhoneSlider images={bookingShots} size="lg" glowColor="green" ariaLabel="Booking screenshots" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Chapter 3 -->
+	<section class="q-section">
+		<div class="q-inner">
+			<div class="q-chapter reveal">
+				<div class="q-chapter-num">III.<small>The Sit</small></div>
+				<h2>The weather,<br />the wind, <em>the wait</em>.</h2>
+			</div>
+
+			<div class="q-story-grid reveal">
 				<div class="q-story-copy">
 					<p class="lead">A hunt is weather, wind, light, patience — and one clean moment. TrophyLog captures all of it, so you don't have to.</p>
 					<p>The app auto-fills conditions from your GPS. Sun and moon charted for the day. Ten-second entries at the tailgate; ten-page entries on the long drive home. Driven hunts hold ten shooters as easily as solo sits.</p>
@@ -102,15 +131,15 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 	</section>
 
-	<!-- Chapter 3 -->
+	<!-- Chapter 4 -->
 	<section class="q-section">
 		<div class="q-inner">
 			<div class="q-chapter reveal">
-				<div class="q-chapter-num">III.<small>The Trophy</small></div>
+				<div class="q-chapter-num">IV.<small>The Trophy</small></div>
 				<h2>What you carried out.<br /><em>And what you kept.</em></h2>
 			</div>
 
-			<div class="q-story-grid reveal">
+			<div class="q-story-grid reverse reveal">
 				<div class="q-story-copy">
 					<p class="lead">Not a notch on a rifle stock. A record: species, date, place, score, the weather that made it possible, the companions who shared it.</p>
 					<p>CIC, B&amp;C, and SCI scoring built in. PDF export for the trophy room or the insurance file. Link a trophy back to the sit it came from, and the ground where it happened.</p>
@@ -130,7 +159,7 @@ import Layout from '../layouts/Layout.astro';
 	<section class="q-medal-showcase" id="medal">
 		<div class="q-medal-inner">
 			<div class="reveal">
-				<div class="q-chapter-num">IV.<small>The Medal</small></div>
+				<div class="q-chapter-num">V.<small>The Medal</small></div>
 				<h2 class="q-medal-h2">The brass <em>tells the story</em>.</h2>
 				<p class="q-medal-lead">A walnut plaque. A brass-ringed QR tile. For any trophy in your log, a physical object that remembers.</p>
 				<p class="q-medal-body">Hand-finished in Denmark. Engraved with species, date, and location. Two sizes, two woods. The QR stays with the mount — sell the rifle, sell the land; the medal and the memory belong to the hunt.</p>
@@ -149,7 +178,7 @@ import Layout from '../layouts/Layout.astro';
 	<section class="q-section q-pricing" id="pricing">
 		<div class="q-inner">
 			<div class="q-chapter reveal">
-				<div class="q-chapter-num">V.<small>Pricing</small></div>
+				<div class="q-chapter-num">VI.<small>Pricing</small></div>
 				<h2>Free to start.<br /><em>More when it counts.</em></h2>
 			</div>
 
@@ -210,7 +239,7 @@ import Layout from '../layouts/Layout.astro';
 	<section class="q-section" id="faq">
 		<div class="q-inner">
 			<div class="q-chapter reveal">
-				<div class="q-chapter-num">VI.<small>Questions</small></div>
+				<div class="q-chapter-num">VII.<small>Questions</small></div>
 				<h2>Fine print,<br /><em>plain spoken.</em></h2>
 			</div>
 

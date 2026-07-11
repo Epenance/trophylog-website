@@ -1,7 +1,7 @@
 ---
 interface Props {
   images: { src: string; alt: string }[];
-  size?: 'default' | 'sm';
+  size?: 'default' | 'sm' | 'lg';
   glowColor?: 'green' | 'gold';
   class?: string;
   ariaLabel?: string;
@@ -16,7 +16,10 @@ const {
 } = Astro.props;
 
 const isSlider = images.length > 1;
-const frameClass = size === 'sm' ? 'phone-frame phone-frame-sm' : 'phone-frame';
+const frameClass =
+  size === 'sm' ? 'phone-frame phone-frame-sm'
+  : size === 'lg' ? 'phone-frame phone-frame-lg'
+  : 'phone-frame';
 const glowClass = `phone-glow phone-glow-${glowColor}`;
 ---
 
@@ -123,6 +126,12 @@ const glowClass = `phone-glow phone-glow-${glowColor}`;
     border-radius: 40px;
   }
 
+  .phone-frame-lg {
+    width: 320px;
+    height: 660px;
+    border-radius: 50px;
+  }
+
   /* Notch */
   .phone-notch {
     position: absolute;
@@ -163,6 +172,10 @@ const glowClass = `phone-glow phone-glow-${glowColor}`;
 
   .phone-frame-sm .phone-screen-inner {
     border-radius: 34px;
+  }
+
+  .phone-frame-lg .phone-screen-inner {
+    border-radius: 44px;
   }
 
   /* Screenshots */
@@ -334,6 +347,23 @@ const glowClass = `phone-glow phone-glow-${glowColor}`;
       border-radius: 26px;
     }
 
+    .phone-frame-lg {
+      width: 240px;
+      height: 500px;
+      border-radius: 38px;
+    }
+
+    .phone-frame-lg .phone-notch {
+      width: 80px;
+      height: 22px;
+      top: 10px;
+      border-radius: 12px;
+    }
+
+    .phone-frame-lg .phone-screen-inner {
+      border-radius: 32px;
+    }
+
     .phone-glow {
       width: 260px;
       height: 340px;
@@ -365,6 +395,12 @@ const glowClass = `phone-glow phone-glow-${glowColor}`;
       width: 180px;
       height: 380px;
       border-radius: 28px;
+    }
+
+    .phone-frame-lg {
+      width: 210px;
+      height: 440px;
+      border-radius: 34px;
     }
   }
 </style>
