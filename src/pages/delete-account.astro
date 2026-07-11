@@ -1,0 +1,791 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Delete your account — TrophyLog">
+
+	<!-- Navigation -->
+	<nav class="q-nav scrolled">
+		<div class="q-nav-inner">
+			<a href="/" class="q-brand">
+				<svg viewBox="0 0 946.59 766.6" aria-hidden="true">
+					<path fill="currentColor" d="M453.32,764.64c6.73,4.91,11.91.57,14.73-12.48,13.21-61.18,29.36-123.62,66.26-175.72,75.87-112.41,201.49-168.53,281.23-278.61,46.15-62.56,91.35-138.15,113.93-212,8.7-28.45,24.38-82.19,13.3-85.59-1.69-.52-4.24-.55-7.77,4.03-8.8,11.39-18.34,33.8-26.69,48.64-57.07,101.43-178.18,300.16-265.64,317.04-41.8,8.07-37.77-63.87-32.96-102.83,3.59-29.11,14.01-52.69,23.38-79.29,7.03-19.95,11.46-42.47,4.29-42.93-16.65-1.08-65.91,79.85-80.67,115.78-28.44,69.22-29.22,133.8-68.62,195.33-20.03,31.29-35.61-1.54-32.56-59.81,1.93-36.91,12.14-68.44,18.52-102.35,1.25-6.64,1.58-12.94.4-14.99-3.86-6.71-17.76,17.02-20.65,22.74-35.16,69.62-68.06,177.21-63.92,267.93,2.89,63.23,12.98,150.22,61.67,193.7.36.32,1.26,1.05,1.77,1.42Z"/>
+					<path fill="currentColor" d="M300.55,512.24c-8.43-38.35-19.07-77.21-41.97-110.06-48.63-69.79-126.77-105.24-177.05-174.1C52.44,188.94,25.98,140.97,11.64,94.7,6.12,76.87-2.63,45.38.76,42.37c1.28-1.14,3.67-.27,5.17,1.84,5.23,7.36,11.61,21.14,16.85,30.45,36.24,63.37,112.79,186.27,167.35,198.24,26.37,4.2,23.2-40.11,20.44-64.58-2.58-18.22-9-32.98-14.85-49.68-4.52-12.48-8.16-27.72-2.79-26.92,11.66,1.74,41.52,49.93,50.87,72.43,18,43.35,20.03,82.99,43.49,122.36,13.33,19.12,22.78-1.08,20.28-37.59-1.01-23.16-7.78-42.9-11.85-64.15-.8-4.16-1.03-7.12-.25-8.13,2.85-3.69,11.05,9.4,12.97,12.94,21.11,44.13,43.4,111.01,40.72,167.91-2.07,43.79-7.84,95.67-38.66,122.2-.16.14-.5.41-.67.54-4,3.36-7.48.18-9.28-8.01Z"/>
+				</svg>
+				TrophyLog
+			</a>
+			<a href="/" class="q-nav-cta">Home</a>
+		</div>
+	</nav>
+
+	<main class="del show-en" id="page">
+		<header class="del-header">
+			<div class="lang-toggle" role="group" aria-label="Language">
+				<button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">English</button>
+				<button type="button" class="lang-btn" data-lang="da" aria-pressed="false">Dansk</button>
+			</div>
+			<h1 class="del-title lang-en">Delete your account</h1>
+			<h1 class="del-title lang-da" lang="da">Slet din konto</h1>
+			<p class="del-meta lang-en">Permanently delete your TrophyLog account and personal data.</p>
+			<p class="del-meta lang-da" lang="da">Slet din TrophyLog-konto og dine personlige data permanent.</p>
+			<p class="del-intro lang-en">Enter the email address linked to your TrophyLog account and we'll send you a 6-digit confirmation code. No login required. You can also delete your account directly in the app — see below.</p>
+			<p class="del-intro lang-da" lang="da">Indtast den e-mailadresse, der er knyttet til din TrophyLog-konto, så sender vi dig en 6-cifret bekræftelseskode. Du behøver ikke logge ind. Du kan også slette din konto direkte i appen — se nedenfor.</p>
+		</header>
+
+		<section class="del-card" aria-label="Account deletion">
+
+			<!-- Step 1: email -->
+			<form class="del-step" id="step-email" novalidate>
+				<label class="del-label" for="email-input">
+					<span class="lang-en">Email address</span>
+					<span class="lang-da" lang="da">E-mailadresse</span>
+				</label>
+				<input
+					type="email"
+					id="email-input"
+					name="email"
+					placeholder="hunter@example.com"
+					autocomplete="email"
+					required
+				/>
+				<button type="submit" class="q-btn q-btn-danger" id="email-submit">
+					<span class="lang-en">Send code</span>
+					<span class="lang-da" lang="da">Send kode</span>
+				</button>
+				<div class="del-feedback" role="status" aria-live="polite">
+					<p class="del-msg" data-msg="sending" hidden><span class="lang-en">Sending…</span><span class="lang-da" lang="da">Sender…</span></p>
+					<p class="del-msg error" data-msg="invalid-email" hidden><span class="lang-en">Please enter a valid email address.</span><span class="lang-da" lang="da">Indtast en gyldig e-mailadresse.</span></p>
+					<p class="del-msg error" data-msg="throttled" hidden><span class="lang-en">Too many attempts — please try again later.</span><span class="lang-da" lang="da">For mange forsøg — prøv igen senere.</span></p>
+					<p class="del-msg error" data-msg="network" hidden><span class="lang-en">Couldn't reach the server. Check your connection and try again.</span><span class="lang-da" lang="da">Vi kunne ikke få forbindelse til serveren. Tjek din internetforbindelse, og prøv igen.</span></p>
+					<p class="del-msg error" data-msg="generic" hidden><span class="lang-en">Something went wrong. Please try again later.</span><span class="lang-da" lang="da">Noget gik galt. Prøv igen senere.</span></p>
+				</div>
+			</form>
+
+			<!-- Step 2: code -->
+			<form class="del-step" id="step-code" hidden novalidate>
+				<p class="del-note">
+					<span class="lang-en">If an account exists for <strong data-email></strong>, we've sent it a 6-digit code. It expires in 15 minutes.</span>
+					<span class="lang-da" lang="da">Hvis der findes en konto med <strong data-email></strong>, har vi sendt en 6-cifret kode til den. Koden udløber om 15 minutter.</span>
+				</p>
+				<label class="del-label" for="code-input">
+					<span class="lang-en">6-digit code</span>
+					<span class="lang-da" lang="da">6-cifret kode</span>
+				</label>
+				<input
+					type="text"
+					id="code-input"
+					name="code"
+					inputmode="numeric"
+					autocomplete="one-time-code"
+					maxlength="6"
+					placeholder="123456"
+					aria-describedby="confirm-warning"
+				/>
+				<p class="del-warning" id="confirm-warning">
+					<span class="lang-en">Confirming deactivates your account immediately.</span>
+					<span class="lang-da" lang="da">Når du bekræfter, deaktiveres din konto med det samme.</span>
+				</p>
+				<button type="submit" class="q-btn q-btn-danger" id="code-submit" disabled>
+					<span class="lang-en">Confirm deletion</span>
+					<span class="lang-da" lang="da">Bekræft sletning</span>
+				</button>
+				<div class="del-feedback" role="status" aria-live="polite">
+					<p class="del-msg" data-msg="sending" hidden><span class="lang-en">Sending…</span><span class="lang-da" lang="da">Sender…</span></p>
+					<p class="del-msg" data-msg="resent" hidden><span class="lang-en">If an account exists for this email, we've sent a new code. Codes sent earlier no longer work.</span><span class="lang-da" lang="da">Hvis der findes en konto med denne e-mail, har vi sendt en ny kode. Tidligere koder virker ikke længere.</span></p>
+					<p class="del-msg error" data-msg="invalid-code" hidden><span class="lang-en">Invalid or expired code.</span><span class="lang-da" lang="da">Koden er ugyldig eller udløbet.</span></p>
+					<p class="del-msg error" data-msg="throttled" hidden><span class="lang-en">Too many attempts — please try again later.</span><span class="lang-da" lang="da">For mange forsøg — prøv igen senere.</span></p>
+					<p class="del-msg error" data-msg="network" hidden><span class="lang-en">Couldn't reach the server. Check your connection and try again.</span><span class="lang-da" lang="da">Vi kunne ikke få forbindelse til serveren. Tjek din internetforbindelse, og prøv igen.</span></p>
+					<p class="del-msg error" data-msg="generic" hidden><span class="lang-en">Something went wrong. Please try again later.</span><span class="lang-da" lang="da">Noget gik galt. Prøv igen senere.</span></p>
+				</div>
+				<div class="del-actions">
+					<button type="button" class="del-link" id="resend-btn">
+						<span class="lang-en">Resend code</span>
+						<span class="lang-da" lang="da">Send ny kode</span>
+					</button>
+					<button type="button" class="del-link" id="back-btn">
+						<span class="lang-en">Use a different email</span>
+						<span class="lang-da" lang="da">Brug en anden e-mail</span>
+					</button>
+				</div>
+				<p class="del-hint">
+					<span class="lang-en">Requesting a new code invalidates the previous one.</span>
+					<span class="lang-da" lang="da">Bestiller du en ny kode, virker den gamle ikke længere.</span>
+				</p>
+			</form>
+
+			<!-- Step 3: success -->
+			<div class="del-step del-success" id="step-success" hidden>
+				<h2 class="del-success-title" tabindex="-1" id="success-title">
+					<span class="lang-en">Your account has been deactivated</span>
+					<span class="lang-da" lang="da">Din konto er deaktiveret</span>
+				</h2>
+				<ul class="del-success-list">
+					<li>
+						<span class="lang-en">Your account is deactivated now and will be permanently deleted on <strong data-purge-en></strong>.</span>
+						<span class="lang-da" lang="da">Din konto er deaktiveret og slettes permanent den <strong data-purge-da></strong>.</span>
+					</li>
+					<li>
+						<span class="lang-en">If you log in to the TrophyLog app before that date, the deletion is cancelled.</span>
+						<span class="lang-da" lang="da">Logger du ind i TrophyLog-appen inden da, annulleres sletningen.</span>
+					</li>
+					<li>
+						<span class="lang-en">Active subscriptions were cancelled immediately and will not be refunded or restored.</span>
+						<span class="lang-da" lang="da">Aktive abonnementer opsiges med det samme og bliver hverken refunderet eller genoprettet.</span>
+					</li>
+					<li>
+						<span class="lang-en">Hunts, trophies, bookings and photos you shared with groups stay with the group, shown as "Deleted user". Everything else — your personal data, photos and videos — is permanently erased.</span>
+						<span class="lang-da" lang="da">Jagter, trofæer og bookinger, du har delt med grupper, bevares og vises som "Slettet bruger" — det gælder også delte fotos. Alt andet — dine personlige data, fotos og videoer — slettes permanent.</span>
+					</li>
+				</ul>
+			</div>
+
+		</section>
+
+		<section class="del-info">
+			<article class="lang-en">
+				<h2>What gets deleted — and what stays</h2>
+				<ul>
+					<li>Your account is deactivated immediately and permanently deleted after 30 days. Logging in again before then cancels the deletion.</li>
+					<li>Active subscriptions are cancelled immediately and will not be refunded or restored.</li>
+					<li>Hunts, trophies and bookings you've shared with groups — including shared photos — stay with the group and are shown as "Deleted user".</li>
+					<li>Everything else — your personal data, photos and videos — is permanently erased.</li>
+				</ul>
+				<p>For details on how we handle your data, see our <a href="/privacy">privacy policy</a>.</p>
+
+				<h2>Delete from the app instead</h2>
+				<p>You can also delete your account in the TrophyLog app under <strong>Settings → Danger zone</strong>. It's the same deletion, with the same rules.</p>
+				<p>Questions? Write to <a href="mailto:contact@trophylog.com">contact@trophylog.com</a>.</p>
+			</article>
+			<article class="lang-da" lang="da">
+				<h2>Hvad slettes — og hvad bevares</h2>
+				<ul>
+					<li>Din konto deaktiveres med det samme og slettes permanent efter 30 dage. Logger du ind igen inden da, annulleres sletningen.</li>
+					<li>Aktive abonnementer opsiges med det samme og bliver hverken refunderet eller genoprettet.</li>
+					<li>Jagter, trofæer og bookinger, du har delt med grupper, bevares og vises som "Slettet bruger" — det gælder også delte fotos.</li>
+					<li>Alt andet — dine personlige data, fotos og videoer — slettes permanent.</li>
+				</ul>
+				<p>Du kan læse mere om, hvordan vi behandler dine data, i vores <a href="/privacy">privatlivspolitik</a>.</p>
+
+				<h2>Slet direkte i appen</h2>
+				<p>Du kan også slette din konto i TrophyLog-appen under <strong>Indstillinger</strong>. Det er den samme sletning med de samme regler.</p>
+				<p>Har du spørgsmål, kan du skrive til <a href="mailto:contact@trophylog.com">contact@trophylog.com</a>.</p>
+			</article>
+		</section>
+	</main>
+
+	<!-- Footer -->
+	<footer class="q-foot">
+		<div class="q-foot-inner">
+			<div>&copy; {new Date().getFullYear()} · TrophyLog A/S · Denmark</div>
+			<div class="q-foot-links">
+				<a href="/privacy">Privacy</a>
+				<a href="/terms">Terms</a>
+				<a href="mailto:contact@trophylog.com">Contact</a>
+			</div>
+		</div>
+	</footer>
+
+</Layout>
+
+<style>
+	/* ——————————————————————————————————————
+	   NAV (quarry, always-scrolled state)
+	   —————————————————————————————————————— */
+
+	.q-nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 100;
+		padding: 14px var(--page-pad);
+		background: rgba(5, 7, 6, 0.85);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		border-bottom: 1px solid var(--line);
+	}
+
+	.q-nav-inner {
+		max-width: var(--maxw);
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		gap: 24px;
+	}
+
+	.q-brand {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		font-family: var(--font-display);
+		font-size: 22px;
+		font-weight: 700;
+		color: var(--text);
+	}
+
+	.q-brand svg {
+		width: 26px;
+		height: auto;
+		color: var(--accent);
+	}
+
+	.q-nav-cta {
+		margin-left: auto;
+		padding: 11px 22px;
+		background: var(--text);
+		color: var(--bg);
+		border-radius: 2px;
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		transition: all 0.2s ease;
+	}
+
+	.q-nav-cta:hover {
+		background: var(--accent);
+		color: var(--accent-text);
+	}
+
+	/* ——————————————————————————————————————
+	   PAGE STRUCTURE
+	   —————————————————————————————————————— */
+
+	.del {
+		--danger: #DC6A5A;
+		max-width: var(--narrow);
+		margin: 0 auto;
+		padding: 160px var(--page-pad) 120px;
+	}
+
+	.del-header {
+		margin-bottom: 40px;
+	}
+
+	.del-title {
+		font-family: var(--font-display);
+		font-weight: 400;
+		font-size: clamp(38px, 6vw, 60px);
+		line-height: 1.02;
+		letter-spacing: -0.03em;
+		color: var(--text);
+		margin-bottom: 16px;
+		font-variation-settings: "opsz" 96;
+	}
+
+	.del-meta {
+		font-size: 14px;
+		color: var(--text-2);
+		letter-spacing: 0.04em;
+	}
+
+	.del-intro {
+		margin-top: 24px;
+		font-size: 16px;
+		line-height: 1.75;
+		color: var(--text-2);
+	}
+
+	/* ——————————————————————————————————————
+	   LANGUAGE TOGGLE + VISIBILITY
+	   —————————————————————————————————————— */
+
+	.lang-toggle {
+		display: inline-flex;
+		gap: 4px;
+		padding: 4px;
+		background: var(--surface);
+		border: 1px solid var(--line);
+		border-radius: 2px;
+		margin-bottom: 32px;
+	}
+
+	.lang-btn {
+		padding: 8px 20px;
+		background: transparent;
+		border: none;
+		border-radius: 2px;
+		color: var(--text-2);
+		font-family: var(--font-body);
+		font-size: 12px;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		cursor: pointer;
+		transition: background 0.2s ease, color 0.2s ease;
+	}
+
+	.lang-btn:hover {
+		color: var(--text);
+	}
+
+	.lang-btn.active {
+		background: var(--surface-2);
+		color: var(--accent);
+	}
+
+	/* Hide the inactive language; active elements keep natural display */
+	.del.show-en .lang-da {
+		display: none !important;
+	}
+
+	.del.show-da .lang-en {
+		display: none !important;
+	}
+
+	/* ——————————————————————————————————————
+	   FORM CARD
+	   —————————————————————————————————————— */
+
+	.del-card {
+		background: var(--surface);
+		border: 1px solid var(--line-2);
+		border-radius: 2px;
+		padding: clamp(24px, 5vw, 40px);
+		margin-bottom: 64px;
+	}
+
+	.del-step {
+		display: grid;
+		gap: 14px;
+	}
+
+	.del-step[hidden] {
+		display: none;
+	}
+
+	.del-label {
+		font-size: 12px;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--text-2);
+	}
+
+	.del-step input {
+		width: 100%;
+		padding: 18px 22px;
+		border: 1px solid var(--line-2);
+		background: var(--bg);
+		color: var(--text);
+		font-size: 16px;
+		border-radius: 2px;
+		font-family: inherit;
+		outline: none;
+		transition: border-color 0.2s ease;
+	}
+
+	.del-step input:focus {
+		border-color: var(--accent);
+	}
+
+	.del-step input::placeholder {
+		color: var(--text-3);
+	}
+
+	#code-input {
+		font-size: 24px;
+		letter-spacing: 0.4em;
+		text-align: center;
+		font-variant-numeric: tabular-nums;
+	}
+
+	.q-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		padding: 16px 32px;
+		font-size: 13px;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		transition: all 0.25s ease;
+		border-radius: 2px;
+	}
+
+	.q-btn-danger {
+		background: var(--danger);
+		color: #14100F;
+	}
+
+	.q-btn-danger:hover:not(:disabled) {
+		transform: translateY(-1px);
+		opacity: 0.92;
+	}
+
+	.q-btn:disabled {
+		background: var(--surface-2);
+		color: var(--text-3);
+		cursor: not-allowed;
+	}
+
+	.del-note {
+		font-size: 15px;
+		line-height: 1.7;
+		color: var(--text-2);
+		padding: 14px 18px;
+		background: var(--accent-soft);
+		border-radius: 2px;
+	}
+
+	.del-note strong {
+		color: var(--text);
+		font-weight: 600;
+		overflow-wrap: anywhere;
+	}
+
+	.del-warning {
+		font-size: 13px;
+		color: var(--text-2);
+	}
+
+	.del-feedback {
+		min-height: 0;
+	}
+
+	.del-msg {
+		font-size: 14px;
+		line-height: 1.6;
+		color: var(--text-2);
+	}
+
+	.del-msg.error {
+		color: var(--danger);
+	}
+
+	.del-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px 24px;
+	}
+
+	.del-link {
+		padding: 4px 0;
+		font-size: 14px;
+		color: var(--accent);
+		border-bottom: 1px solid rgba(74, 222, 128, 0.4);
+		transition: border-color 0.2s ease;
+	}
+
+	.del-link:hover {
+		border-bottom-color: var(--accent);
+	}
+
+	.del-link:disabled {
+		color: var(--text-3);
+		border-bottom-color: transparent;
+		cursor: not-allowed;
+	}
+
+	.del-hint {
+		font-size: 12px;
+		color: var(--text-3);
+		letter-spacing: 0.04em;
+	}
+
+	.del-success-title {
+		font-family: var(--font-display);
+		font-weight: 400;
+		font-size: clamp(24px, 3.5vw, 32px);
+		letter-spacing: -0.02em;
+		color: var(--text);
+		outline: none;
+	}
+
+	.del-success-list {
+		margin: 0;
+		padding-left: 22px;
+		display: grid;
+		gap: 12px;
+		font-size: 15px;
+		line-height: 1.7;
+		color: var(--text-2);
+	}
+
+	.del-success-list strong {
+		color: var(--text);
+		font-weight: 600;
+	}
+
+	/* ——————————————————————————————————————
+	   INFO PROSE
+	   —————————————————————————————————————— */
+
+	.del-info {
+		font-size: 16px;
+		line-height: 1.75;
+		color: var(--text-2);
+	}
+
+	.del-info h2 {
+		font-family: var(--font-display);
+		font-weight: 400;
+		font-size: clamp(24px, 3.5vw, 32px);
+		letter-spacing: -0.02em;
+		color: var(--text);
+		margin: 48px 0 16px;
+		font-variation-settings: "opsz" 48;
+	}
+
+	.del-info article > h2:first-child {
+		margin-top: 0;
+	}
+
+	.del-info p {
+		margin-bottom: 16px;
+	}
+
+	.del-info ul {
+		margin: 0 0 16px;
+		padding-left: 24px;
+	}
+
+	.del-info li {
+		margin-bottom: 10px;
+	}
+
+	.del-info strong {
+		color: var(--text);
+		font-weight: 600;
+	}
+
+	.del-info a {
+		color: var(--accent);
+		text-decoration: underline;
+		text-decoration-color: rgba(74, 222, 128, 0.4);
+		text-underline-offset: 3px;
+		transition: text-decoration-color 0.2s ease;
+	}
+
+	.del-info a:hover {
+		text-decoration-color: var(--accent);
+	}
+
+	/* ——————————————————————————————————————
+	   FOOTER (quarry)
+	   —————————————————————————————————————— */
+
+	.q-foot {
+		padding: 48px var(--page-pad);
+		border-top: 1px solid var(--line);
+		color: var(--text-3);
+		font-size: 12px;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.q-foot-inner {
+		max-width: var(--maxw);
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 16px;
+	}
+
+	.q-foot-links {
+		display: flex;
+		gap: 20px;
+	}
+
+	.q-foot a {
+		transition: color 0.2s ease;
+	}
+
+	.q-foot a:hover {
+		color: var(--accent);
+	}
+
+	@media (max-width: 640px) {
+		.del {
+			padding-top: 120px;
+			padding-bottom: 80px;
+		}
+	}
+</style>
+
+<script>
+	// ——— Language toggle (same mechanism + storage key as the legal pages)
+	const page = document.getElementById('page');
+	const langButtons = document.querySelectorAll<HTMLButtonElement>('.lang-btn');
+	let lang = 'en';
+
+	function setLang(next: string) {
+		if (!page) return;
+		lang = next === 'da' ? 'da' : 'en';
+		page.classList.toggle('show-da', lang === 'da');
+		page.classList.toggle('show-en', lang !== 'da');
+		langButtons.forEach((btn) => {
+			const active = btn.dataset.lang === lang;
+			btn.classList.toggle('active', active);
+			btn.setAttribute('aria-pressed', String(active));
+		});
+		try {
+			localStorage.setItem('trophylog-legal-lang', lang);
+		} catch {}
+	}
+
+	langButtons.forEach((btn) => {
+		btn.addEventListener('click', () => setLang(btn.dataset.lang ?? 'en'));
+	});
+
+	try {
+		const saved = localStorage.getItem('trophylog-legal-lang');
+		if (saved === 'da') setLang('da');
+	} catch {}
+
+	// ——— Deletion flow
+	const API_BASE = 'https://api.trophylog.com/api/v1';
+
+	const stepEmail = document.getElementById('step-email') as HTMLFormElement;
+	const stepCode = document.getElementById('step-code') as HTMLFormElement;
+	const stepSuccess = document.getElementById('step-success') as HTMLElement;
+	const emailInput = document.getElementById('email-input') as HTMLInputElement;
+	const emailSubmit = document.getElementById('email-submit') as HTMLButtonElement;
+	const codeInput = document.getElementById('code-input') as HTMLInputElement;
+	const codeSubmit = document.getElementById('code-submit') as HTMLButtonElement;
+	const resendBtn = document.getElementById('resend-btn') as HTMLButtonElement;
+	const backBtn = document.getElementById('back-btn') as HTMLButtonElement;
+	const successTitle = document.getElementById('success-title') as HTMLElement;
+
+	// Email and code live only in this in-memory form state — never persisted.
+	let busy = false;
+
+	function showMsg(step: HTMLElement, key: string | null) {
+		step.querySelectorAll<HTMLElement>('[data-msg]').forEach((el) => {
+			el.hidden = el.dataset.msg !== key;
+		});
+	}
+
+	function validEmail(value: string) {
+		return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+	}
+
+	async function post(path: string, body: unknown) {
+		return fetch(API_BASE + path, {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(body),
+		});
+	}
+
+	function setBusy(next: boolean) {
+		busy = next;
+		emailSubmit.disabled = next;
+		resendBtn.disabled = next;
+		codeSubmit.disabled = next || codeInput.value.length !== 6;
+	}
+
+	function formatPurgeDate(iso: string, locale: string) {
+		const date = new Date(iso + 'T00:00:00');
+		if (Number.isNaN(date.getTime())) return iso;
+		return new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'long', year: 'numeric' }).format(date);
+	}
+
+	// Step 1 + resend: request a code. Always 202 whether or not an account
+	// exists (anti-enumeration) — the UI must stay neutral about it.
+	async function requestCode(feedbackStep: HTMLElement, onSent: () => void) {
+		if (busy) return;
+		setBusy(true);
+		showMsg(feedbackStep, 'sending');
+		try {
+			const res = await post('/account-deletion/request', { email: emailInput.value.trim() });
+			if (res.status === 202 || res.ok) {
+				showMsg(feedbackStep, null);
+				onSent();
+			} else if (res.status === 429) {
+				showMsg(feedbackStep, 'throttled');
+			} else if (res.status === 400) {
+				showMsg(feedbackStep, 'invalid-email');
+			} else {
+				showMsg(feedbackStep, 'generic');
+			}
+		} catch {
+			showMsg(feedbackStep, 'network');
+		} finally {
+			setBusy(false);
+		}
+	}
+
+	stepEmail.addEventListener('submit', (event) => {
+		event.preventDefault();
+		const email = emailInput.value.trim();
+		if (!validEmail(email)) {
+			showMsg(stepEmail, 'invalid-email');
+			emailInput.focus();
+			return;
+		}
+		requestCode(stepEmail, () => {
+			stepCode.querySelectorAll<HTMLElement>('[data-email]').forEach((el) => {
+				el.textContent = email;
+			});
+			stepEmail.hidden = true;
+			stepCode.hidden = false;
+			codeInput.value = '';
+			codeSubmit.disabled = true;
+			showMsg(stepCode, null);
+			codeInput.focus();
+		});
+	});
+
+	resendBtn.addEventListener('click', () => {
+		requestCode(stepCode, () => {
+			codeInput.value = '';
+			codeSubmit.disabled = true;
+			showMsg(stepCode, 'resent');
+			codeInput.focus();
+		});
+	});
+
+	backBtn.addEventListener('click', () => {
+		codeInput.value = '';
+		codeSubmit.disabled = true;
+		showMsg(stepCode, null);
+		showMsg(stepEmail, null);
+		stepCode.hidden = true;
+		stepEmail.hidden = false;
+		emailInput.focus();
+	});
+
+	codeInput.addEventListener('input', () => {
+		codeInput.value = codeInput.value.replace(/\D/g, '').slice(0, 6);
+		codeSubmit.disabled = busy || codeInput.value.length !== 6;
+	});
+
+	stepCode.addEventListener('submit', async (event) => {
+		event.preventDefault();
+		if (busy || codeInput.value.length !== 6) return;
+		setBusy(true);
+		showMsg(stepCode, 'sending');
+		try {
+			const res = await post('/account-deletion/confirm', {
+				email: emailInput.value.trim(),
+				code: codeInput.value,
+			});
+			if (res.ok) {
+				const data = await res.json().catch(() => ({}));
+				const purgeDate = typeof data.purgeDate === 'string' ? data.purgeDate : '';
+				document.querySelectorAll<HTMLElement>('[data-purge-en]').forEach((el) => {
+					el.textContent = formatPurgeDate(purgeDate, 'en-GB');
+				});
+				document.querySelectorAll<HTMLElement>('[data-purge-da]').forEach((el) => {
+					el.textContent = formatPurgeDate(purgeDate, 'da-DK');
+				});
+				stepCode.hidden = true;
+				stepSuccess.hidden = false;
+				successTitle.focus();
+			} else if (res.status === 429) {
+				showMsg(stepCode, 'throttled');
+			} else if (res.status === 400) {
+				showMsg(stepCode, 'invalid-code');
+			} else {
+				showMsg(stepCode, 'generic');
+			}
+		} catch {
+			showMsg(stepCode, 'network');
+		} finally {
+			setBusy(false);
+		}
+	});
+</script>
