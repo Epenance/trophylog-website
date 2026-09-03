@@ -1,127 +1,173 @@
 ---
 import LegalLayout from '../layouts/LegalLayout.astro';
+import { TERMS } from '../data/legal';
+
+const meta = `Version ${TERMS.version} · Effective date: ${TERMS.effectiveDate.en}`;
+const metaDa = `Version ${TERMS.version} · Ikrafttrædelsesdato: ${TERMS.effectiveDate.da}`;
 ---
 
 <LegalLayout
 	title="Terms of Service — TrophyLog"
 	heading="Terms of Service & EULA"
 	headingDa="Handelsbetingelser & EULA"
-	meta="Effective date: 7 July 2026"
-	metaDa="Ikrafttrædelsesdato: 7. juli 2026"
+	meta={meta}
+	metaDa={metaDa}
 >
 	<Fragment slot="en">
 		<h2>1. Agreement</h2>
-		<p>These Terms of Service ("Terms") form a binding agreement between you and TrophyLog A/S, CVR 31282241 ("TrophyLog", "we", "us"), governing your use of the TrophyLog mobile app and related services (the "Service"). By creating an account or using the Service, you accept these Terms and our <a href="/privacy">Privacy Policy</a>.</p>
+		<p>These Terms of Service and End User Licence Agreement ("Terms") form a binding agreement between you and TrophyLog A/S, CVR 31282241 ("TrophyLog", "we", "us"), governing your use of the TrophyLog mobile app, the trophylog.com website, and related services (the "Service"). By creating an account, accepting these Terms in the app, or using the Service, you accept these Terms and our <a href="/privacy?lang=en">Privacy Policy</a>.</p>
+		<p>The version number and effective date of these Terms are shown at the top of this page. The app records which version you accepted and when. If we publish a new version, the app will tell you which version applies.</p>
 
 		<h2>2. The Service</h2>
-		<p>TrophyLog is an offline-first hunting log that lets you record hunts, document trophies, map hunting grounds, check weather, and share with hunting groups. The Service is provided for lawful, personal use.</p>
+		<p>TrophyLog is an offline-first hunting log that lets you record hunts, document trophies, map hunting grounds, check weather, and share with hunting groups. Some features let you share content with other users, for example in hunting groups, on member profiles, or through public and unlisted share links. Content you share in this way is user-generated content and is subject to the rules in sections 5, 6, and 7. The Service is provided for lawful, personal use.</p>
 
 		<h2>3. Eligibility &amp; accounts</h2>
-		<p>You must be at least 16 years old to create an account. You are responsible for keeping your login credentials secure and for all activity under your account. Provide accurate information and keep it up to date.</p>
+		<p>You must be at least 16 years old to create an account. You are responsible for keeping your login credentials secure and for all activity under your account. Provide accurate information and keep it up to date. You must accept the current version of these Terms before you can create an account or sign in.</p>
 
-		<h2>4. Free use and subscriptions (usage limits)</h2>
-		<p>TrophyLog is <strong>free to use with usage limits</strong>. All core features are available, but certain capacity (such as the number of hunts, trophies, and markers you can store) is limited until you purchase a subscription that increases or removes those limits.</p>
+		<h2>4. Free use, subscriptions &amp; in-app purchases</h2>
+		<p>TrophyLog is <strong>free to use with usage limits</strong>. Core features are available on the free plan, but certain capacity (such as storage, the number of regions, or group size) is limited unless you purchase a paid plan. We offer a personal <strong>Premium</strong> subscription (monthly or yearly) and annual <strong>group packs</strong> for hunting consortia ("Konsortium"). The plans, limits, and prices that apply to you are shown in the app and in the app store before you buy.</p>
 		<ul>
-			<li><strong>Billing:</strong> Subscriptions are sold and processed by us via <strong>Stripe</strong> — not via Apple or Google. By subscribing you authorise us (through Stripe) to charge your chosen payment method.</li>
-			<li><strong>Renewal:</strong> Subscriptions renew automatically each billing period (monthly or yearly, depending on your plan) until cancelled. We will charge the then-current price unless we notify you of a change in advance.</li>
-			<li><strong>Price changes:</strong> We may change prices with reasonable prior notice; changes take effect at your next renewal.</li>
-			<li><strong>Cancellation:</strong> You can cancel any time from <strong>Account → Subscription</strong> (or your customer portal). Cancellation stops future renewals; your subscription remains active until the end of the current paid period.</li>
-			<li><strong>Right of withdrawal (EU):</strong> As an EU consumer you have a 14-day right of withdrawal on the subscription. If you ask us to start the subscription immediately and then withdraw, you may owe a proportionate amount for the period used, as permitted by Danish consumer law.</li>
-			<li><strong>Refunds:</strong> Except for statutory rights (including the withdrawal right above), payments are non-refundable for partial periods. Contact <a href="mailto:contact@trophylog.com">contact@trophylog.com</a> for billing issues.</li>
+			<li><strong>Where you buy:</strong> Subscriptions and other in-app purchases are sold through the <strong>Apple App Store</strong> or <strong>Google Play</strong> and charged to your app store account. Apple or Google is the seller of record for those purchases, and the App Store or Google Play terms apply in addition to these Terms. Prices are shown in the store inclusive of VAT.</li>
+			<li><strong>Free trials:</strong> Some plans may include an introductory free trial. Unless you cancel before the trial ends, the trial converts to a paid subscription at the price shown when you started it. Any trial eligibility rules are set by the store.</li>
+			<li><strong>Renewal:</strong> Subscriptions renew automatically for the same period (monthly or yearly) until cancelled. Your store account is charged for renewal within 24 hours before the end of the current period at the then-current price.</li>
+			<li><strong>Cancellation:</strong> You cancel through your store account: on iOS under <strong>Settings → Apple Account → Subscriptions</strong>, on Android in the <strong>Google Play → Subscriptions</strong> section. Deleting the app or your TrophyLog account does not cancel a store subscription. Cancellation stops future renewals; your plan remains active until the end of the current paid period.</li>
+			<li><strong>Price changes:</strong> We may change prices for future periods. The store will notify you of a price change in advance and, where the store's rules require it, ask you to agree before the new price applies.</li>
+			<li><strong>Refunds and right of withdrawal:</strong> Because purchases are made through Apple or Google, refunds, including your 14-day right of withdrawal as an EU consumer, are handled by Apple or Google under their refund policies. Request a refund from the store you bought from. We cannot issue refunds for store purchases ourselves, but contact <a href="mailto:contact@trophylog.com">contact@trophylog.com</a> if you have a billing problem and we will help. Nothing in this section limits your mandatory rights as a consumer under Danish and EU law.</li>
+			<li><strong>Purchase management:</strong> We use <strong>RevenueCat</strong> to validate store purchases and to keep your plan and its limits in sync across your devices. Use <strong>Restore purchases</strong> in the app if a purchase is not reflected on a new device.</li>
+			<li><strong>Group packs:</strong> A group pack is bought by the group owner and applies to that group. If a pack expires or is cancelled, the group returns to the free-plan limits at the end of the paid period, and content beyond those limits may become read-only until the pack is renewed.</li>
 		</ul>
 
-		<h2>5. Your content</h2>
-		<p>You retain ownership of the hunts, trophies, photos, and other content you create ("Your Content"). You grant us a limited licence to host, store, back up, and sync Your Content solely to operate the Service for you. You are responsible for Your Content and confirm you have the rights to it and that it complies with applicable hunting and wildlife laws.</p>
+		<h2>5. Your content &amp; sharing</h2>
+		<p>You retain ownership of the hunts, trophies, photos, videos, notes, map data, and other content you create ("Your Content"). You grant us a limited, non-exclusive, worldwide licence to host, store, back up, sync, process, and display Your Content solely to operate and improve the Service for you and, where you choose to share it, to make it available to the group members, profile viewers, or link recipients you share it with. This licence ends when you delete the content or your account, except for content already shared with others and for copies kept in backups for a limited period.</p>
+		<p>You are responsible for Your Content. You confirm that you have the rights needed to share it, that it does not violate anyone else's rights or privacy, and that it complies with applicable hunting, firearms, wildlife, and data-protection laws. Do not share other people's personal data, including their location, without their permission.</p>
 
-		<h2>6. Acceptable use</h2>
-		<p>You agree not to: use the Service for any unlawful purpose or in breach of hunting, firearms, or wildlife regulations; upload unlawful, infringing, or harmful content; attempt to disrupt, reverse engineer, or gain unauthorised access to the Service; or use the Service to harass others. We may suspend or terminate accounts that breach these Terms.</p>
+		<h2>6. Acceptable use &amp; zero-tolerance policy</h2>
+		<p>We have <strong>zero tolerance for objectionable content and abusive users</strong>. You may not upload, share, or otherwise make available through the Service any content, and you may not engage in any behaviour, that:</p>
+		<ul>
+			<li>is unlawful, or promotes or documents unlawful hunting, poaching, or cruelty to animals beyond the lawful, respectful documentation of a hunt;</li>
+			<li>harasses, threatens, bullies, intimidates, or defames another person, or is hateful or discriminatory on the basis of, for example, ethnicity, religion, gender, sexual orientation, or disability;</li>
+			<li>is sexually explicit or pornographic, or depicts or promotes violence against people;</li>
+			<li>reveals another person's personal data, private location, or property without their permission;</li>
+			<li>infringes copyright, trademarks, or other rights, or impersonates another person or organisation;</li>
+			<li>is spam, a scam, misleading advertising, or contains malware or links to harmful content;</li>
+			<li>attempts to disrupt, overload, reverse engineer, scrape, or gain unauthorised access to the Service, other users' accounts, or other users' data; or</li>
+			<li>otherwise breaches these Terms or the community standards we publish in the app.</li>
+		</ul>
+		<p>Breaching this section is a material breach of these Terms. We may act immediately under sections 7 and 13 without prior notice.</p>
 
-		<h2>7. Licence</h2>
-		<p>We grant you a personal, non-exclusive, non-transferable, revocable licence to use the TrophyLog app on devices you own or control, subject to these Terms and the relevant app store terms. You may not copy, modify, distribute, sell, or lease any part of the Service.</p>
+		<h2>7. Content moderation, reporting &amp; blocking</h2>
+		<p><strong>Our right to moderate.</strong> We may, but are not obliged to, review content that is shared with other users. We reserve the right to filter, reject, hold for review, restrict the visibility of, or remove any user-generated content that we believe, in our reasonable judgement, violates these Terms or our community standards, without prior notice and without liability to you. Shared content may be held in a pending state until it has been checked. We are not responsible for content created by other users.</p>
+		<p><strong>Reporting.</strong> If you encounter objectionable content or an abusive user, report it. Every place where another user's content or profile is shown in the app has a <strong>Report</strong> action. You can also email <a href="mailto:contact@trophylog.com?subject=Report">contact@trophylog.com</a> with the subject "Report", including a description of the content or user and where you saw it. We aim to review every report within 24 hours of receiving it, and we will remove content and take action against the user where warranted.</p>
+		<p><strong>Blocking.</strong> You can block another user from their profile or from their content. Blocking hides that user's content from you immediately, prevents them from interacting with you, and notifies us so we can review the user's behaviour.</p>
+		<p><strong>Consequences for abusive users.</strong> Users who post objectionable content or behave abusively will be dealt with under section 13. This includes immediate removal of the offending content and suspension or permanent ejection of the user from the Service. We may also report unlawful content or conduct to the relevant authorities.</p>
 
-		<h2>8. Third-party services</h2>
-		<p>The Service relies on third parties (including Stripe, Mapbox, Google/Firebase, and Apple/Google sign-in). Their terms and privacy policies apply to their parts of the Service. We are not responsible for third-party services.</p>
+		<h2>8. Licence</h2>
+		<p>We grant you a personal, non-exclusive, non-transferable, revocable licence to use the TrophyLog app on devices you own or control, subject to these Terms and the relevant app store terms. You may not copy, modify, distribute, sell, or lease any part of the Service. If you obtained the app from the Apple App Store, Apple is a third-party beneficiary of these Terms and may enforce them against you.</p>
 
-		<h2>9. Availability &amp; offline use</h2>
-		<p>The app is designed to work offline and sync when you reconnect. We do not guarantee uninterrupted or error-free operation, and features that require connectivity (such as syncing, weather, or group invitations) depend on your network and third-party providers.</p>
+		<h2>9. Third-party services</h2>
+		<p>The Service relies on third parties, including the Apple App Store and Google Play (purchases), RevenueCat (purchase validation and subscription management), Mapbox (maps), Google Firebase (crash reporting and push notifications), and Apple and Google sign-in. Their terms and privacy policies apply to their parts of the Service. We are not responsible for third-party services.</p>
 
-		<h2>10. Disclaimers</h2>
+		<h2>10. Availability &amp; offline use</h2>
+		<p>The app is designed to work offline and sync when you reconnect. We do not guarantee uninterrupted or error-free operation, and features that require connectivity (such as syncing, weather, sharing, purchases, or group invitations) depend on your network and third-party providers.</p>
+
+		<h2>11. Disclaimers</h2>
 		<p>To the extent permitted by law, the Service is provided "as is" and "as available". TrophyLog is a logging and reference tool; it is <strong>not</strong> a safety or navigation device. Do not rely on it for safety-critical decisions in the field. You are solely responsible for safe and lawful hunting.</p>
 
-		<h2>11. Liability</h2>
-		<p>Nothing in these Terms limits liability that cannot be limited by law (including for death or personal injury caused by negligence, or for gross negligence or intent). Subject to that, our total liability arising from the Service is limited to the greater of the amount you paid us in the 12 months before the claim, or DKK 1,000. We are not liable for indirect or consequential losses. Mandatory rights you have as a consumer under Danish law are unaffected.</p>
+		<h2>12. Liability</h2>
+		<p>Nothing in these Terms limits liability that cannot be limited by law (including for death or personal injury caused by negligence, or for gross negligence or intent). Subject to that, our total liability arising from the Service is limited to the greater of the amount you paid for the Service in the 12 months before the claim, or DKK 1,000. We are not liable for indirect or consequential losses, or for content created by other users. Mandatory rights you have as a consumer under Danish law are unaffected.</p>
 
-		<h2>12. Termination</h2>
-		<p>You may stop using the Service and delete your account at any time (<strong>Settings → Delete account</strong>).</p>
-		<p><strong>Our right to suspend or terminate.</strong> We may suspend, restrict, or terminate your account and access to the Service at our sole discretion, at any time, with or without cause, and — where the law permits — without prior notice. This includes (without limitation) cases of actual or suspected breach of these Terms, abuse, fraud, unlawful activity, conduct that harms other users or the Service, or risk to us or third parties. Where reasonable and lawful, we will give you notice and an opportunity to remedy the issue first.</p>
-		<p><strong>If you are a paying subscriber.</strong> If we terminate your account <em>without cause</em> (i.e. not due to your breach, abuse, or unlawful conduct), we will refund the pro-rata portion of any subscription fee you have prepaid for the period after termination. No refund is due where we terminate for cause. Nothing in this section limits or removes the mandatory rights you have as a consumer under Danish and EU law.</p>
-		<p><strong>Effect of termination.</strong> On termination your licence ends and your access stops. We may delete your account and content after a reasonable period; export your data beforehand if you wish to keep it. Provisions that by their nature should survive (e.g. sections 5, 10, 11) continue to apply.</p>
+		<h2>13. Suspension, termination &amp; ejection</h2>
+		<p><strong>Ending it yourself.</strong> You may stop using the Service and delete your account at any time (<strong>Settings → Delete account</strong>, or via <a href="/delete-account">trophylog.com/delete-account</a>). Remember to cancel any store subscription separately (see section 4).</p>
+		<p><strong>Our right to suspend, terminate, or eject.</strong> We may suspend, restrict, or terminate your account and access to the Service at our sole discretion, at any time, and, where the law permits, without prior notice. This includes (without limitation) actual or suspected breach of these Terms, posting objectionable content, abusive behaviour towards other users, fraud, unlawful activity, conduct that harms other users or the Service, or risk to us or third parties. <strong>Abusive users may be permanently ejected from the Service and their offending content removed.</strong> Where reasonable and lawful, for minor issues, we will give you notice and an opportunity to remedy the issue first. Serious or repeated violations lead to immediate ejection.</p>
+		<p><strong>If you are a paying subscriber.</strong> If we terminate your account <em>without cause</em> (that is, not because of your breach, abuse, or unlawful conduct) while you have a paid period remaining, you may be entitled to a refund for the unused part of that period. Because purchases are made through Apple or Google, refunds are handled under their policies; contact us and we will help you with the request. No refund is due where we terminate for cause. Nothing in this section limits the mandatory rights you have as a consumer under Danish and EU law.</p>
+		<p><strong>Effect of termination.</strong> On termination your licence ends and your access stops. We may delete your account and content after a reasonable period; export your data beforehand if you wish to keep it. We may keep records needed to enforce these Terms, handle reports, or comply with the law. Provisions that by their nature should survive (for example sections 5, 11, and 12) continue to apply.</p>
 
-		<h2>13. Changes to these Terms</h2>
-		<p>We may update these Terms. We will notify you of material changes in the app or by email. Continued use after changes take effect constitutes acceptance.</p>
+		<h2>14. Changes to these Terms &amp; re-acceptance</h2>
+		<p>We may update these Terms. Each revision has its own version number and effective date, shown at the top of this page. For <strong>material changes</strong>, the app will present the new version and ask you to <strong>explicitly accept it before you can continue using the Service</strong>; we will also notify you in the app or by email in advance where reasonably possible. Minor changes, such as clarifications or corrections, take effect on their effective date and are accepted by your continued use of the Service. If you do not accept a new version, you must stop using the Service and may delete your account. Earlier versions are available on request from <a href="mailto:contact@trophylog.com">contact@trophylog.com</a>.</p>
 
-		<h2>14. Governing law &amp; disputes</h2>
+		<h2>15. Governing law &amp; disputes</h2>
 		<p>These Terms are governed by the laws of Denmark. Disputes are subject to the Danish courts, including the courts of Copenhagen, without prejudice to mandatory consumer protections in your country of residence. EU consumers may also use the European Commission's <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">Online Dispute Resolution platform</a>.</p>
 
-		<h2>15. Contact</h2>
-		<p>TrophyLog A/S, Sortebjergvej 6, 3200 Helsinge, Denmark — <a href="mailto:contact@trophylog.com">contact@trophylog.com</a></p>
+		<h2>16. Contact</h2>
+		<p>TrophyLog A/S, Sortebjergvej 6, 3200 Helsinge, Denmark — <a href="mailto:contact@trophylog.com">contact@trophylog.com</a>. Use the same address to report objectionable content or abusive users (see section 7).</p>
 	</Fragment>
 
 	<Fragment slot="da">
 		<h2>1. Aftale</h2>
-		<p>Disse handelsbetingelser ("Betingelser") udgør en bindende aftale mellem dig og TrophyLog A/S, CVR 31282241 ("TrophyLog", "vi", "os"), om din brug af TrophyLog-mobilappen og tilhørende tjenester ("Tjenesten"). Ved at oprette en konto eller bruge Tjenesten accepterer du disse Betingelser og vores <a href="/privacy">Privatlivspolitik</a>.</p>
+		<p>Disse handelsbetingelser og slutbrugerlicensaftale ("Betingelser") udgør en bindende aftale mellem dig og TrophyLog A/S, CVR 31282241 ("TrophyLog", "vi", "os"), om din brug af TrophyLog-mobilappen, hjemmesiden trophylog.com og tilhørende tjenester ("Tjenesten"). Ved at oprette en konto, acceptere disse Betingelser i appen eller bruge Tjenesten accepterer du disse Betingelser og vores <a href="/privacy?lang=da">Privatlivspolitik</a>.</p>
+		<p>Betingelsernes versionsnummer og ikrafttrædelsesdato fremgår øverst på denne side. Appen registrerer, hvilken version du har accepteret, og hvornår. Hvis vi udgiver en ny version, viser appen, hvilken version der gælder.</p>
 
 		<h2>2. Tjenesten</h2>
-		<p>TrophyLog er en offline-first jagtdagbog, hvor du kan registrere jagter, dokumentere trofæer, kortlægge jagtområder, tjekke vejret og dele med jagtgrupper. Tjenesten leveres til lovlig, personlig brug.</p>
+		<p>TrophyLog er en offline-first jagtdagbog, hvor du kan registrere jagter, dokumentere trofæer, kortlægge jagtområder, tjekke vejret og dele med jagtgrupper. Nogle funktioner lader dig dele indhold med andre brugere, fx i jagtgrupper, på medlemsprofiler eller via offentlige og skjulte delingslinks. Indhold, du deler på denne måde, er brugergenereret indhold og er omfattet af reglerne i pkt. 5, 6 og 7. Tjenesten leveres til lovlig, personlig brug.</p>
 
 		<h2>3. Adgang &amp; konti</h2>
-		<p>Du skal være mindst 16 år for at oprette en konto. Du er ansvarlig for at holde dine loginoplysninger sikre og for al aktivitet på din konto. Angiv korrekte oplysninger, og hold dem opdaterede.</p>
+		<p>Du skal være mindst 16 år for at oprette en konto. Du er ansvarlig for at holde dine loginoplysninger sikre og for al aktivitet på din konto. Angiv korrekte oplysninger, og hold dem opdaterede. Du skal acceptere den gældende version af disse Betingelser, før du kan oprette en konto eller logge ind.</p>
 
-		<h2>4. Gratis brug og abonnementer (forbrugsgrænser)</h2>
-		<p>TrophyLog er <strong>gratis at bruge med forbrugsgrænser</strong>. Alle kernefunktioner er tilgængelige, men en vis kapacitet (fx antallet af jagter, trofæer og markører, du kan gemme) er begrænset, indtil du køber et abonnement, der øger eller fjerner disse grænser.</p>
+		<h2>4. Gratis brug, abonnementer &amp; køb i appen</h2>
+		<p>TrophyLog er <strong>gratis at bruge med forbrugsgrænser</strong>. Kernefunktionerne er tilgængelige på den gratis plan, men en vis kapacitet (fx lagerplads, antal regioner eller gruppestørrelse) er begrænset, medmindre du køber en betalt plan. Vi tilbyder et personligt <strong>Premium</strong>-abonnement (månedligt eller årligt) og årlige <strong>gruppepakker</strong> til jagtkonsortier ("Konsortium"). De planer, grænser og priser, der gælder for dig, vises i appen og i app-butikken, før du køber.</p>
 		<ul>
-			<li><strong>Betaling:</strong> Abonnementer sælges og behandles af os via <strong>Stripe</strong> — ikke via Apple eller Google. Ved at tegne abonnement bemyndiger du os (gennem Stripe) til at trække betaling på din valgte betalingsmetode.</li>
-			<li><strong>Fornyelse:</strong> Abonnementer fornyes automatisk hver betalingsperiode (månedligt eller årligt afhængigt af dit abonnement), indtil de opsiges. Vi trækker den gældende pris, medmindre vi varsler en ændring på forhånd.</li>
-			<li><strong>Prisændringer:</strong> Vi kan ændre priser med rimeligt varsel; ændringer træder i kraft ved din næste fornyelse.</li>
-			<li><strong>Opsigelse:</strong> Du kan til enhver tid opsige under <strong>Konto → Abonnement</strong> (eller din kundeportal). Opsigelse standser fremtidige fornyelser; dit abonnement forbliver aktivt indtil udgangen af den aktuelle betalte periode.</li>
-			<li><strong>Fortrydelsesret (EU):</strong> Som forbruger i EU har du 14 dages fortrydelsesret på abonnementet. Hvis du beder os om at påbegynde abonnementet straks og derefter fortryder, kan du skylde et forholdsmæssigt beløb for den brugte periode, som tilladt efter dansk forbrugerlovgivning.</li>
-			<li><strong>Refusion:</strong> Bortset fra lovbestemte rettigheder (herunder fortrydelsesretten ovenfor) refunderes betalinger ikke for delvise perioder. Kontakt <a href="mailto:contact@trophylog.com">contact@trophylog.com</a> ved betalingsspørgsmål.</li>
+			<li><strong>Hvor du køber:</strong> Abonnementer og andre køb i appen sælges gennem <strong>Apple App Store</strong> eller <strong>Google Play</strong> og trækkes på din konto i app-butikken. Apple eller Google er sælger af disse køb, og App Stores eller Google Plays vilkår gælder i tillæg til disse Betingelser. Priser vises i butikken inklusive moms.</li>
+			<li><strong>Gratis prøveperioder:</strong> Nogle planer kan omfatte en indledende gratis prøveperiode. Medmindre du opsiger, inden prøveperioden udløber, overgår den til et betalt abonnement til den pris, der blev vist, da du startede den. Eventuelle regler for, hvem der kan få en prøveperiode, fastsættes af butikken.</li>
+			<li><strong>Fornyelse:</strong> Abonnementer fornyes automatisk for samme periode (månedligt eller årligt), indtil de opsiges. Din butikskonto trækkes for fornyelsen inden for 24 timer før udløbet af den aktuelle periode til den gældende pris.</li>
+			<li><strong>Opsigelse:</strong> Du opsiger via din butikskonto: på iOS under <strong>Indstillinger → Apple-konto → Abonnementer</strong>, på Android under <strong>Google Play → Abonnementer</strong>. Sletning af appen eller din TrophyLog-konto opsiger ikke et butiksabonnement. Opsigelse standser fremtidige fornyelser; din plan forbliver aktiv indtil udgangen af den aktuelle betalte periode.</li>
+			<li><strong>Prisændringer:</strong> Vi kan ændre priser for fremtidige perioder. Butikken varsler dig om en prisændring på forhånd og beder dig, hvor butikkens regler kræver det, om at godkende, før den nye pris gælder.</li>
+			<li><strong>Refusion og fortrydelsesret:</strong> Da køb foretages gennem Apple eller Google, håndteres refusioner, herunder din 14 dages fortrydelsesret som forbruger i EU, af Apple eller Google efter deres refusionspolitikker. Anmod om refusion hos den butik, du købte i. Vi kan ikke selv refundere butikskøb, men kontakt <a href="mailto:contact@trophylog.com">contact@trophylog.com</a>, hvis du har et betalingsproblem, så hjælper vi. Intet i dette afsnit begrænser dine ufravigelige rettigheder som forbruger efter dansk ret og EU-retten.</li>
+			<li><strong>Købsadministration:</strong> Vi bruger <strong>RevenueCat</strong> til at validere butikskøb og holde din plan og dens grænser synkroniseret på tværs af dine enheder. Brug <strong>Gendan køb</strong> i appen, hvis et køb ikke vises på en ny enhed.</li>
+			<li><strong>Gruppepakker:</strong> En gruppepakke købes af gruppens ejer og gælder for den pågældende gruppe. Hvis en pakke udløber eller opsiges, vender gruppen tilbage til den gratis plans grænser ved udgangen af den betalte periode, og indhold ud over disse grænser kan blive skrivebeskyttet, indtil pakken fornyes.</li>
 		</ul>
 
-		<h2>5. Dit indhold</h2>
-		<p>Du bevarer ejerskabet til de jagter, trofæer, billeder og andet indhold, du opretter ("Dit Indhold"). Du giver os en begrænset licens til at hoste, gemme, sikkerhedskopiere og synkronisere Dit Indhold udelukkende for at drive Tjenesten for dig. Du er ansvarlig for Dit Indhold og bekræfter, at du har rettighederne til det, og at det overholder gældende jagt- og vildtlovgivning.</p>
+		<h2>5. Dit indhold &amp; deling</h2>
+		<p>Du bevarer ejerskabet til de jagter, trofæer, billeder, videoer, noter, kortdata og andet indhold, du opretter ("Dit Indhold"). Du giver os en begrænset, ikke-eksklusiv, verdensomspændende licens til at hoste, gemme, sikkerhedskopiere, synkronisere, behandle og vise Dit Indhold udelukkende for at drive og forbedre Tjenesten for dig og, hvor du vælger at dele det, for at gøre det tilgængeligt for de gruppemedlemmer, profilbesøgende eller linkmodtagere, du deler det med. Licensen ophører, når du sletter indholdet eller din konto, bortset fra indhold, der allerede er delt med andre, og kopier, der opbevares i sikkerhedskopier i en begrænset periode.</p>
+		<p>Du er ansvarlig for Dit Indhold. Du bekræfter, at du har de nødvendige rettigheder til at dele det, at det ikke krænker andres rettigheder eller privatliv, og at det overholder gældende jagt-, våben-, vildt- og databeskyttelseslovgivning. Del ikke andre personers personoplysninger, herunder deres position, uden deres tilladelse.</p>
 
-		<h2>6. Acceptabel brug</h2>
-		<p>Du accepterer ikke at: bruge Tjenesten til ulovlige formål eller i strid med jagt-, våben- eller vildtregler; uploade ulovligt, krænkende eller skadeligt indhold; forsøge at forstyrre, reverse-engineere eller skaffe uautoriseret adgang til Tjenesten; eller bruge Tjenesten til at chikanere andre. Vi kan suspendere eller lukke konti, der overtræder disse Betingelser.</p>
+		<h2>6. Acceptabel brug &amp; nultolerance</h2>
+		<p>Vi har <strong>nultolerance over for anstødeligt indhold og krænkende brugere</strong>. Du må ikke uploade, dele eller på anden måde gøre indhold tilgængeligt via Tjenesten, og du må ikke udvise adfærd, der:</p>
+		<ul>
+			<li>er ulovlig, eller som fremmer eller dokumenterer ulovlig jagt, krybskytteri eller dyremishandling ud over lovlig og respektfuld dokumentation af en jagt;</li>
+			<li>chikanerer, truer, mobber, intimiderer eller bagvasker en anden person, eller som er hadefuld eller diskriminerende på grund af fx etnicitet, religion, køn, seksuel orientering eller handicap;</li>
+			<li>er seksuelt eksplicit eller pornografisk, eller som skildrer eller fremmer vold mod mennesker;</li>
+			<li>afslører en anden persons personoplysninger, private position eller ejendom uden vedkommendes tilladelse;</li>
+			<li>krænker ophavsret, varemærker eller andre rettigheder, eller som udgiver sig for at være en anden person eller organisation;</li>
+			<li>er spam, svindel, vildledende markedsføring eller indeholder malware eller links til skadeligt indhold;</li>
+			<li>forsøger at forstyrre, overbelaste, reverse-engineere, scrape eller skaffe uautoriseret adgang til Tjenesten, andre brugeres konti eller andre brugeres data; eller</li>
+			<li>på anden måde overtræder disse Betingelser eller de fællesskabsregler, vi offentliggør i appen.</li>
+		</ul>
+		<p>Overtrædelse af dette afsnit er en væsentlig misligholdelse af disse Betingelser. Vi kan straks gribe ind efter pkt. 7 og 13 uden forudgående varsel.</p>
 
-		<h2>7. Licens</h2>
-		<p>Vi giver dig en personlig, ikke-eksklusiv, ikke-overdragelig licens, der kan tilbagekaldes, til at bruge TrophyLog-appen på enheder, du ejer eller kontrollerer, underlagt disse Betingelser og de relevante app store-vilkår. Du må ikke kopiere, ændre, distribuere, sælge eller udleje nogen del af Tjenesten.</p>
+		<h2>7. Moderation, anmeldelse &amp; blokering</h2>
+		<p><strong>Vores ret til at moderere.</strong> Vi kan, men er ikke forpligtet til, at gennemgå indhold, der deles med andre brugere. Vi forbeholder os retten til at filtrere, afvise, tilbageholde til gennemgang, begrænse synligheden af eller fjerne ethvert brugergenereret indhold, som vi efter et rimeligt skøn vurderer overtræder disse Betingelser eller vores fællesskabsregler, uden forudgående varsel og uden ansvar over for dig. Delt indhold kan tilbageholdes som afventende, indtil det er kontrolleret. Vi er ikke ansvarlige for indhold, som andre brugere har oprettet.</p>
+		<p><strong>Anmeldelse.</strong> Hvis du støder på anstødeligt indhold eller en krænkende bruger, så anmeld det. Alle steder i appen, hvor en anden brugers indhold eller profil vises, findes en <strong>Anmeld</strong>-funktion. Du kan også skrive til <a href="mailto:contact@trophylog.com?subject=Anmeldelse">contact@trophylog.com</a> med emnet "Anmeldelse" og en beskrivelse af indholdet eller brugeren, og hvor du så det. Vi tilstræber at gennemgå enhver anmeldelse inden for 24 timer efter modtagelsen, og vi fjerner indhold og griber ind over for brugeren, hvor det er berettiget.</p>
+		<p><strong>Blokering.</strong> Du kan blokere en anden bruger fra vedkommendes profil eller indhold. Blokering skjuler straks brugerens indhold for dig, forhindrer brugeren i at interagere med dig og underretter os, så vi kan gennemgå brugerens adfærd.</p>
+		<p><strong>Konsekvenser for krænkende brugere.</strong> Brugere, der deler anstødeligt indhold eller udviser krænkende adfærd, håndteres efter pkt. 13. Det omfatter øjeblikkelig fjernelse af det pågældende indhold samt suspension eller permanent udelukkelse af brugeren fra Tjenesten. Vi kan desuden anmelde ulovligt indhold eller ulovlig adfærd til de relevante myndigheder.</p>
 
-		<h2>8. Tredjepartstjenester</h2>
-		<p>Tjenesten anvender tredjeparter (herunder Stripe, Mapbox, Google/Firebase og Apple/Google-login). Deres vilkår og privatlivspolitikker gælder for deres dele af Tjenesten. Vi er ikke ansvarlige for tredjepartstjenester.</p>
+		<h2>8. Licens</h2>
+		<p>Vi giver dig en personlig, ikke-eksklusiv, ikke-overdragelig licens, der kan tilbagekaldes, til at bruge TrophyLog-appen på enheder, du ejer eller kontrollerer, underlagt disse Betingelser og de relevante app store-vilkår. Du må ikke kopiere, ændre, distribuere, sælge eller udleje nogen del af Tjenesten. Hvis du har hentet appen fra Apple App Store, er Apple tredjepartsbegunstiget efter disse Betingelser og kan håndhæve dem over for dig.</p>
 
-		<h2>9. Tilgængelighed &amp; offline-brug</h2>
-		<p>Appen er designet til at virke offline og synkronisere, når du får forbindelse igen. Vi garanterer ikke uafbrudt eller fejlfri drift, og funktioner, der kræver forbindelse (såsom synkronisering, vejr eller gruppeinvitationer), afhænger af dit netværk og af tredjepartsudbydere.</p>
+		<h2>9. Tredjepartstjenester</h2>
+		<p>Tjenesten anvender tredjeparter, herunder Apple App Store og Google Play (køb), RevenueCat (validering af køb og abonnementsadministration), Mapbox (kort), Google Firebase (nedbrudsrapportering og push-notifikationer) samt Apple- og Google-login. Deres vilkår og privatlivspolitikker gælder for deres dele af Tjenesten. Vi er ikke ansvarlige for tredjepartstjenester.</p>
 
-		<h2>10. Ansvarsfraskrivelser</h2>
+		<h2>10. Tilgængelighed &amp; offline-brug</h2>
+		<p>Appen er designet til at virke offline og synkronisere, når du får forbindelse igen. Vi garanterer ikke uafbrudt eller fejlfri drift, og funktioner, der kræver forbindelse (såsom synkronisering, vejr, deling, køb eller gruppeinvitationer), afhænger af dit netværk og af tredjepartsudbydere.</p>
+
+		<h2>11. Ansvarsfraskrivelser</h2>
 		<p>I det omfang loven tillader det, leveres Tjenesten "som den er" og "som tilgængelig". TrophyLog er et logførings- og opslagsværktøj; det er <strong>ikke</strong> en sikkerheds- eller navigationsenhed. Forlad dig ikke på det til sikkerhedskritiske beslutninger i felten. Du er alene ansvarlig for sikker og lovlig jagt.</p>
 
-		<h2>11. Ansvar</h2>
-		<p>Intet i disse Betingelser begrænser ansvar, der ikke kan begrænses ved lov (herunder for død eller personskade forårsaget af uagtsomhed, eller for grov uagtsomhed eller forsæt). Med dette forbehold er vores samlede ansvar i forbindelse med Tjenesten begrænset til det største af det beløb, du har betalt os i de 12 måneder før kravet, eller DKK 1.000. Vi er ikke ansvarlige for indirekte tab eller følgeskader. Ufravigelige forbrugerrettigheder efter dansk ret berøres ikke.</p>
+		<h2>12. Ansvar</h2>
+		<p>Intet i disse Betingelser begrænser ansvar, der ikke kan begrænses ved lov (herunder for død eller personskade forårsaget af uagtsomhed, eller for grov uagtsomhed eller forsæt). Med dette forbehold er vores samlede ansvar i forbindelse med Tjenesten begrænset til det største af det beløb, du har betalt for Tjenesten i de 12 måneder før kravet, eller DKK 1.000. Vi er ikke ansvarlige for indirekte tab eller følgeskader eller for indhold, som andre brugere har oprettet. Ufravigelige forbrugerrettigheder efter dansk ret berøres ikke.</p>
 
-		<h2>12. Ophør</h2>
-		<p>Du kan til enhver tid stoppe med at bruge Tjenesten og slette din konto (<strong>Indstillinger → Slet konto</strong>).</p>
-		<p><strong>Vores ret til at suspendere eller lukke.</strong> Vi kan suspendere, begrænse eller lukke din konto og adgang til Tjenesten efter eget skøn, til enhver tid, med eller uden årsag, og — hvor loven tillader det — uden forudgående varsel. Dette omfatter (uden begrænsning) faktisk eller formodet overtrædelse af disse Betingelser, misbrug, svig, ulovlig aktivitet, adfærd der skader andre brugere eller Tjenesten, eller risiko for os eller tredjeparter. Hvor det er rimeligt og lovligt, vil vi først give dig varsel og mulighed for at rette op på forholdet.</p>
-		<p><strong>Hvis du er betalende abonnent.</strong> Hvis vi lukker din konto <em>uden årsag</em> (dvs. ikke på grund af din overtrædelse, misbrug eller ulovlige adfærd), refunderer vi den forholdsmæssige del af et abonnementsgebyr, du har forudbetalt for perioden efter ophøret. Der ydes ingen refusion, hvor vi lukker med årsag. Intet i dette afsnit begrænser eller fjerner de ufravigelige rettigheder, du har som forbruger efter dansk og EU-retten.</p>
-		<p><strong>Virkning af ophør.</strong> Ved ophør bortfalder din licens, og din adgang stopper. Vi kan slette din konto og dit indhold efter en rimelig periode; eksportér dine data forinden, hvis du vil beholde dem. Bestemmelser, der efter deres natur bør fortsætte (fx pkt. 5, 10, 11), forbliver gældende.</p>
+		<h2>13. Suspension, ophør &amp; udelukkelse</h2>
+		<p><strong>Hvis du selv vil stoppe.</strong> Du kan til enhver tid stoppe med at bruge Tjenesten og slette din konto (<strong>Indstillinger → Slet konto</strong> eller via <a href="/delete-account">trophylog.com/delete-account</a>). Husk at opsige et eventuelt butiksabonnement særskilt (se pkt. 4).</p>
+		<p><strong>Vores ret til at suspendere, lukke eller udelukke.</strong> Vi kan suspendere, begrænse eller lukke din konto og adgang til Tjenesten efter eget skøn, til enhver tid og, hvor loven tillader det, uden forudgående varsel. Dette omfatter (uden begrænsning) faktisk eller formodet overtrædelse af disse Betingelser, deling af anstødeligt indhold, krænkende adfærd over for andre brugere, svig, ulovlig aktivitet, adfærd der skader andre brugere eller Tjenesten, eller risiko for os eller tredjeparter. <strong>Krænkende brugere kan udelukkes permanent fra Tjenesten, og deres krænkende indhold fjernes.</strong> Hvor det er rimeligt og lovligt, vil vi ved mindre forhold først give dig varsel og mulighed for at rette op. Alvorlige eller gentagne overtrædelser fører til øjeblikkelig udelukkelse.</p>
+		<p><strong>Hvis du er betalende abonnent.</strong> Hvis vi lukker din konto <em>uden årsag</em> (dvs. ikke på grund af din overtrædelse, misbrug eller ulovlige adfærd), mens du har en betalt periode tilbage, kan du have ret til refusion for den ubrugte del af perioden. Da køb foretages gennem Apple eller Google, håndteres refusioner efter deres politikker; kontakt os, så hjælper vi dig med anmodningen. Der ydes ingen refusion, hvor vi lukker med årsag. Intet i dette afsnit begrænser de ufravigelige rettigheder, du har som forbruger efter dansk ret og EU-retten.</p>
+		<p><strong>Virkning af ophør.</strong> Ved ophør bortfalder din licens, og din adgang stopper. Vi kan slette din konto og dit indhold efter en rimelig periode; eksportér dine data forinden, hvis du vil beholde dem. Vi kan opbevare de oplysninger, der er nødvendige for at håndhæve disse Betingelser, behandle anmeldelser eller overholde loven. Bestemmelser, der efter deres natur bør fortsætte (fx pkt. 5, 11 og 12), forbliver gældende.</p>
 
-		<h2>13. Ændringer af disse Betingelser</h2>
-		<p>Vi kan opdatere disse Betingelser. Vi varsler væsentlige ændringer i appen eller pr. e-mail. Fortsat brug efter ikrafttræden udgør accept.</p>
+		<h2>14. Ændringer af disse Betingelser &amp; fornyet accept</h2>
+		<p>Vi kan opdatere disse Betingelser. Hver revision har sit eget versionsnummer og sin egen ikrafttrædelsesdato, som vises øverst på denne side. Ved <strong>væsentlige ændringer</strong> viser appen den nye version og beder dig <strong>udtrykkeligt acceptere den, før du kan fortsætte med at bruge Tjenesten</strong>; vi varsler dig desuden i appen eller pr. e-mail på forhånd, hvor det med rimelighed er muligt. Mindre ændringer, såsom præciseringer eller rettelser, træder i kraft på deres ikrafttrædelsesdato og accepteres ved din fortsatte brug af Tjenesten. Hvis du ikke accepterer en ny version, skal du stoppe med at bruge Tjenesten og kan slette din konto. Tidligere versioner kan fås ved henvendelse til <a href="mailto:contact@trophylog.com">contact@trophylog.com</a>.</p>
 
-		<h2>14. Lovvalg &amp; tvister</h2>
+		<h2>15. Lovvalg &amp; tvister</h2>
 		<p>Disse Betingelser er underlagt dansk ret. Tvister afgøres ved de danske domstole, herunder Københavns Byret, uden at det berører ufravigelige forbrugerbeskyttelser i dit bopælsland. EU-forbrugere kan også bruge Europa-Kommissionens <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">platform for onlinetvistbilæggelse (ODR)</a>.</p>
 
-		<h2>15. Kontakt</h2>
-		<p>TrophyLog A/S, Sortebjergvej 6, 3200 Helsinge, Danmark — <a href="mailto:contact@trophylog.com">contact@trophylog.com</a></p>
+		<h2>16. Kontakt</h2>
+		<p>TrophyLog A/S, Sortebjergvej 6, 3200 Helsinge, Danmark — <a href="mailto:contact@trophylog.com">contact@trophylog.com</a>. Brug samme adresse til at anmelde anstødeligt indhold eller krænkende brugere (se pkt. 7).</p>
 	</Fragment>
 </LegalLayout>
