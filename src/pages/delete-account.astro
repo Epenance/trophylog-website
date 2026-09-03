@@ -606,34 +606,63 @@ import Layout from '../layouts/Layout.astro';
 </style>
 
 <script>
-	// ——— Language toggle (same mechanism + storage key as the legal pages)
+	// ——— Language toggle (same resolution + storage key as the legal pages)
+	type Lang = 'en' | 'da';
+
+	const STORAGE_KEY = 'trophylog-legal-lang';
 	const page = document.getElementById('page');
 	const langButtons = document.querySelectorAll<HTMLButtonElement>('.lang-btn');
-	let lang = 'en';
+	let lang: Lang = 'en';
 
-	function setLang(next: string) {
+	function isLang(value: string | null | undefined): value is Lang {
+		return value === 'en' || value === 'da';
+	}
+
+	function setLang(next: Lang) {
 		if (!page) return;
-		lang = next === 'da' ? 'da' : 'en';
+		lang = next;
 		page.classList.toggle('show-da', lang === 'da');
-		page.classList.toggle('show-en', lang !== 'da');
+		page.classList.toggle('show-en', lang === 'en');
+		document.documentElement.lang = lang;
 		langButtons.forEach((btn) => {
 			const active = btn.dataset.lang === lang;
 			btn.classList.toggle('active', active);
 			btn.setAttribute('aria-pressed', String(active));
 		});
+	}
+
+	function rememberLang(next: Lang) {
 		try {
-			localStorage.setItem('trophylog-legal-lang', lang);
+			localStorage.setItem(STORAGE_KEY, next);
+		} catch {}
+		try {
+			const url = new URL(window.location.href);
+			url.searchParams.set('lang', next);
+			history.replaceState(history.state, '', url);
 		} catch {}
 	}
 
+	// 1. ?lang=en|da in the URL, 2. last saved choice, 3. English
+	function initialLang(): Lang {
+		const fromUrl = new URLSearchParams(window.location.search).get('lang');
+		if (isLang(fromUrl)) return fromUrl;
+		try {
+			const saved = localStorage.getItem(STORAGE_KEY);
+			if (isLang(saved)) return saved;
+		} catch {}
+		return 'en';
+	}
+
 	langButtons.forEach((btn) => {
-		btn.addEventListener('click', () => setLang(btn.dataset.lang ?? 'en'));
+		btn.addEventListener('click', () => {
+			const next = btn.dataset.lang;
+			if (!isLang(next)) return;
+			setLang(next);
+			rememberLang(next);
+		});
 	});
 
-	try {
-		const saved = localStorage.getItem('trophylog-legal-lang');
-		if (saved === 'da') setLang('da');
-	} catch {}
+	setLang(initialLang());
 
 	// ——— Deletion flow
 	const API_BASE = 'https://api.trophylog.com/api/v1';

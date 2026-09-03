@@ -7,7 +7,7 @@ copy. There is no separate Markdown draft to keep in sync.
 | --- | --- | --- |
 | Terms of Service & EULA | `src/pages/terms.astro` | `https://trophylog.com/terms/?lang=en` · `https://trophylog.com/terms/?lang=da` |
 | Privacy Policy | `src/pages/privacy.astro` | `https://trophylog.com/privacy/?lang=en` · `https://trophylog.com/privacy/?lang=da` |
-| Account deletion | `src/pages/delete-account.astro` | `https://trophylog.com/delete-account/` |
+| Account deletion | `src/pages/delete-account.astro` | `https://trophylog.com/delete-account/?lang=en` · `https://trophylog.com/delete-account/?lang=da` |
 
 Version numbers, effective dates, and stable URLs live in **`src/data/legal.ts`**
 and nowhere else. The pages render them, and `/terms/version.json` publishes the
@@ -43,8 +43,8 @@ The backend descriptor and the app must use these fields verbatim from
 | `urls.en` / `urls.da` | Stable locale-specific links the app opens |
 | `requiresReacceptance` | Whether all existing users must re-accept |
 
-Locale resolution on the website is deterministic: `?lang=en|da` in the URL
-wins, then the visitor's last choice in `localStorage`, then English.
+Locale resolution on all three pages is deterministic: `?lang=en|da` in the
+URL wins, then the visitor's last choice in `localStorage`, then English.
 
 Related: [trophylog-app#198](https://github.com/Epenance/trophylog-app/issues/198)
 (App Review 1.2 epic), [trophylog-website#1](https://github.com/Epenance/trophylog-website/issues/1).
