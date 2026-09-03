@@ -31,10 +31,10 @@ export const TERMS: LegalDocument & {
 	requiresReacceptance: boolean;
 } = {
 	version: '2.0',
-	effectiveAt: '2026-10-01',
+	effectiveAt: '2026-09-01',
 	effectiveDate: {
-		en: '1 October 2026',
-		da: '1. oktober 2026',
+		en: '1 September 2026',
+		da: '1. september 2026',
 	},
 	urls: {
 		en: `${SITE_ORIGIN}/terms/?lang=en`,
@@ -45,10 +45,10 @@ export const TERMS: LegalDocument & {
 
 export const PRIVACY: LegalDocument = {
 	version: '2.0',
-	effectiveAt: '2026-10-01',
+	effectiveAt: '2026-09-01',
 	effectiveDate: {
-		en: '1 October 2026',
-		da: '1. oktober 2026',
+		en: '1 September 2026',
+		da: '1. september 2026',
 	},
 	urls: {
 		en: `${SITE_ORIGIN}/privacy/?lang=en`,
