@@ -335,29 +335,63 @@ const { title, heading, headingDa, meta, metaDa } = Astro.props;
 </style>
 
 <script>
+	type Lang = 'en' | 'da';
+
+	const STORAGE_KEY = 'trophylog-legal-lang';
 	const legal = document.getElementById('legal');
 	const buttons = document.querySelectorAll<HTMLButtonElement>('.lang-btn');
 
-	function setLang(lang: string) {
+	function isLang(value: string | null): value is Lang {
+		return value === 'en' || value === 'da';
+	}
+
+	function applyLang(lang: Lang) {
 		if (!legal) return;
 		legal.classList.toggle('show-da', lang === 'da');
-		legal.classList.toggle('show-en', lang !== 'da');
+		legal.classList.toggle('show-en', lang === 'en');
+		document.documentElement.lang = lang;
 		buttons.forEach((btn) => {
 			const active = btn.dataset.lang === lang;
 			btn.classList.toggle('active', active);
 			btn.setAttribute('aria-pressed', String(active));
 		});
+	}
+
+	function rememberLang(lang: Lang) {
 		try {
-			localStorage.setItem('trophylog-legal-lang', lang);
+			localStorage.setItem(STORAGE_KEY, lang);
+		} catch {}
+		try {
+			const url = new URL(window.location.href);
+			url.searchParams.set('lang', lang);
+			history.replaceState(history.state, '', url);
 		} catch {}
 	}
 
+	/**
+	 * Resolve the initial language deterministically:
+	 *   1. `?lang=en|da` in the URL (stable deep links from the app / stores)
+	 *   2. the last choice saved in localStorage
+	 *   3. English
+	 */
+	function initialLang(): Lang {
+		const fromUrl = new URLSearchParams(window.location.search).get('lang');
+		if (isLang(fromUrl)) return fromUrl;
+		try {
+			const saved = localStorage.getItem(STORAGE_KEY);
+			if (isLang(saved)) return saved;
+		} catch {}
+		return 'en';
+	}
+
 	buttons.forEach((btn) => {
-		btn.addEventListener('click', () => setLang(btn.dataset.lang ?? 'en'));
+		btn.addEventListener('click', () => {
+			const lang = btn.dataset.lang;
+			if (!isLang(lang)) return;
+			applyLang(lang);
+			rememberLang(lang);
+		});
 	});
 
-	try {
-		const saved = localStorage.getItem('trophylog-legal-lang');
-		if (saved === 'da') setLang('da');
-	} catch {}
+	applyLang(initialLang());
 </script>

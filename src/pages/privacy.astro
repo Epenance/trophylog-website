@@ -1,13 +1,17 @@
 ---
 import LegalLayout from '../layouts/LegalLayout.astro';
+import { PRIVACY } from '../data/legal';
+
+const meta = `Version ${PRIVACY.version} · Effective date: ${PRIVACY.effectiveDate.en} · Last updated: ${PRIVACY.effectiveDate.en}`;
+const metaDa = `Version ${PRIVACY.version} · Ikrafttrædelsesdato: ${PRIVACY.effectiveDate.da} · Senest opdateret: ${PRIVACY.effectiveDate.da}`;
 ---
 
 <LegalLayout
 	title="Privacy Policy — TrophyLog"
 	heading="Privacy Policy"
 	headingDa="Privatlivspolitik"
-	meta="Effective date: 7 July 2026 · Last updated: 7 July 2026"
-	metaDa="Ikrafttrædelsesdato: 7. juli 2026 · Senest opdateret: 7. juli 2026"
+	meta={meta}
+	metaDa={metaDa}
 >
 	<Fragment slot="en">
 		<h2>1. Who we are (Data Controller)</h2>
@@ -66,10 +70,16 @@ import LegalLayout from '../layouts/LegalLayout.astro';
 						<td>Consent (6(1)(a)) — only contacts you actively import</td>
 					</tr>
 					<tr>
-						<td>Subscription &amp; payment data</td>
-						<td>Subscription status, plan, Stripe customer/subscription identifiers, billing history</td>
-						<td>Manage your subscription and usage limits</td>
+						<td>Subscription &amp; purchase data</td>
+						<td>Subscription status, plan, app store transaction/receipt identifiers, RevenueCat app user ID, purchase and entitlement history</td>
+						<td>Validate your in-app purchases and manage your plan and usage limits across devices</td>
 						<td>Contract (6(1)(b)); legal obligation for accounting (6(1)(c))</td>
+					</tr>
+					<tr>
+						<td>Shared content &amp; safety data</td>
+						<td>Content you share with groups or via links (with your user ID as author), reports you submit or that concern you (reporter, reported user, content reference, reason, an evidence snapshot), block lists, moderation decisions</td>
+						<td>Attribute shared content, screen it for objectionable material, handle reports and blocks, and enforce our Terms</td>
+						<td>Contract (6(1)(b)); legitimate interests (6(1)(f)) — keeping the Service safe; legal obligation (6(1)(c)) where a law requires us to act</td>
 					</tr>
 					<tr>
 						<td>Diagnostics</td>
@@ -88,41 +98,53 @@ import LegalLayout from '../layouts/LegalLayout.astro';
 		</div>
 		<p>We do <strong>not</strong> use your data for advertising, and we do <strong>not</strong> track you across other companies' apps or websites.</p>
 
-		<h2>4. Payment processing (Stripe)</h2>
-		<p>Subscriptions are processed by <strong>Stripe</strong>, not through Apple or Google. When you subscribe, your card and billing details are collected and processed directly by Stripe as an independent controller/processor under <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe's privacy policy</a>. We do not receive or store your full card number. We store your subscription status and Stripe identifiers to manage your access and usage limits.</p>
+		<h2>4. In-app purchases (Apple, Google &amp; RevenueCat)</h2>
+		<p>Subscriptions and other in-app purchases are made through the <strong>Apple App Store</strong> or <strong>Google Play</strong>. Your payment details are collected and processed by Apple or Google as independent data controllers under <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's</a> privacy policies. We never receive your card number.</p>
+		<p>We use <strong>RevenueCat, Inc.</strong> (USA) as our processor to validate store purchases and keep your plan in sync across devices. RevenueCat receives the store purchase token or receipt, a RevenueCat app user ID linked to your TrophyLog account, and basic device metadata (such as platform, app version, and IP address). We store your subscription status, plan, and purchase identifiers to manage your access and usage limits.</p>
 
-		<h2>5. Who we share data with</h2>
+		<h2>5. Content moderation, reports &amp; blocking</h2>
+		<p>Content you share with other users (for example in hunting groups, on your profile, or via public or unlisted links) carries your user ID as its author and may be screened, automatically and by our team, for content that violates our <a href="/terms?lang=en">Terms</a>. When you report content or a user, or block a user, we record who reported or blocked whom, the content concerned, the reason you gave, and a snapshot of the content as evidence, so that we can review the report and act on it. The reported user is not told who reported them. We keep a record of the decisions we make so we can enforce our Terms consistently and respond to appeals. Private hunting-log data that you have not shared is not screened.</p>
+
+		<h2>6. Who we share data with</h2>
 		<p>We share personal data only with service providers ("processors") that help us run TrophyLog, under data processing agreements:</p>
 		<ul>
 			<li><strong>Railway</strong> — application hosting and database</li>
+			<li><strong>Cloudflare</strong> (R2, Workers) — storage of your photos and files, database backups, and request routing/delivery for our services</li>
+			<li><strong>Bunny Stream</strong> — upload, processing, hosting and playback of videos you add</li>
+			<li><strong>Resend</strong> — transactional email (such as verification and account-deletion codes)</li>
 			<li><strong>Google Firebase</strong> (Crashlytics, Cloud Messaging) — crash diagnostics and push notifications</li>
 			<li><strong>Mapbox</strong> — map rendering (receives location/map requests)</li>
-			<li><strong>Stripe</strong> — payment processing</li>
+			<li><strong>RevenueCat, Inc.</strong> — in-app purchase validation and subscription management</li>
 			<li><strong>Google / Apple</strong> — only if you use Sign in with Google/Apple, for authentication</li>
 		</ul>
-		<p>We do not sell your personal data.</p>
+		<p><strong>Apple and Google</strong> process your in-app purchases as independent controllers, not as our processors. We may disclose personal data to authorities where the law requires it, for example in connection with unlawful content or conduct reported to us. We do not sell your personal data.</p>
 
-		<h2>6. International transfers</h2>
-		<p>Some of our processors (e.g. Google, Stripe, Mapbox) may process data outside the EU/EEA, including in the United States. Where this happens, transfers are protected by appropriate safeguards such as the EU Standard Contractual Clauses and/or the EU–US Data Privacy Framework. Contact us for details or a copy of the safeguards.</p>
+		<h2>7. International transfers</h2>
+		<p>Some of our processors (e.g. Google, RevenueCat, Cloudflare, Bunny Stream, Resend, Mapbox) may process or route data outside the EU/EEA, including in the United States. Where this happens, transfers are protected by appropriate safeguards such as the EU Standard Contractual Clauses and/or the EU–US Data Privacy Framework. Contact us for details or a copy of the safeguards.</p>
 
-		<h2>7. How long we keep data</h2>
+		<h2>8. How long we keep data</h2>
 		<ul>
-			<li><strong>Account and hunting content:</strong> for as long as your account is active, and deleted within 30 days after you delete your account.</li>
-			<li><strong>Subscription/billing records:</strong> kept for 5 years where required by Danish accounting law (Bogføringsloven).</li>
+			<li><strong>Your private account and hunting content:</strong> kept while your account is active. When you ask us to delete your account, it is deactivated immediately and permanently deleted after a 30-day grace period. Signing in again during those 30 days cancels the deletion. This covers your account details and the hunts, trophies, areas, markers, photos and videos you have not shared with a group.</li>
+			<li><strong>Content you shared with a group:</strong> hunts, trophies, bookings and media you shared with a hunting group stay with that group after your account is deleted, because the remaining members still need their own records. Your attribution is removed: the entry is no longer linked to your account and is shown as "Deleted user". Groups you owned are transferred to another member, or deleted with their content if you were the only member.</li>
+			<li><strong>Backups:</strong> database backups are kept for 30 days and then deleted, so deleted data can still exist in a backup for up to 30 days.</li>
+			<li><strong>Purchase and accounting records:</strong> subscription, purchase and entitlement records are kept for 5 years where required by Danish accounting law (Bogføringsloven), even after your account is deleted.</li>
+			<li><strong>Reports, blocks and moderation decisions:</strong> kept while the report is open and for up to 2 years after it is closed, or longer where needed to enforce our Terms, prevent repeat abuse, or defend legal claims.</li>
+			<li><strong>Permanent-ejection records:</strong> where we permanently eject a user, we keep a minimal record of the ejection for as long as needed to stop that user returning to the Service.</li>
 			<li><strong>Crash diagnostics:</strong> retained per Firebase defaults (up to 90 days).</li>
 		</ul>
+		<p>The <a href="/delete-account?lang=en">account deletion page</a> explains the same process step by step.</p>
 
-		<h2>8. Your rights under GDPR</h2>
-		<p>You have the right to access, rectify, erase, restrict, or object to processing, to data portability, and to withdraw consent at any time (without affecting prior processing). To exercise any right, contact <a href="mailto:contact@trophylog.com">contact@trophylog.com</a>. You can delete your account and associated data directly in the app under <strong>Settings → Delete account</strong>, or by emailing us.</p>
+		<h2>9. Your rights under GDPR</h2>
+		<p>You have the right to access, rectify, erase, restrict, or object to processing, to data portability, and to withdraw consent at any time (without affecting prior processing). To exercise any right, contact <a href="mailto:contact@trophylog.com">contact@trophylog.com</a>. You can delete your account and associated data directly in the app under <strong>Settings → Danger zone</strong>, or by emailing us.</p>
 		<p>You also have the right to lodge a complaint with the Danish Data Protection Agency (<strong>Datatilsynet</strong>, <a href="https://www.datatilsynet.dk" target="_blank" rel="noopener">datatilsynet.dk</a>).</p>
 
-		<h2>9. Children</h2>
+		<h2>10. Children</h2>
 		<p>TrophyLog is not directed at children under 16. We do not knowingly collect data from children under that age.</p>
 
-		<h2>10. Changes</h2>
-		<p>We may update this policy. Material changes will be notified in the app or by email. The "Last updated" date reflects the latest version.</p>
+		<h2>11. Changes</h2>
+		<p>We may update this policy. Material changes will be notified in the app or by email. The version number and "Last updated" date at the top of this page identify the current revision.</p>
 
-		<h2>11. Contact</h2>
+		<h2>12. Contact</h2>
 		<p>TrophyLog A/S, Sortebjergvej 6, 3200 Helsinge, Denmark — <a href="mailto:contact@trophylog.com">contact@trophylog.com</a></p>
 	</Fragment>
 
@@ -183,10 +205,16 @@ import LegalLayout from '../layouts/LegalLayout.astro';
 						<td>Samtykke (6(1)(a)) — kun kontakter, du aktivt importerer</td>
 					</tr>
 					<tr>
-						<td>Abonnements- og betalingsdata</td>
-						<td>Abonnementsstatus, plan, Stripe kunde-/abonnements-id'er, betalingshistorik</td>
-						<td>Administrere dit abonnement og dine forbrugsgrænser</td>
+						<td>Abonnements- og købsdata</td>
+						<td>Abonnementsstatus, plan, transaktions-/kvitterings-id'er fra app-butikken, RevenueCat-bruger-id, købs- og rettighedshistorik</td>
+						<td>Validere dine køb i appen og administrere din plan og dine forbrugsgrænser på tværs af enheder</td>
 						<td>Aftale (6(1)(b)); retlig forpligtelse til bogføring (6(1)(c))</td>
+					</tr>
+					<tr>
+						<td>Delt indhold &amp; sikkerhedsdata</td>
+						<td>Indhold, du deler med grupper eller via links (med dit bruger-id som ophavsmand), anmeldelser, du indsender, eller som vedrører dig (anmelder, anmeldt bruger, reference til indholdet, begrundelse, et bevisøjebliksbillede), blokeringslister, moderationsafgørelser</td>
+						<td>Knytte delt indhold til ophavsmanden, screene det for anstødeligt materiale, håndtere anmeldelser og blokeringer samt håndhæve vores Betingelser</td>
+						<td>Aftale (6(1)(b)); legitime interesser (6(1)(f)) — at holde Tjenesten sikker; retlig forpligtelse (6(1)(c)), hvor loven kræver, at vi griber ind</td>
 					</tr>
 					<tr>
 						<td>Diagnostik</td>
@@ -205,41 +233,53 @@ import LegalLayout from '../layouts/LegalLayout.astro';
 		</div>
 		<p>Vi bruger <strong>ikke</strong> dine data til annoncering, og vi sporer dig <strong>ikke</strong> på tværs af andre virksomheders apps eller websteder.</p>
 
-		<h2>4. Betalingsbehandling (Stripe)</h2>
-		<p>Abonnementer behandles af <strong>Stripe</strong> — ikke via Apple eller Google. Når du tegner abonnement, indsamles og behandles dine kort- og betalingsoplysninger direkte af Stripe i henhold til <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripes privatlivspolitik</a>. Vi modtager eller gemmer ikke dit fulde kortnummer. Vi gemmer din abonnementsstatus og Stripe-id'er for at administrere din adgang og dine forbrugsgrænser.</p>
+		<h2>4. Køb i appen (Apple, Google &amp; RevenueCat)</h2>
+		<p>Abonnementer og andre køb i appen foretages gennem <strong>Apple App Store</strong> eller <strong>Google Play</strong>. Dine betalingsoplysninger indsamles og behandles af Apple eller Google som selvstændige dataansvarlige i henhold til <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apples</a> og <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Googles</a> privatlivspolitikker. Vi modtager aldrig dit kortnummer.</p>
+		<p>Vi bruger <strong>RevenueCat, Inc.</strong> (USA) som databehandler til at validere butikskøb og holde din plan synkroniseret på tværs af enheder. RevenueCat modtager købstokenet eller kvitteringen fra butikken, et RevenueCat-bruger-id, der er knyttet til din TrophyLog-konto, samt grundlæggende enhedsmetadata (såsom platform, appversion og IP-adresse). Vi gemmer din abonnementsstatus, plan og købs-id'er for at administrere din adgang og dine forbrugsgrænser.</p>
 
-		<h2>5. Hvem vi deler data med</h2>
+		<h2>5. Moderation, anmeldelser &amp; blokering</h2>
+		<p>Indhold, du deler med andre brugere (fx i jagtgrupper, på din profil eller via offentlige eller skjulte links), bærer dit bruger-id som ophavsmand og kan screenes, både automatisk og af vores team, for indhold, der overtræder vores <a href="/terms?lang=da">Betingelser</a>. Når du anmelder indhold eller en bruger, eller blokerer en bruger, registrerer vi, hvem der har anmeldt eller blokeret hvem, det pågældende indhold, din begrundelse og et øjebliksbillede af indholdet som bevis, så vi kan gennemgå anmeldelsen og handle på den. Den anmeldte bruger får ikke at vide, hvem der har anmeldt vedkommende. Vi gemmer en oversigt over vores afgørelser, så vi kan håndhæve vores Betingelser konsekvent og behandle klager. Private jagtdagbogsdata, som du ikke har delt, screenes ikke.</p>
+
+		<h2>6. Hvem vi deler data med</h2>
 		<p>Vi deler kun personoplysninger med databehandlere, der hjælper os med at drive TrophyLog, under databehandleraftaler:</p>
 		<ul>
 			<li><strong>Railway</strong> — hosting og database</li>
+			<li><strong>Cloudflare</strong> (R2, Workers) — lagring af dine billeder og filer, databasesikkerhedskopier samt routing/levering af forespørgsler til vores tjenester</li>
+			<li><strong>Bunny Stream</strong> — upload, behandling, hosting og afspilning af de videoer, du tilføjer</li>
+			<li><strong>Resend</strong> — transaktionelle e-mails (fx bekræftelses- og sletningskoder)</li>
 			<li><strong>Google Firebase</strong> (Crashlytics, Cloud Messaging) — nedbrudsdiagnostik og push-notifikationer</li>
 			<li><strong>Mapbox</strong> — kortvisning (modtager placerings-/kortforespørgsler)</li>
-			<li><strong>Stripe</strong> — betalingsbehandling</li>
+			<li><strong>RevenueCat, Inc.</strong> — validering af køb i appen og abonnementsadministration</li>
 			<li><strong>Google / Apple</strong> — kun hvis du bruger Log ind med Google/Apple, til godkendelse</li>
 		</ul>
-		<p>Vi sælger ikke dine personoplysninger.</p>
+		<p><strong>Apple og Google</strong> behandler dine køb i appen som selvstændige dataansvarlige, ikke som vores databehandlere. Vi kan videregive personoplysninger til myndigheder, hvor loven kræver det, fx i forbindelse med ulovligt indhold eller ulovlig adfærd, der anmeldes til os. Vi sælger ikke dine personoplysninger.</p>
 
-		<h2>6. Overførsler til tredjelande</h2>
-		<p>Nogle af vores databehandlere (fx Google, Stripe, Mapbox) kan behandle data uden for EU/EØS, herunder i USA. Hvor det sker, er overførsler beskyttet af passende garantier såsom EU's standardkontraktbestemmelser og/eller EU–US Data Privacy Framework. Kontakt os for detaljer eller en kopi af garantierne.</p>
+		<h2>7. Overførsler til tredjelande</h2>
+		<p>Nogle af vores databehandlere (fx Google, RevenueCat, Cloudflare, Bunny Stream, Resend, Mapbox) kan behandle eller viderestille data uden for EU/EØS, herunder i USA. Hvor det sker, er overførsler beskyttet af passende garantier såsom EU's standardkontraktbestemmelser og/eller EU–US Data Privacy Framework. Kontakt os for detaljer eller en kopi af garantierne.</p>
 
-		<h2>7. Hvor længe vi gemmer data</h2>
+		<h2>8. Hvor længe vi gemmer data</h2>
 		<ul>
-			<li><strong>Konto- og jagtindhold:</strong> så længe din konto er aktiv, og slettes inden for 30 dage efter, du sletter din konto.</li>
-			<li><strong>Abonnements-/betalingsoplysninger:</strong> gemmes i 5 år, hvor det kræves efter bogføringsloven.</li>
+			<li><strong>Dit private konto- og jagtindhold:</strong> gemmes, så længe din konto er aktiv. Når du beder os om at slette din konto, deaktiveres den med det samme og slettes permanent efter en frist på 30 dage. Logger du ind igen inden for de 30 dage, annulleres sletningen. Dette omfatter dine kontooplysninger og de jagter, trofæer, områder, markører, billeder og videoer, du ikke har delt med en gruppe.</li>
+			<li><strong>Indhold, du har delt med en gruppe:</strong> jagter, trofæer, bookinger og medier, du har delt med en jagtgruppe, bevares i gruppen efter sletningen af din konto, fordi de øvrige medlemmer stadig har brug for deres egne optegnelser. Din tilknytning fjernes: posten er ikke længere knyttet til din konto og vises som "Slettet bruger". Grupper, du ejede, overdrages til et andet medlem eller slettes med deres indhold, hvis du var eneste medlem.</li>
+			<li><strong>Sikkerhedskopier:</strong> databasesikkerhedskopier gemmes i 30 dage og slettes derefter, så slettede data kan findes i en sikkerhedskopi i op til 30 dage.</li>
+			<li><strong>Købs- og bogføringsoplysninger:</strong> abonnements-, købs- og rettighedsoplysninger gemmes i 5 år, hvor det kræves efter bogføringsloven, også efter din konto er slettet.</li>
+			<li><strong>Anmeldelser, blokeringer og moderationsafgørelser:</strong> gemmes, mens anmeldelsen er åben, og i op til 2 år efter, den er afsluttet, eller længere, hvor det er nødvendigt for at håndhæve vores Betingelser, forebygge gentaget misbrug eller forsvare retskrav.</li>
+			<li><strong>Registrering af permanent udelukkelse:</strong> udelukker vi en bruger permanent, gemmer vi en minimal registrering af udelukkelsen, så længe det er nødvendigt for at forhindre den pågældende i at vende tilbage til Tjenesten.</li>
 			<li><strong>Nedbrudsdiagnostik:</strong> opbevares efter Firebases standarder (op til 90 dage).</li>
 		</ul>
+		<p><a href="/delete-account?lang=da">Siden om kontosletning</a> gennemgår den samme proces trin for trin.</p>
 
-		<h2>8. Dine rettigheder efter GDPR</h2>
-		<p>Du har ret til indsigt, berigtigelse, sletning, begrænsning, indsigelse, dataportabilitet og til at trække samtykke tilbage til enhver tid (uden at det påvirker tidligere behandling). For at udøve en rettighed, kontakt <a href="mailto:contact@trophylog.com">contact@trophylog.com</a>. Du kan slette din konto og tilhørende data direkte i appen under <strong>Indstillinger → Slet konto</strong> eller ved at skrive til os.</p>
+		<h2>9. Dine rettigheder efter GDPR</h2>
+		<p>Du har ret til indsigt, berigtigelse, sletning, begrænsning, indsigelse, dataportabilitet og til at trække samtykke tilbage til enhver tid (uden at det påvirker tidligere behandling). For at udøve en rettighed, kontakt <a href="mailto:contact@trophylog.com">contact@trophylog.com</a>. Du kan slette din konto og tilhørende data direkte i appen under <strong>Indstillinger → Farezone</strong> eller ved at skrive til os.</p>
 		<p>Du har også ret til at klage til <strong>Datatilsynet</strong> (<a href="https://www.datatilsynet.dk" target="_blank" rel="noopener">datatilsynet.dk</a>).</p>
 
-		<h2>9. Børn</h2>
+		<h2>10. Børn</h2>
 		<p>TrophyLog er ikke rettet mod børn under 16 år. Vi indsamler ikke bevidst data fra børn under denne alder.</p>
 
-		<h2>10. Ændringer</h2>
-		<p>Vi kan opdatere denne politik. Væsentlige ændringer varsles i appen eller pr. e-mail. Datoen "Senest opdateret" afspejler den nyeste version.</p>
+		<h2>11. Ændringer</h2>
+		<p>Vi kan opdatere denne politik. Væsentlige ændringer varsles i appen eller pr. e-mail. Versionsnummeret og datoen "Senest opdateret" øverst på denne side identificerer den gældende revision.</p>
 
-		<h2>11. Kontakt</h2>
+		<h2>12. Kontakt</h2>
 		<p>TrophyLog A/S, Sortebjergvej 6, 3200 Helsinge, Danmark — <a href="mailto:contact@trophylog.com">contact@trophylog.com</a></p>
 	</Fragment>
 </LegalLayout>
