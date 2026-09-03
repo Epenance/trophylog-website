@@ -59,22 +59,29 @@ Related: [trophylog-app#198](https://github.com/Epenance/trophylog-app/issues/19
 
 | Version | Effective | Re-accept | Summary | Legal review |
 | --- | --- | --- | --- | --- |
-| 2.0 | 2026-10-01 | yes | App Review 1.2 revision: explicit version; zero-tolerance acceptable-use policy; new moderation, reporting and blocking section; explicit suspension/ejection; changes section aligned with in-app re-acceptance; Stripe billing replaced by Apple App Store / Google Play in-app purchases managed via RevenueCat; stable `?lang=` links. Apple's Standard EULA now governs the iOS licence, with these Terms supplemental; decommissioned EU ODR reference removed. | **Pending** — must be approved by Danish counsel before publication |
+| 2.0 | 2026-09-01 | yes | App Review 1.2 revision: explicit version; zero-tolerance acceptable-use policy; new moderation, reporting and blocking section; explicit suspension/ejection; changes section aligned with in-app re-acceptance; Stripe billing replaced by Apple App Store / Google Play in-app purchases managed via RevenueCat; stable `?lang=` links. Apple's Standard EULA now governs the iOS licence, with these Terms supplemental; decommissioned EU ODR reference removed. | **Pending** — must be approved by Danish counsel before publication |
 | 1.0 | 2026-07-07 | — | Initial publication (Stripe-billed freemium model). | Not recorded |
 
 ### Privacy Policy
 
 | Version | Effective | Summary | Legal review |
 | --- | --- | --- | --- |
-| 2.0 | 2026-10-01 | Stripe replaced by Apple/Google (independent controllers) and RevenueCat (processor); new "shared content & safety data" category; new moderation/reports/blocking section; retention restructured to separate private deletion, group-retained content shown as "Deleted user", backups, accounting, moderation, and ejection records; Cloudflare (R2/Workers), Bunny Stream and Resend added to the processor list. | **Pending** — must be approved by Danish counsel before publication |
+| 2.0 | 2026-09-01 | Stripe replaced by Apple/Google (independent controllers) and RevenueCat (processor); new "shared content & safety data" category; new moderation/reports/blocking section; retention restructured to separate private deletion, group-retained content shown as "Deleted user", backups, accounting, moderation, and ejection records; Cloudflare (R2/Workers), Bunny Stream and Resend added to the processor list. | **Pending** — must be approved by Danish counsel before publication |
 | 1.0 | 2026-07-07 | Initial publication. | Not recorded |
 
-## Version discipline while v2.0 is unpublished
+## Version discipline
 
-Version `2.0` is still a **draft**: v1.0 is what is live. Edits to the v2.0 copy
-before it ships keep the `2.0` identifier, because the version names a
-*published* revision. Once v2.0 is published, any further wording change needs a
-new version — see "How to revise a document" above.
+The version names a *published* revision, so once a revision is published and
+in circulation, any further wording change needs a new version — see "How to
+revise a document" above.
+
+**Corrections to v2.0.** v2.0 was published on 2026-09-03 and its effective date
+was corrected from 2026-10-01 to 2026-09-01 the same day, keeping the `2.0`
+identifier. That was safe only because nothing had consumed the revision yet: no
+backend descriptor had been deployed against it and no user acceptance existed,
+since the mobile app is not live. Do not reuse this shortcut once the backend
+descriptor is live or any user has accepted a version — from that point a
+changed date or wording requires a new version.
 
 ## Open points for counsel (v2.0)
 
