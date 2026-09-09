@@ -1,0 +1,124 @@
+---
+import { formatPrice, formatLimit, groupPlans, personalPlans } from '../data/plans';
+import { homeCopy } from '../i18n/home';
+import type { Locale } from '../i18n/locales';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = homeCopy[locale].pricing;
+const common = homeCopy[locale].common;
+---
+
+<section class="pricing" id="pricing" aria-labelledby="pricing-title">
+	<div class="pricing-inner">
+		<div class="chapter">
+			<div class="chapter-num">VI.<small>{t.chapter}</small></div>
+			<h2 id="pricing-title">{t.title}<br /><em>{t.emphasis}</em></h2>
+		</div>
+
+		<div class="pricing-intro">
+			<h3>{t.personalHeading}</h3>
+			<p>{t.personalIntro}</p>
+		</div>
+		<div class="plan-grid personal-plans">
+			{personalPlans.map((plan) => (
+				<article class:list={['plan', { featured: plan.id === 'premium' }]} aria-labelledby={`plan-${plan.id}`}>
+					<h4 id={`plan-${plan.id}`}>{t.personal[plan.id].name}</h4>
+					<p class="price">{formatPrice(plan.monthlyPrice[locale], locale)}{plan.monthlyPrice[locale] > 0 && <small> {t.month}</small>}</p>
+					<p class="billing">{plan.annualPrice[locale] > 0 ? t.annual(formatPrice(plan.annualPrice[locale], locale)) : t.free}</p>
+					<p class="description">{t.personal[plan.id].description}</p>
+					<dl>
+						<div><dt>{t.hunts}</dt><dd>{formatLimit(plan.hunts, locale)}</dd></div>
+						<div><dt>{t.trophies}</dt><dd>{formatLimit(plan.trophies, locale)}</dd></div>
+						<div><dt>{t.storage}</dt><dd>{plan.storageGb} GB</dd></div>
+						<div><dt>{t.files}</dt><dd>{plan.files === 'unlimited' ? t.fileCap(plan.storageGb) : t.upTo(formatLimit(plan.files, locale))}</dd></div>
+						<div><dt>{t.regions}</dt><dd>{formatLimit(plan.regions, locale)}</dd></div>
+						<div><dt>{t.areas}</dt><dd>{formatLimit(plan.areasPerRegion, locale)}</dd></div>
+						<div><dt>{t.markers}</dt><dd>{formatLimit(plan.markersPerRegion, locale)}</dd></div>
+						<div><dt>{t.contacts}</dt><dd>{formatLimit(plan.contacts, locale)}</dd></div>
+						<div><dt>{t.companions}</dt><dd>{formatLimit(plan.companionsPerTrip, locale)}</dd></div>
+						<div><dt>{t.watermark}</dt><dd>{plan.watermark ? t.yes : t.no}</dd></div>
+					</dl>
+					<a href="#signup" class="plan-cta" aria-label={`${common.beta} — ${t.personal[plan.id].name}`}>{common.beta} <span aria-hidden="true">→</span></a>
+				</article>
+			))}
+		</div>
+
+		<div class="pricing-intro group-intro" id="group-plans">
+			<h3>{t.groupHeading}</h3>
+			<p>{t.groupIntro}</p>
+		</div>
+		<div class="plan-grid group-plans">
+			{groupPlans.map((plan) => (
+				<article class="plan" aria-labelledby={`plan-${plan.id}`}>
+					<h4 id={`plan-${plan.id}`}>{t.groupNames[plan.id]}</h4>
+					<p class="price">{formatPrice(plan.annualPrice[locale], locale)}</p>
+					<p class="billing">{plan.annualPrice[locale] > 0 ? t.groupAnnual : t.freeGroup}</p>
+					<p class="capacity"><strong>{t.members(plan.members)}</strong><span>{t.includesOwner}</span></p>
+					<p class="capacity"><strong>{t.sharedStorage(plan.storageGb)}</strong><span>{t.wholeGroup}</span></p>
+					<dl>
+						<div><dt>{t.regions}</dt><dd>{formatLimit(plan.regions, locale)}</dd></div>
+						<div><dt>{t.areas}</dt><dd>{formatLimit(plan.areasPerRegion, locale)}</dd></div>
+						<div><dt>{t.markers}</dt><dd>{formatLimit(plan.markersPerRegion, locale)}</dd></div>
+						<div><dt>{t.contacts}</dt><dd>{formatLimit(plan.contacts, locale)}</dd></div>
+					</dl>
+					<a href="#signup" class="plan-cta" aria-label={`${common.beta} — ${t.groupNames[plan.id]}`}>{common.beta} <span aria-hidden="true">→</span></a>
+				</article>
+			))}
+		</div>
+		<div class="pricing-notes">
+			<p>{t.ownership}</p>
+			<p><strong>{t.currencyNote}</strong> {t.purchaseNote} {t.termsLead} <a href={`/terms/?lang=${locale}`}>{common.terms}</a>.</p>
+			<p>{t.betaNote}</p>
+		</div>
+	</div>
+</section>
+
+<style>
+	.pricing { padding: clamp(80px, 12vh, 140px) var(--page-pad); background: var(--surface); scroll-margin-top: 100px; }
+	.pricing-inner { max-width: var(--maxw); margin: 0 auto; }
+	.chapter { display: grid; grid-template-columns: 160px 1fr; gap: 40px; align-items: start; margin-bottom: 56px; }
+	.chapter-num { font-family: var(--font-display); font-size: 48px; color: var(--accent); line-height: 1; }
+	.chapter-num small { display: block; margin-top: 12px; font-family: var(--font-body); font-size: 11px; text-transform: uppercase; letter-spacing: .2em; color: var(--text-2); }
+	h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(38px, 6vw, 80px); line-height: 1.05; letter-spacing: -.03em; }
+	h2 em { color: var(--accent); }
+	.pricing-intro { max-width: 780px; margin: 0 0 28px; }
+	.pricing-intro h3 { font-family: var(--font-display); font-weight: 400; font-size: clamp(28px, 3vw, 38px); margin-bottom: 12px; }
+	.pricing-intro p, .pricing-notes { color: var(--text-2); font-size: 16px; line-height: 1.7; }
+	.group-intro { margin-top: 72px; scroll-margin-top: 100px; }
+	.plan-grid { display: grid; gap: 1px; background: var(--line-2); border: 1px solid var(--line-2); }
+	.personal-plans { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.group-plans { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+	.plan { min-width: 0; background: var(--bg); padding: 32px 24px; display: flex; flex-direction: column; }
+	.personal-plans .plan { padding: 40px; }
+	.plan.featured { background: var(--surface); box-shadow: inset 0 4px 0 var(--accent); }
+	h4 { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 27px; color: var(--accent); margin-bottom: 24px; }
+	.price { font-family: var(--font-display); font-size: clamp(36px, 4.3vw, 60px); font-weight: 300; line-height: 1.15; letter-spacing: -.03em; }
+	.price small { font-family: var(--font-body); font-size: 15px; letter-spacing: 0; color: var(--text-2); white-space: nowrap; }
+	.group-plans .price { font-size: clamp(30px, 3.3vw, 46px); }
+	.billing { font-size: 15px; color: var(--text-2); margin: 8px 0 24px; }
+	.description { font-size: 16px; color: var(--text-2); margin-bottom: 24px; max-width: 46ch; }
+	.capacity { margin-bottom: 20px; }
+	.capacity strong, .capacity span { display: block; }
+	.capacity strong { font-size: 17px; font-weight: 500; }
+	.capacity span { color: var(--text-2); font-size: 14px; margin-top: 4px; }
+	dl { margin-bottom: 28px; }
+	dl div { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line); padding: 12px 0; font-size: 15px; line-height: 1.5; }
+	dt { flex: 1; color: var(--text-2); }
+	dd { flex: 1; text-align: right; overflow-wrap: anywhere; }
+	.group-plans dd { flex: 0 0 auto; }
+	.plan-cta { margin-top: auto; padding: 16px 0; border-top: 1px solid var(--line-2); font-size: 14px; font-weight: 600; color: var(--accent); display: flex; justify-content: space-between; gap: 12px; }
+	.plan-cta:hover { color: var(--text); }
+	.pricing-notes { margin-top: 28px; max-width: 960px; }
+	.pricing-notes p + p { margin-top: 16px; }
+	.pricing-notes strong { font-weight: 500; color: var(--text); }
+	.pricing-notes a { color: var(--text); text-decoration: underline; text-underline-offset: 4px; }
+	@media (max-width: 1100px) { .group-plans { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+	@media (max-width: 700px) {
+		.chapter { grid-template-columns: 1fr; gap: 24px; }
+		.personal-plans, .group-plans { grid-template-columns: minmax(0, 1fr); }
+		.plan, .personal-plans .plan { padding: 28px 20px; }
+		.price { font-size: 42px; }
+		.group-plans .price { font-size: 42px; }
+	}
+</style>

@@ -1,0 +1,236 @@
+import { groupPlans, personalPlans } from '../data/plans';
+import type { Locale } from './locales';
+
+const [free, premium] = personalPlans;
+const freeGroup = groupPlans[0];
+
+const paidGroupNames = { 'konsortium-10': 'The Camp', 'konsortium-20': 'The Lodge', 'konsortium-40': 'The Estate' };
+
+const en = {
+	meta: {
+		title: 'TrophyLog — Your Hunt. Remembered.',
+		description: 'Record hunts and trophies, manage hunting grounds, and compare Free, personal Premium and hunting group plans. Discover TrophyLog and request beta access.',
+	},
+	common: {
+		chapters: 'Chapters', medal: 'Medal', pricing: 'Pricing', faq: 'FAQ',
+		betaShort: 'Beta signup', beta: 'Request beta access',
+		language: 'Choose language',
+		privacy: 'Privacy', privacyPolicy: 'Privacy Policy', terms: 'Terms', contact: 'Contact', country: 'Denmark',
+	},
+	hero: {
+		volume: 'Vol. 01', issue: 'Issue 03', journal: 'The Field Journal', chapter: '— Chapter One',
+		title: 'Your hunt.', emphasis: 'Remembered.',
+		intro: 'A logbook for hunters who know a season is made of moments — and moments demand to be kept.',
+		read: 'Read the field report', scroll: 'Scroll',
+	},
+	grounds: {
+		chapter: 'The Grounds', title: 'Before you sit,', emphasis: 'you map.',
+		lead: 'Every serious hunter keeps their ground in their head — the stands, the trails, the plot the deer cross at dusk.',
+		body: 'TrophyLog draws it for you. Satellite imagery. Polygon boundaries. Parking, high seats, trail cameras, food plots, forbidden zones. Share with your group; or keep it private.',
+		outro: 'Keep your ground close and your records organised. Log hunts and trophies offline, then sync them when you reconnect.',
+		link: 'Explore the plans', image: 'Satellite map of a hunting ground with markers',
+	},
+	booking: {
+		chapter: 'The Booking', title: 'Who sits where,', emphasis: 'settled.',
+		lead: 'Two hunters, one high seat, the same grey dawn. Every group has had that conversation — TrophyLog ends it.',
+		body: "Mark any stand, field, or blind as bookable, and your group claims their time like a calendar. Pick the hours, see at a glance what's already taken, and add the companions who are coming along.",
+		outro: 'You set the rules: bookings confirm instantly, or wait for approval. Shared grounds and booking are available in free groups too. Booking requires an internet connection to keep reservations up to date.',
+		images: [
+			'New booking form with an availability timeline showing free and taken hours',
+			'Upcoming bookings agenda with confirmed hunts across areas',
+			'Monthly calendar of group bookings',
+		],
+		screenshots: 'Booking screenshots',
+	},
+	hunt: {
+		chapter: 'The Sit', title: 'The weather,', titleSecond: 'the wind,', emphasis: 'the wait.',
+		lead: "A hunt is weather, wind, light, patience — and one clean moment. TrophyLog captures all of it, so you don't have to.",
+		body: `Check the weather for your location and record the conditions alongside your notes. For personal hunts, Free includes up to ${free.companionsPerTrip} companions per trip; Premium has no companion-count limit.`,
+		outro: 'Photos attach to hunts. Hunts attach to grounds. Everything connects.',
+		image: 'Detailed hunt view with weather and notes',
+	},
+	trophy: {
+		chapter: 'The Trophy', title: 'What you carried out.', emphasis: 'And what you kept.',
+		lead: 'Not a notch on a rifle stock. A record: species, date, place, score, the weather that made it possible, the companions who shared it.',
+		body: 'Record CIC, B&C and SCI scores, with guided measurement worksheets for supported species. Link a trophy back to the hunt it came from and the ground where it happened.',
+		outro: 'The story is complete. And it stays yours.',
+		link: 'About QR codes and physical medals', image: 'Trophy catalogue with species and dates',
+	},
+	medal: {
+		chapter: 'The Medal', title: 'The brass', emphasis: 'tells the story.',
+		lead: 'A QR code can connect a trophy on the wall to its story in TrophyLog.',
+		body: 'The app supports linking a QR code to a hunt or trophy. The plaque shown here is a physical product concept; no price or release date is confirmed.',
+		outro: 'Physical medals are not offered for sale here and are not included in any personal plan or group pack.',
+		availability: 'Physical product availability to be announced',
+		image: 'Concept illustration of a walnut trophy plaque with a QR code',
+	},
+	pricing: {
+		chapter: 'The Plans', title: 'Your journal.', emphasis: 'Your hunting group.',
+		personalHeading: 'Personal plans',
+		personalIntro: 'Unlimited hunts and trophies on both plans. Choose the space and capacity that fit your season.',
+		personal: {
+			free: { name: 'Free', description: 'Keep a record of every hunt and trophy, with room to get started.' },
+			premium: { name: 'Premium', description: 'More room for your photos, grounds and hunting companions, with watermark-free sharing.' },
+		},
+		groupNames: { 'free-group': 'Free group', ...paidGroupNames },
+		month: '/ month', annual: (price: string) => `or ${price} / year, billed annually`,
+		free: 'Free to use', freeGroup: 'Free to use, with the limits below', groupAnnual: 'per group / year, billed annually',
+		hunts: 'Hunts', trophies: 'Trophies', storage: 'Storage', files: 'Files', regions: 'Regions',
+		areas: 'Areas per region', markers: 'Markers per region', contacts: 'Contacts', companions: 'Companions per trip', watermark: 'Shared-page watermark',
+		yes: 'Yes', no: 'No', upTo: (limit: string) => `Up to ${limit}`,
+		fileCap: (gb: number) => `No separate file cap; ${gb} GB storage limit applies`,
+		groupHeading: 'Hunting groups & consortia',
+		groupIntro: `Start with a free group of up to ${freeGroup.members} members. Shared grounds and booking are available in free groups too; paid packs give your group more capacity. Booking requires an internet connection.`,
+		members: (count: number) => `Up to ${count} members`, includesOwner: 'in total, including the owner',
+		sharedStorage: (gb: number) => `${gb} GB shared storage`, wholeGroup: 'for the whole group',
+		ownership: `Each pack covers one group and is purchased and assigned by its owner. Member totals include the owner and the ${freeGroup.members} base places. Storage is shared, not allocated per member. A group pack does not give members personal Premium.`,
+		currencyNote: 'Launch prices in EUR.',
+		purchaseNote: 'Paid plans are purchased in the app through the Apple App Store or Google Play. Your local price and billing period are shown in the store before you buy.',
+		termsLead: 'See our',
+		betaNote: 'The links above request beta access. Signing up here does not start a subscription or guarantee immediate access.',
+	},
+	faq: {
+		chapter: 'Questions', title: 'Fine print,', emphasis: 'plain spoken.',
+		questions: [
+			{ question: 'Does TrophyLog share my locations?', answer: 'Your personal hunts, trophies and grounds are private by default. You choose what to share with a group or through a public or unlisted link. Check the visibility of an entry before sharing it.' },
+			{ question: 'Does it work offline?', answer: 'You can record hunts and trophies offline on both personal plans and sync them when you reconnect. Booking requires an internet connection to check availability and prevent conflicting reservations. Group management also requires a connection.' },
+			{ question: 'Can I bring my old hunting memories into TrophyLog?', answer: 'You can add past hunts and trophies manually, or import photos and videos to a new or existing entry. Media counts towards your storage and file limits. Automatic transcription of handwritten journals has no confirmed release date.' },
+			{ question: 'What is the difference between Premium and a group pack?', answer: `Premium expands your personal account: ${premium.storageGb} GB storage, no separate file-count cap within that storage limit, unlimited regions, contacts and companions, and watermark-free sharing. A group pack expands the capacity of one hunting group. It does not give members personal Premium.` },
+			{ question: 'Can our hunting group stay free?', answer: `Yes. A free group supports up to ${freeGroup.members} members in total, including its owner, with ${freeGroup.storageGb} GB of shared storage. Shared grounds and booking are available within the free limits. It is a free plan, not a time-limited trial of a paid pack.` },
+			{ question: 'How are group places and storage counted?', answer: `A seat is one place in your group. ${paidGroupNames['konsortium-10']}, ${paidGroupNames['konsortium-20']} and ${paidGroupNames['konsortium-40']} include ${groupPlans[1].members}, ${groupPlans[2].members} and ${groupPlans[3].members} seats respectively, counting the owner and the ${freeGroup.members} base places. They are not extra places on top. Storage belongs to the whole group and is shared by its members, rather than granted separately to each person.` },
+			{ question: 'Who buys the group pack?', answer: 'The group owner purchases an annual pack in the app through the Apple App Store or Google Play and assigns it to one group. The displayed annual amount is the total price for that group. Personal Premium is a separate subscription.' },
+			{ question: 'How many hunting companions can I add?', answer: `For personal hunts, Free allows ${free.companionsPerTrip} companions per trip; Premium has no companion-count limit. This is separate from the member capacity of a hunting group. Both personal plans include unlimited hunts and trophies.` },
+			{ question: 'Can I buy a physical QR medal?', answer: 'Physical QR medals are not currently offered for sale on this website, and no price or release date is confirmed here. They are not included in Free, Premium or a group pack. The app supports linking a QR code to a hunt or trophy; physical product availability is separate.' },
+		],
+	},
+	signup: {
+		chapter: '— Final Chapter', title: 'Your next chapter.', emphasis: 'Request beta access.',
+		intro: "TrophyLog is coming soon. Leave your name and email to register your interest in the beta, and we'll contact you about access.",
+		name: 'Your name', email: 'Email address', emailPlaceholder: 'hunter@example.com',
+		privacyLead: 'Read how we handle your details in our',
+		invalid: 'Please enter your name and a valid email.', pending: 'Requesting…',
+		rateLimit: 'Too many requests. Please wait a moment and try again.', error: 'Something went wrong. Please try again.',
+		successTitle: "You're on the list.", successBody: "Thanks for your interest. We'll contact you about beta access.",
+		sticky: 'A field journal for your season.',
+	},
+	slider: {
+		images: 'App screenshots', carousel: 'carousel', previous: 'Previous slide', next: 'Next slide', navigation: 'Slide navigation',
+		slide: (index: number, total: number) => `Slide ${index} of ${total}`,
+	},
+};
+
+// Matching structure makes missing translations a TypeScript error.
+const da: typeof en = {
+	meta: {
+		title: 'TrophyLog — Din jagtdagbog til jagter, trofæer og revirer',
+		description: 'Gem dine jagter og trofæer, få overblik over reviret, og planlæg sammen med jagtkammeraterne. Se priser på gratis brug, Premium og gruppepakker hos TrophyLog.',
+	},
+	common: {
+		chapters: 'Funktioner', medal: 'Medaljen', pricing: 'Priser', faq: 'Spørgsmål',
+		betaShort: 'Betatilmelding', beta: 'Skriv dig op til betaen',
+		language: 'Vælg sprog',
+		privacy: 'Privatliv', privacyPolicy: 'privatlivspolitik', terms: 'Vilkår', contact: 'Kontakt', country: 'Danmark',
+	},
+	hero: {
+		volume: 'Årgang 01', issue: 'Udgave 03', journal: 'Jagtdagbogen', chapter: '— Første kapitel',
+		title: 'Din jagt.', emphasis: 'Dine minder.',
+		intro: 'En jagtdagbog til dig, der vil huske mere end resultatet. Gem oplevelserne, stederne og øjeblikkene fra hver sæson.',
+		read: 'Se, hvad appen kan', scroll: 'Læs videre',
+	},
+	grounds: {
+		chapter: 'Reviret', title: 'Kend dit revir.', emphasis: 'Også på kortet.',
+		lead: 'Du kender posterne, vekslerne og lysningen, hvor råvildtet kommer frem i skumringen. Nu kan du samle det hele på ét kort.',
+		body: 'Afgræns reviret på satellitkortet, tegn områder ind, og markér parkering, jagttårne, vildtkameraer, vildtagre og forbudszoner. Del kortet med gruppen, eller behold det for dig selv.',
+		outro: 'Hold styr på reviret og dine oplevelser. Du kan registrere jagter og trofæer uden forbindelse og synkronisere dem, når du er online igen.',
+		link: 'Se abonnementerne', image: 'Satellitkort over et jagtrevir med markører',
+	},
+	booking: {
+		chapter: 'Bookingen', title: 'Hvem tager hvilken post?', emphasis: 'Få aftalen på plads.',
+		lead: 'To jægere på vej mod samme jagttårn før daggry. Med TrophyLog kan I fordele posterne, inden I tager af sted.',
+		body: 'Gør poster og områder bookbare, så gruppen kan reservere dem i kalenderen. Vælg tidspunkt, se, hvad der er ledigt, og tilføj de jagtkammerater, der skal med.',
+		outro: 'I bestemmer, om bookinger bekræftes med det samme eller kræver godkendelse. Fælles revirer og booking findes også i gratisgrupper. Booking kræver internetforbindelse, så reservationerne holdes ajour.',
+		images: [
+			'Ny booking med en tidslinje over ledige og optagede tidspunkter',
+			'Oversigt over kommende, bekræftede bookinger på forskellige områder',
+			'Månedskalender med gruppens bookinger',
+		],
+		screenshots: 'Skærmbilleder af booking',
+	},
+	hunt: {
+		chapter: 'Jagten', title: 'Vejret, vinden', titleSecond: 'og alt det,', emphasis: 'du vil huske.',
+		lead: 'En jagt er mere end det vildt, du får med hjem. Det er vejret, ventetiden og de øjeblikke, der bliver siddende.',
+		body: `Se vejret for din position, og gem forholdene sammen med dine noter. På personlige jagter kan du tilføje op til ${free.companionsPerTrip} jagtkammerater pr. tur med Gratis. Med Premium er antallet ubegrænset.`,
+		outro: 'Knyt billeder til jagten og jagten til reviret. Så har du historien samlet.',
+		image: 'Detaljeret jagtregistrering med vejr og noter',
+	},
+	trophy: {
+		chapter: 'Trofæet', title: 'Et trofæ på væggen.', emphasis: 'En historie i dagbogen.',
+		lead: 'Gem art, dato, sted og opmåling sammen med vejret og navnene på dem, der var med. Det er detaljerne, der holder mindet i live.',
+		body: 'Registrér CIC-, B&C- og SCI-point, og brug guidede opmålingsskemaer til de arter, der understøttes. Knyt trofæet til jagten og det revir, hvor det skete.',
+		outro: 'Historien er samlet. Og den er stadig din.',
+		link: 'Læs om QR-koder og fysiske medaljer', image: 'Trofæoversigt med arter og datoer',
+	},
+	medal: {
+		chapter: 'Medaljen', title: 'Fra trofæet', emphasis: 'til historien.',
+		lead: 'En QR-kode kan forbinde trofæet på væggen med dets historie i TrophyLog.',
+		body: 'I appen kan du knytte en QR-kode til en jagt eller et trofæ. Pladen på billedet viser et produktkoncept. Pris og lanceringsdato er endnu ikke bekræftet.',
+		outro: 'Fysiske medaljer sælges ikke her på siden og er ikke inkluderet i personlige abonnementer eller gruppepakker.',
+		availability: 'Tilgængelighed for fysiske produkter annonceres senere',
+		image: 'Konceptbillede af en trofæplade i valnøddetræ med en QR-kode',
+	},
+	pricing: {
+		chapter: 'Abonnementerne', title: 'Din jagtdagbog.', emphasis: 'Jeres jagtgruppe.',
+		personalHeading: 'Personlige abonnementer',
+		personalIntro: 'Gem et ubegrænset antal jagter og trofæer med begge abonnementer. Vælg den plads og de rammer, der passer til din sæson.',
+		personal: {
+			free: { name: 'Gratis', description: 'Gem alle dine jagter og trofæer, og kom godt i gang med jagtdagbogen.' },
+			premium: { name: 'Premium', description: 'Mere plads til billeder, flere revirer og jagtkammerater samt deling uden vandmærke.' },
+		},
+		groupNames: { 'free-group': 'Gratis gruppe', ...paidGroupNames },
+		month: '/ måned', annual: (price: string) => `eller ${price} / år, betalt årligt`,
+		free: 'Gratis at bruge', freeGroup: 'Gratis at bruge inden for rammerne nedenfor', groupAnnual: 'pr. gruppe / år, betalt årligt',
+		hunts: 'Jagter', trophies: 'Trofæer', storage: 'Lagerplads', files: 'Filer', regions: 'Revirer',
+		areas: 'Områder pr. revir', markers: 'Markører pr. revir', contacts: 'Kontakter', companions: 'Jagtkammerater pr. tur', watermark: 'Vandmærke på delte sider',
+		yes: 'Ja', no: 'Nej', upTo: (limit: string) => `Op til ${limit}`,
+		fileCap: (gb: number) => `Intet særskilt loft over antal filer; grænsen på ${gb} GB gælder stadig`,
+		groupHeading: 'Jagtgrupper og konsortier',
+		groupIntro: `Start med en gratis gruppe på op til ${freeGroup.members} medlemmer. I kan bruge fælles revirer og booking fra starten. Betalte pakker giver gruppen plads til mere. Booking kræver internetforbindelse.`,
+		members: (count: number) => `Op til ${count} medlemmer`, includesOwner: 'i alt, inklusive ejeren',
+		sharedStorage: (gb: number) => `${gb} GB fælles lagerplads`, wholeGroup: 'til hele gruppen',
+		ownership: `Hver pakke gælder én gruppe og købes og tilknyttes af ejeren. Medlemstallet inkluderer ejeren og de ${freeGroup.members} grundpladser. Lagerpladsen deles af gruppen og tildeles ikke hvert medlem. En gruppepakke giver ikke medlemmerne personligt Premium.`,
+		currencyNote: 'Danske lanceringspriser i DKK.',
+		purchaseNote: 'Betalte abonnementer købes i appen gennem Apple App Store eller Google Play. Du ser den gældende lokale pris og betalingsperiode i appbutikken, før du køber.',
+		termsLead: 'Se vores',
+		betaNote: 'Brug linkene ovenfor til at skrive dig op til betaen. En tilmelding opretter ikke et abonnement og giver ikke garanti for adgang med det samme.',
+	},
+	faq: {
+		chapter: 'Spørgsmål', title: 'Det med småt.', emphasis: 'Helt enkelt.',
+		questions: [
+			{ question: 'Deler TrophyLog mine positioner?', answer: 'Dine personlige jagter, trofæer og revirer er private som udgangspunkt. Du vælger selv, hvad du deler med en gruppe eller via et offentligt eller ikke-listet link. Kontrollér synligheden af en registrering, før du deler den.' },
+			{ question: 'Kan jeg bruge appen uden internet?', answer: 'Du kan registrere jagter og trofæer offline med begge personlige abonnementer og synkronisere dem, når du får forbindelse igen. Booking kræver internet for at kontrollere ledige tider og undgå dobbeltbookinger. Administration af grupper kræver også forbindelse.' },
+			{ question: 'Kan jeg få mine gamle jagtminder med?', answer: 'Du kan oprette tidligere jagter og trofæer manuelt eller importere billeder og videoer til en ny eller eksisterende registrering. Medier tæller med i grænserne for lagerplads og antal filer. Der er ingen bekræftet lanceringsdato for automatisk aflæsning af håndskrevne jagtdagbøger.' },
+			{ question: 'Hvad er forskellen på Premium og en gruppepakke?', answer: `Premium udvider din personlige konto: ${premium.storageGb} GB lagerplads, intet særskilt loft over antal filer inden for lagergrænsen, ubegrænset antal revirer, kontakter og jagtkammerater samt deling uden vandmærke. En gruppepakke udvider rammerne for én jagtgruppe. Den giver ikke medlemmerne personligt Premium.` },
+			{ question: 'Kan vores jagtgruppe forblive gratis?', answer: `Ja. En gratis gruppe har plads til op til ${freeGroup.members} medlemmer i alt, inklusive ejeren, og ${freeGroup.storageGb} GB fælles lagerplads. I kan bruge fælles revirer og booking inden for gratisgruppens rammer. Det er et gratis abonnement, ikke en tidsbegrænset prøveperiode på en betalt pakke.` },
+			{ question: 'Hvordan tælles pladser og lagerplads i gruppen?', answer: `En plads svarer til ét medlem af gruppen. ${paidGroupNames['konsortium-10']}, ${paidGroupNames['konsortium-20']} og ${paidGroupNames['konsortium-40']} har plads til henholdsvis ${groupPlans[1].members}, ${groupPlans[2].members} og ${groupPlans[3].members} medlemmer i alt, inklusive ejeren og de ${freeGroup.members} grundpladser. Pladserne lægges ikke oveni. Lagerpladsen deles af hele gruppen og tildeles ikke hvert medlem.` },
+			{ question: 'Hvem køber gruppepakken?', answer: 'Gruppens ejer køber en årlig pakke i appen gennem Apple App Store eller Google Play og knytter den til én gruppe. Den viste årspris er den samlede pris for gruppen. Personligt Premium er et separat abonnement.' },
+			{ question: 'Hvor mange jagtkammerater kan jeg tilføje?', answer: `På personlige jagter giver Gratis plads til ${free.companionsPerTrip} jagtkammerater pr. tur. Med Premium er antallet ubegrænset. Det er adskilt fra antallet af medlemmer i en jagtgruppe. Begge personlige abonnementer giver et ubegrænset antal jagter og trofæer.` },
+			{ question: 'Kan jeg købe en fysisk QR-medalje?', answer: 'Fysiske QR-medaljer sælges ikke her på hjemmesiden, og hverken pris eller lanceringsdato er bekræftet her. De er ikke inkluderet i Gratis, Premium eller en gruppepakke. Appen understøtter QR-koder til jagter og trofæer, men tilgængeligheden af de fysiske produkter annonceres særskilt.' },
+		],
+	},
+	signup: {
+		chapter: '— Sidste kapitel', title: 'Din næste sæson.', emphasis: 'Skriv dig op til betaen.',
+		intro: 'TrophyLog kommer snart. Skriv dit navn og din e-mail, hvis du vil med i betaen, så kontakter vi dig om adgang.',
+		name: 'Dit navn', email: 'E-mailadresse', emailPlaceholder: 'jaeger@eksempel.dk',
+		privacyLead: 'Læs, hvordan vi behandler dine oplysninger, i vores',
+		invalid: 'Skriv dit navn og en gyldig e-mailadresse.', pending: 'Sender…',
+		rateLimit: 'For mange forsøg. Vent et øjeblik, og prøv igen.', error: 'Noget gik galt. Prøv igen.',
+		successTitle: 'Du er på listen.', successBody: 'Tak for din interesse. Vi kontakter dig om adgang til betaen.',
+		sticky: 'En jagtdagbog til din sæson.',
+	},
+	slider: {
+		images: 'Skærmbilleder fra appen', carousel: 'billedkarrusel', previous: 'Forrige billede', next: 'Næste billede', navigation: 'Vælg billede',
+		slide: (index: number, total: number) => `Billede ${index} af ${total}`,
+	},
+};
+
+export const homeCopy: Record<Locale, typeof en> = { en, da };

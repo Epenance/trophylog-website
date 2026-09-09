@@ -1,0 +1,47 @@
+---
+import { homeCopy } from '../i18n/home';
+import type { Locale } from '../i18n/locales';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = homeCopy[locale].faq;
+---
+
+<section class="faq" id="faq" aria-labelledby="faq-title">
+	<div class="faq-inner">
+		<div class="chapter">
+			<div class="chapter-num">VII.<small>{t.chapter}</small></div>
+			<h2 id="faq-title">{t.title}<br /><em>{t.emphasis}</em></h2>
+		</div>
+		<div class="questions">
+			{t.questions.map(({ question, answer }, index) => (
+				<details>
+					<summary><span class="number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><span>{question}</span><span class="mark" aria-hidden="true">+</span></summary>
+					<p>{answer}</p>
+				</details>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.faq { padding: clamp(80px, 12vh, 140px) var(--page-pad); scroll-margin-top: 100px; }
+	.faq-inner { max-width: var(--maxw); margin: 0 auto; }
+	.chapter { display: grid; grid-template-columns: 160px 1fr; gap: 40px; align-items: start; margin-bottom: 56px; }
+	.chapter-num { font-family: var(--font-display); font-size: 48px; color: var(--accent); line-height: 1; }
+	.chapter-num small { display: block; margin-top: 12px; font-family: var(--font-body); font-size: 11px; text-transform: uppercase; letter-spacing: .2em; color: var(--text-2); }
+	h2 { font-family: var(--font-display); font-size: clamp(38px, 6vw, 80px); line-height: 1.05; font-weight: 400; letter-spacing: -.03em; }
+	h2 em { color: var(--accent); }
+	.questions { max-width: 820px; margin: 0 auto; }
+	details { border-bottom: 1px solid var(--line-2); }
+	details:first-child { border-top: 1px solid var(--line-2); }
+	summary { display: flex; align-items: baseline; gap: 20px; padding: 26px 0; list-style: none; cursor: pointer; font-family: var(--font-display); font-size: clamp(20px, 2.5vw, 26px); line-height: 1.4; }
+	summary::-webkit-details-marker { display: none; }
+	summary:hover { color: var(--accent); }
+	.number { flex-shrink: 0; font-family: var(--font-body); font-size: 12px; color: var(--accent); }
+	.mark { margin-left: auto; flex-shrink: 0; color: var(--accent); font-family: var(--font-body); }
+	details[open] .mark { transform: rotate(45deg); }
+	details p { font-size: 17px; line-height: 1.7; color: var(--text-2); padding: 0 0 28px 36px; }
+	@media (max-width: 700px) { .chapter { grid-template-columns: 1fr; gap: 24px; } }
+	@media (max-width: 560px) { summary { gap: 12px; } details p { padding-left: 0; } }
+</style>

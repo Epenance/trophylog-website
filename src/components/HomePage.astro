@@ -1,0 +1,1124 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PhoneSlider from './PhoneSlider.astro';
+import Pricing from './Pricing.astro';
+import Faq from './Faq.astro';
+import { homeCopy } from '../i18n/home';
+import { homePaths, type Locale } from '../i18n/locales';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = homeCopy[locale];
+const bookingShots = [
+	{ src: '/screenshots/screen-booking-create.png', alt: t.booking.images[0] },
+	{ src: '/screenshots/screen-booking-agenda.png', alt: t.booking.images[1] },
+	{ src: '/screenshots/screen-booking-calendar.png', alt: t.booking.images[2] },
+];
+const chapters = [
+	{ number: 'I.', id: 'chapters', copy: t.grounds, reverse: false, secondTitle: '', image: { src: '/screenshots/screen-map.jpg', alt: t.grounds.image }, link: '#pricing', linkText: t.grounds.link },
+	{ number: 'II.', id: 'booking', copy: t.booking, reverse: true, secondTitle: '', image: null, link: '#signup', linkText: t.common.beta },
+	{ number: 'III.', id: 'hunts', copy: t.hunt, reverse: false, secondTitle: t.hunt.titleSecond, image: { src: '/screenshots/screen-hunt-detail.jpg', alt: t.hunt.image }, link: '#signup', linkText: t.common.beta },
+	{ number: 'IV.', id: 'trophies', copy: t.trophy, reverse: true, secondTitle: '', image: { src: '/screenshots/screen-trophies.jpg', alt: t.trophy.image }, link: '#medal', linkText: t.trophy.link },
+];
+---
+
+<Layout title={t.meta.title} description={t.meta.description} locale={locale} homeAlternates>
+	<nav class="q-nav" id="q-nav">
+		<div class="q-nav-inner">
+			<a href={homePaths[locale]} class="q-brand">
+				<svg viewBox="0 0 946.59 766.6" aria-hidden="true">
+					<path fill="currentColor" d="M453.32,764.64c6.73,4.91,11.91.57,14.73-12.48,13.21-61.18,29.36-123.62,66.26-175.72,75.87-112.41,201.49-168.53,281.23-278.61,46.15-62.56,91.35-138.15,113.93-212,8.7-28.45,24.38-82.19,13.3-85.59-1.69-.52-4.24-.55-7.77,4.03-8.8,11.39-18.34,33.8-26.69,48.64-57.07,101.43-178.18,300.16-265.64,317.04-41.8,8.07-37.77-63.87-32.96-102.83,3.59-29.11,14.01-52.69,23.38-79.29,7.03-19.95,11.46-42.47,4.29-42.93-16.65-1.08-65.91,79.85-80.67,115.78-28.44,69.22-29.22,133.8-68.62,195.33-20.03,31.29-35.61-1.54-32.56-59.81,1.93-36.91,12.14-68.44,18.52-102.35,1.25-6.64,1.58-12.94.4-14.99-3.86-6.71-17.76,17.02-20.65,22.74-35.16,69.62-68.06,177.21-63.92,267.93,2.89,63.23,12.98,150.22,61.67,193.7.36.32,1.26,1.05,1.77,1.42Z"/>
+					<path fill="currentColor" d="M300.55,512.24c-8.43-38.35-19.07-77.21-41.97-110.06-48.63-69.79-126.77-105.24-177.05-174.1C52.44,188.94,25.98,140.97,11.64,94.7,6.12,76.87-2.63,45.38.76,42.37c1.28-1.14,3.67-.27,5.17,1.84,5.23,7.36,11.61,21.14,16.85,30.45,36.24,63.37,112.79,186.27,167.35,198.24,26.37,4.2,23.2-40.11,20.44-64.58-2.58-18.22-9-32.98-14.85-49.68-4.52-12.48-8.16-27.72-2.79-26.92,11.66,1.74,41.52,49.93,50.87,72.43,18,43.35,20.03,82.99,43.49,122.36,13.33,19.12,22.78-1.08,20.28-37.59-1.01-23.16-7.78-42.9-11.85-64.15-.8-4.16-1.03-7.12-.25-8.13,2.85-3.69,11.05,9.4,12.97,12.94,21.11,44.13,43.4,111.01,40.72,167.91-2.07,43.79-7.84,95.67-38.66,122.2-.16.14-.5.41-.67.54-4,3.36-7.48.18-9.28-8.01Z"/>
+				</svg>
+				TrophyLog
+			</a>
+			<div class="q-nav-links">
+				<a href="#chapters">{t.common.chapters}</a>
+				<a href="#medal">{t.common.medal}</a>
+				<a href="#pricing">{t.common.pricing}</a>
+				<a href="#faq">{t.common.faq}</a>
+			</div>
+			<div class="q-nav-actions">
+				<div class="q-language-switch" role="group" aria-label={t.common.language}>
+					<a href={homePaths.en} hreflang="en" lang="en" aria-label="English" aria-current={locale === 'en' ? 'page' : undefined} data-language-link>EN</a>
+					<span aria-hidden="true">/</span>
+					<a href={homePaths.da} hreflang="da" lang="da" aria-label="Dansk" aria-current={locale === 'da' ? 'page' : undefined} data-language-link>DA</a>
+				</div>
+				<a href="#signup" class="q-nav-cta">{t.common.betaShort}</a>
+			</div>
+		</div>
+	</nav>
+
+	<header class="q-hero">
+		<div class="q-hero-bg"><img src="/hero-deer.jpg" alt="" loading="eager" /></div>
+		<div class="q-hero-overlay"></div>
+		<div class="q-hero-meta">
+			<div><span>{t.hero.volume}</span><span>{t.hero.issue}</span><span>{t.hero.journal}</span></div>
+			<div><span>55.67° N</span><span>12.57° E</span></div>
+		</div>
+		<div class="q-hero-content reveal">
+			<div class="q-hero-num">{t.hero.chapter}</div>
+			<h1>{t.hero.title}<br /><em>{t.hero.emphasis}</em></h1>
+			<div class="q-hero-sub">{t.hero.intro}</div>
+			<div class="q-ctas">
+				<a href="#signup" class="q-btn q-btn-primary">
+					{t.common.beta}
+					<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+				</a>
+				<a href="#chapters" class="q-btn q-btn-ghost">{t.hero.read}</a>
+			</div>
+		</div>
+		<div class="q-hero-scroll">{t.hero.scroll}</div>
+	</header>
+
+	{chapters.map((chapter) => (
+		<section class="q-section" id={chapter.id}>
+			<div class="q-inner">
+				<div class="q-chapter reveal">
+					<div class="q-chapter-num">{chapter.number}<small>{chapter.copy.chapter}</small></div>
+					<h2>{chapter.copy.title}<br />{chapter.secondTitle && <>{chapter.secondTitle} </>}<em>{chapter.copy.emphasis}</em></h2>
+				</div>
+				<div class:list={['q-story-grid', 'reveal', { reverse: chapter.reverse }]}>
+					<div class="q-story-copy">
+						<p class="lead">{chapter.copy.lead}</p>
+						<p>{chapter.copy.body}</p>
+						<p>{chapter.copy.outro}</p>
+						<a href={chapter.link} class="read-more">{chapter.linkText} <span aria-hidden="true">→</span></a>
+					</div>
+					<div class="q-story-visual">
+						{chapter.image ? (
+							<div class="phone phone-lg"><div class="phone-screen"><img src={chapter.image.src} alt={chapter.image.alt} loading="lazy" /></div></div>
+						) : (
+							<PhoneSlider images={bookingShots} size="lg" glowColor="green" ariaLabel={t.booking.screenshots} locale={locale} />
+						)}
+					</div>
+				</div>
+			</div>
+		</section>
+	))}
+
+	<section class="q-medal-showcase" id="medal">
+		<div class="q-medal-inner">
+			<div class="reveal">
+				<div class="q-chapter-num">V.<small>{t.medal.chapter}</small></div>
+				<h2 class="q-medal-h2">{t.medal.title} <em>{t.medal.emphasis}</em></h2>
+				<p class="q-medal-lead">{t.medal.lead}</p>
+				<p class="q-medal-body">{t.medal.body}</p>
+				<p class="q-medal-body">{t.medal.outro}</p>
+				<div class="q-medal-ctas"><span class="q-medal-note">{t.medal.availability}</span></div>
+			</div>
+			<div class="q-story-visual reveal"><img src="/screenshots/qr-trophy.jpg" alt={t.medal.image} class="q-medal-photo" loading="lazy" /></div>
+		</div>
+	</section>
+
+	<Pricing locale={locale} />
+	<Faq locale={locale} />
+
+	<section class="q-signup" id="signup">
+		<div class="q-signup-inner reveal">
+			<div class="q-hero-num">{t.signup.chapter}</div>
+			<h2>{t.signup.title}<br /><em>{t.signup.emphasis}</em></h2>
+			<p>{t.signup.intro}</p>
+			<form id="signup-form" novalidate data-invalid={t.signup.invalid} data-pending={t.signup.pending} data-rate-limit={t.signup.rateLimit} data-error={t.signup.error} data-submit={t.common.beta}>
+				<input type="text" name="name" placeholder={t.signup.name} aria-label={t.signup.name} autocomplete="name" required />
+				<input type="email" name="email" placeholder={t.signup.emailPlaceholder} aria-label={t.signup.email} autocomplete="email" required />
+				<button type="submit" class="q-btn q-btn-primary">{t.common.beta}</button>
+			</form>
+			<template id="signup-success">
+				<div class="q-signup-success" role="status" tabindex="-1">
+					<div class="success-title">{t.signup.successTitle}</div>
+					<div class="success-body">{t.signup.successBody}</div>
+				</div>
+			</template>
+			<p class="q-form-error" id="form-error" role="status" aria-live="polite"></p>
+			<small>{t.signup.privacyLead} <a href={`/privacy/?lang=${locale}`}>{t.common.privacyPolicy}</a>.</small>
+		</div>
+	</section>
+
+	<footer class="q-foot">
+		<div class="q-foot-inner">
+			<div>&copy; {new Date().getFullYear()} · TrophyLog A/S · {t.common.country}</div>
+			<div class="q-foot-links">
+				<a href={`/privacy/?lang=${locale}`}>{t.common.privacy}</a>
+				<a href={`/terms/?lang=${locale}`}>{t.common.terms}</a>
+				<a href="mailto:contact@trophylog.com">{t.common.contact}</a>
+			</div>
+		</div>
+	</footer>
+
+	<div class="sticky-cta" id="stickyCta">
+		<span class="sticky-cta-label"><b>{t.signup.sticky}</b></span>
+		<a href="#signup" class="sticky-cta-btn">{t.common.beta}</a>
+	</div>
+</Layout>
+
+<style>
+	/* ——————————————————————————————————————
+	   REVEAL
+	   —————————————————————————————————————— */
+
+	.reveal {
+		opacity: 0;
+		transform: translateY(24px);
+		transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+					transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.reveal.in {
+		opacity: 1;
+		transform: none;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.reveal {
+			transition: none;
+			opacity: 1;
+			transform: none;
+		}
+	}
+
+	/* ——————————————————————————————————————
+	   STICKY SIGNUP STRIP
+	   —————————————————————————————————————— */
+
+	.sticky-cta {
+		position: fixed;
+		bottom: 20px;
+		left: 50%;
+		transform: translateX(-50%) translateY(20px);
+		z-index: 90;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		background: rgba(17, 25, 22, 0.85);
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
+		border: 1px solid var(--line-2);
+		border-radius: 999px;
+		padding: 8px 8px 8px 20px;
+		box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.8);
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.3s ease, transform 0.3s ease;
+		max-width: calc(100vw - 32px);
+	}
+
+	.sticky-cta.show {
+		opacity: 1;
+		pointer-events: auto;
+		transform: translateX(-50%) translateY(0);
+	}
+
+	.sticky-cta-label {
+		font-size: 14px;
+		color: var(--text-2);
+		white-space: nowrap;
+	}
+
+	.sticky-cta-label b {
+		color: var(--text);
+		font-weight: 600;
+	}
+
+	.sticky-cta-btn {
+		padding: 10px 18px;
+		border-radius: 999px;
+		background: var(--accent);
+		color: var(--accent-text);
+		font-size: 13px;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		white-space: nowrap;
+		transition: transform 0.15s ease, opacity 0.15s ease;
+	}
+
+	.sticky-cta-btn:hover {
+		transform: translateY(-1px);
+		opacity: 0.92;
+	}
+
+	@media (max-width: 560px) {
+		.sticky-cta-label {
+			display: none;
+		}
+		.sticky-cta {
+			padding: 6px;
+		}
+	}
+
+	/* ——————————————————————————————————————
+	   NAV
+	   —————————————————————————————————————— */
+
+	.q-nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 100;
+		padding: 20px var(--page-pad);
+		transition: all 0.3s ease;
+	}
+
+	.q-nav.scrolled {
+		padding: 14px var(--page-pad);
+		background: rgba(5, 7, 6, 0.85);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		border-bottom: 1px solid var(--line);
+	}
+
+	.q-nav-inner {
+		max-width: var(--maxw);
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		gap: 24px;
+	}
+
+	.q-brand {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		font-family: var(--font-display);
+		font-size: 22px;
+		font-weight: 700;
+		color: var(--text);
+	}
+
+	.q-brand svg {
+		width: 26px;
+		height: auto;
+		color: var(--accent);
+	}
+
+	.q-nav-actions { margin-left: auto; display: flex; align-items: center; gap: 24px; }
+	.q-language-switch { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+	.q-language-switch a { padding: 8px 4px; color: var(--text-2); }
+	.q-language-switch a[aria-current="page"] { color: var(--text); text-decoration: underline; text-underline-offset: 5px; }
+	.q-language-switch a:hover { color: var(--accent); }
+	.q-language-switch span { color: var(--text-2); }
+	@media (max-width: 560px) { .q-nav-actions .q-nav-cta { display: none; } }
+
+	.q-nav-links {
+		display: flex;
+		gap: 28px;
+		margin-left: 40px;
+		font-size: 13px;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	.q-nav-links a {
+		color: rgba(255, 255, 255, 0.7);
+		transition: color 0.2s ease;
+	}
+
+	.q-nav-links a:hover {
+		color: var(--accent);
+	}
+
+	.q-nav-cta {
+		margin-left: auto;
+		padding: 11px 22px;
+		background: var(--text);
+		color: var(--bg);
+		border-radius: 2px;
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		transition: all 0.2s ease;
+	}
+
+	.q-nav-cta:hover {
+		background: var(--accent);
+		color: var(--accent-text);
+	}
+
+	@media (max-width: 1040px) {
+		.q-nav-links {
+			display: none;
+		}
+		.q-nav-inner {
+			gap: 12px;
+		}
+		.q-nav-cta {
+			padding: 11px 12px;
+			white-space: nowrap;
+		}
+	}
+
+	@media (max-width: 360px) {
+		.q-brand {
+			font-size: 19px;
+			gap: 6px;
+		}
+		.q-nav-cta {
+			font-size: 11px;
+			letter-spacing: 0.05em;
+		}
+	}
+
+	/* ——————————————————————————————————————
+	   HERO
+	   —————————————————————————————————————— */
+
+	.q-hero {
+		min-height: 100vh;
+		min-height: 100dvh;
+		position: relative;
+		overflow: hidden;
+		display: flex;
+		align-items: flex-end;
+		padding: 80px var(--page-pad);
+	}
+
+	.q-hero-bg {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+	}
+
+	.q-hero-bg img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center 40%;
+		transform: scale(1.05);
+	}
+
+	.q-hero-overlay {
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+		background: linear-gradient(180deg, rgba(5, 7, 6, 0.7) 0%, transparent 25%, transparent 55%, rgba(5, 7, 6, 0.75) 85%, rgba(5, 7, 6, 1) 100%);
+	}
+
+	.q-hero-meta {
+		position: absolute;
+		top: 100px;
+		left: var(--page-pad);
+		right: var(--page-pad);
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px 24px;
+		justify-content: space-between;
+		font-family: var(--font-body);
+		font-size: 11px;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		color: rgba(255, 255, 255, 0.55);
+		z-index: 2;
+		max-width: var(--maxw);
+		margin: 0 auto;
+	}
+
+	.q-hero-meta > div {
+		display: flex;
+		gap: 24px;
+	}
+
+	@media (max-width: 640px) {
+		.q-hero-meta {
+			font-size: 10px;
+		}
+		.q-hero-meta > div {
+			flex-wrap: wrap;
+			gap: 6px 12px;
+		}
+	}
+
+	.q-hero-content {
+		position: relative;
+		z-index: 2;
+		width: 100%;
+		max-width: var(--maxw);
+		margin: 0 auto;
+	}
+
+	.q-hero-num {
+		font-family: var(--font-display);
+		font-size: 13px;
+		letter-spacing: 0.2em;
+		color: var(--accent);
+		margin-bottom: 32px;
+		font-weight: 500;
+		font-variation-settings: "opsz" 14;
+	}
+
+	.q-hero h1 {
+		font-family: var(--font-display);
+		font-weight: 300;
+		font-size: clamp(48px, 13vw, 220px);
+		line-height: 0.86;
+		letter-spacing: -0.04em;
+		color: #fff;
+		margin-bottom: 28px;
+		font-variation-settings: "opsz" 144;
+	}
+
+	.q-hero h1 em {
+		font-style: italic;
+		font-weight: 500;
+	}
+
+	.q-hero-sub {
+		font-family: var(--font-display);
+		font-style: italic;
+		font-weight: 300;
+		font-size: clamp(22px, 3vw, 34px);
+		line-height: 1.3;
+		color: rgba(255, 255, 255, 0.85);
+		max-width: 560px;
+		margin-bottom: 40px;
+		font-variation-settings: "opsz" 36;
+	}
+
+	.q-ctas {
+		display: flex;
+		gap: 16px;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	.q-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		padding: 16px 32px;
+		font-size: 13px;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		transition: all 0.25s ease;
+		border-radius: 2px;
+	}
+
+	.q-btn-primary {
+		background: var(--accent);
+		color: var(--accent-text);
+	}
+
+	.q-btn-primary:hover {
+		transform: translateY(-2px);
+		letter-spacing: 0.18em;
+	}
+
+	.q-btn-disabled {
+		background: var(--surface-2);
+		color: var(--text-3);
+		cursor: default;
+	}
+
+	.q-btn-ghost {
+		color: #fff;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+		padding: 8px 0;
+		border-radius: 0;
+	}
+
+	.q-btn-ghost:hover {
+		border-bottom-color: var(--accent);
+		color: var(--accent);
+	}
+
+	.q-btn svg {
+		width: 14px;
+		height: 14px;
+	}
+
+	.q-hero-scroll {
+		position: absolute;
+		bottom: 30px;
+		left: 50%;
+		transform: translateX(-50%);
+		font-family: var(--font-body);
+		font-size: 10px;
+		letter-spacing: 0.3em;
+		text-transform: uppercase;
+		color: rgba(255, 255, 255, 0.5);
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 12px;
+	}
+
+	.q-hero-scroll::after {
+		content: '';
+		width: 1px;
+		height: 32px;
+		background: rgba(255, 255, 255, 0.3);
+		animation: qline 2s ease-in-out infinite;
+	}
+
+	@keyframes qline {
+		0%, 100% { transform: scaleY(0.3); transform-origin: top; }
+		50% { transform: scaleY(1); }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.q-hero-scroll::after {
+			animation: none;
+		}
+	}
+
+	/* ——————————————————————————————————————
+	   SECTIONS & CHAPTERS
+	   —————————————————————————————————————— */
+
+	.q-section {
+		padding: clamp(100px, 15vh, 180px) var(--page-pad);
+		position: relative;
+	}
+
+	.q-inner {
+		max-width: var(--maxw);
+		margin: 0 auto;
+	}
+
+	.q-chapter {
+		display: grid;
+		grid-template-columns: 200px 1fr;
+		gap: 60px;
+		padding-bottom: 40px;
+		margin-bottom: 80px;
+		border-bottom: 1px solid var(--line);
+	}
+
+	.q-chapter-num {
+		font-family: var(--font-display);
+		font-size: 14px;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: var(--accent);
+		padding-top: 8px;
+		font-weight: 500;
+	}
+
+	.q-chapter-num small {
+		display: block;
+		color: var(--text-3);
+		margin-top: 8px;
+		font-weight: 400;
+		letter-spacing: 0.12em;
+		font-size: inherit;
+	}
+
+	.q-chapter h2 {
+		font-family: var(--font-display);
+		font-weight: 400;
+		font-size: clamp(42px, 6vw, 84px);
+		line-height: 0.98;
+		letter-spacing: -0.03em;
+		font-variation-settings: "opsz" 96;
+	}
+
+	.q-chapter h2 em {
+		font-style: italic;
+		color: var(--accent);
+	}
+
+	@media (max-width: 1040px) {
+		.q-chapter {
+			grid-template-columns: 1fr;
+			gap: 24px;
+		}
+	}
+
+	/* ——————————————————————————————————————
+	   STORY GRID
+	   —————————————————————————————————————— */
+
+	.q-story-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: clamp(60px, 10vw, 140px);
+		align-items: center;
+	}
+
+	.q-story-grid.reverse .q-story-copy {
+		order: 2;
+	}
+
+	.q-story-copy p.lead {
+		font-family: var(--font-display);
+		font-size: clamp(18px, 2vw, 22px);
+		line-height: 1.5;
+		color: rgba(255, 255, 255, 0.9);
+		margin-bottom: 20px;
+		font-weight: 400;
+	}
+
+	.q-story-copy p {
+		font-size: 16px;
+		color: var(--text-2);
+		line-height: 1.7;
+		margin-bottom: 14px;
+		max-width: 480px;
+	}
+
+	.q-story-copy .read-more {
+		margin-top: 28px;
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		font-family: var(--font-body);
+		font-size: 12px;
+		font-weight: 600;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--accent);
+		border-bottom: 1px solid var(--accent);
+		padding-bottom: 4px;
+	}
+
+	.q-story-visual {
+		display: flex;
+		justify-content: center;
+		position: relative;
+	}
+
+	@media (max-width: 860px) {
+		.q-story-grid {
+			grid-template-columns: 1fr;
+			gap: 48px;
+		}
+		.q-story-grid.reverse .q-story-copy {
+			order: 1;
+		}
+	}
+
+	/* ——————————————————————————————————————
+	   PHONE FRAME
+	   —————————————————————————————————————— */
+
+	.phone {
+		width: 280px;
+		height: 580px;
+		border-radius: 44px;
+		border: 1.5px solid rgba(255, 255, 255, 0.08);
+		background: #0a0e0c;
+		padding: 6px;
+		position: relative;
+		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 50px 100px -20px rgba(0, 0, 0, 0.8), 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+	}
+
+	.phone-lg {
+		width: 320px;
+		height: 660px;
+		border-radius: 50px;
+	}
+
+	.phone::before {
+		content: '';
+		position: absolute;
+		top: 10px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 96px;
+		height: 26px;
+		background: #000;
+		border-radius: 16px;
+		z-index: 2;
+	}
+
+	.phone-screen {
+		width: 100%;
+		height: 100%;
+		border-radius: 38px;
+		overflow: hidden;
+		background: #0F1612;
+	}
+
+	.phone-lg .phone-screen {
+		border-radius: 44px;
+	}
+
+	.phone-screen img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: top;
+	}
+
+	@media (max-width: 400px) {
+		.phone-lg {
+			width: 280px;
+			height: 580px;
+			border-radius: 44px;
+		}
+		.phone-lg .phone-screen {
+			border-radius: 38px;
+		}
+	}
+
+	/* ——————————————————————————————————————
+	   MEDAL SHOWCASE
+	   —————————————————————————————————————— */
+
+	.q-medal-showcase {
+		padding: clamp(100px, 15vh, 180px) var(--page-pad);
+		background: linear-gradient(180deg, var(--bg) 0%, #0B0F0C 50%, var(--bg) 100%);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.q-medal-showcase::before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 800px;
+		height: 800px;
+		border-radius: 50%;
+		background: radial-gradient(circle, var(--accent-soft) 0%, transparent 60%);
+		filter: blur(80px);
+		z-index: 0;
+	}
+
+	.q-medal-inner {
+		max-width: var(--maxw);
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 80px;
+		align-items: center;
+		position: relative;
+		z-index: 1;
+	}
+
+	.q-medal-h2 {
+		font-family: var(--font-display);
+		font-weight: 400;
+		font-size: clamp(42px, 6vw, 84px);
+		line-height: 0.98;
+		letter-spacing: -0.03em;
+		margin: 16px 0 28px;
+		font-variation-settings: "opsz" 96;
+	}
+
+	.q-medal-h2 em {
+		font-style: italic;
+		color: var(--accent);
+	}
+
+	.q-medal-lead {
+		font-family: var(--font-display);
+		font-size: clamp(18px, 2vw, 22px);
+		line-height: 1.5;
+		margin-bottom: 20px;
+		color: rgba(255, 255, 255, 0.9);
+	}
+
+	.q-medal-body {
+		font-size: 16px;
+		color: var(--text-2);
+		line-height: 1.7;
+		margin-bottom: 14px;
+		max-width: 480px;
+	}
+
+	.q-medal-ctas {
+		margin-top: 36px;
+		display: flex;
+		gap: 24px;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	.q-medal-note {
+		font-family: var(--font-display);
+		font-style: italic;
+		color: var(--text-2);
+	}
+
+	.q-medal-photo {
+		width: 100%;
+		max-width: 520px;
+		border-radius: 4px;
+		box-shadow: 0 60px 120px -20px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(201, 160, 78, 0.15);
+	}
+
+	@media (max-width: 860px) {
+		.q-medal-inner {
+			grid-template-columns: 1fr;
+			gap: 60px;
+			text-align: center;
+		}
+		.q-medal-inner .q-story-visual {
+			order: -1;
+		}
+		.q-medal-body {
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.q-medal-ctas {
+			justify-content: center;
+		}
+	}
+
+	/* ——————————————————————————————————————
+	   SIGNUP
+	   —————————————————————————————————————— */
+
+	.q-signup {
+		padding: clamp(100px, 15vh, 180px) var(--page-pad);
+		scroll-margin-top: 80px;
+		text-align: center;
+		position: relative;
+		overflow: hidden;
+		background: var(--bg);
+	}
+
+	.q-signup::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 1200px;
+		height: 600px;
+		background: radial-gradient(ellipse at top, var(--accent-soft), transparent 70%);
+		pointer-events: none;
+	}
+
+	.q-signup-inner {
+		position: relative;
+		max-width: 640px;
+		margin: 0 auto;
+	}
+
+	.q-signup h2 {
+		font-family: var(--font-display);
+		font-weight: 300;
+		font-style: italic;
+		font-size: clamp(48px, 8vw, 96px);
+		line-height: 1;
+		letter-spacing: -0.03em;
+		margin-bottom: 28px;
+		font-variation-settings: "opsz" 144;
+	}
+
+	.q-signup p {
+		font-size: 18px;
+		color: var(--text-2);
+		margin-bottom: 40px;
+		line-height: 1.6;
+	}
+
+	.q-signup form {
+		display: grid;
+		gap: 10px;
+		max-width: 480px;
+		margin: 0 auto;
+	}
+
+	.q-signup form .q-btn {
+		justify-content: center;
+	}
+
+	.q-signup input {
+		width: 100%;
+		padding: 18px 22px;
+		border: 1px solid var(--line-2);
+		background: var(--surface);
+		color: var(--text);
+		font-size: 16px;
+		border-radius: 2px;
+		font-family: inherit;
+		transition: border-color 0.2s ease;
+	}
+
+	.q-signup input:focus {
+		border-color: var(--accent);
+	}
+
+	.q-signup input::placeholder {
+		color: var(--text-3);
+	}
+
+	.q-signup input.invalid {
+		border-color: #DC6A5A;
+	}
+
+	.q-signup small {
+		display: block;
+		margin-top: 20px;
+		font-size: 12px;
+		color: var(--text-2);
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+
+	.q-signup small a {
+		text-decoration: underline;
+		text-underline-offset: 4px;
+	}
+
+	.q-form-error {
+		font-size: 14px;
+		color: #DC6A5A;
+		margin-top: 16px;
+		min-height: 0;
+	}
+
+	.q-signup-success {
+		padding: 32px;
+		text-align: center;
+		background: var(--accent-soft);
+		border-radius: 10px;
+	}
+
+	.q-signup-success .success-title {
+		font-family: var(--font-display);
+		font-size: 28px;
+		margin-bottom: 10px;
+		color: var(--text);
+	}
+
+	.q-signup-success .success-body {
+		color: var(--text-2);
+		font-size: 15px;
+	}
+
+	/* ——————————————————————————————————————
+	   FOOTER
+	   —————————————————————————————————————— */
+
+	.q-foot {
+		padding: 48px var(--page-pad);
+		border-top: 1px solid var(--line);
+		color: var(--text-3);
+		font-size: 12px;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.q-foot-inner {
+		max-width: var(--maxw);
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 16px;
+	}
+
+	.q-foot-links {
+		display: flex;
+		gap: 20px;
+	}
+
+	.q-foot a {
+		transition: color 0.2s ease;
+	}
+
+	.q-foot a:hover {
+		color: var(--accent);
+	}
+</style>
+
+<script>
+	// Reveal on scroll
+	const io = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((e) => {
+				if (e.isIntersecting) e.target.classList.add('in');
+			});
+		},
+		{ threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+	);
+	document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+	// Sticky CTA — visible mid-page, hidden near hero and signup
+	const sticky = document.getElementById('stickyCta');
+	const signup = document.getElementById('signup');
+	window.addEventListener('scroll', () => {
+		if (!sticky) return;
+		const y = window.scrollY;
+		const h = window.innerHeight;
+		const signupTop = signup?.getBoundingClientRect().top ?? h;
+		const show = y > h * 0.7 && signupTop >= h;
+		sticky.classList.toggle('show', show);
+	});
+
+	// Nav scroll state
+	const qnav = document.getElementById('q-nav');
+	window.addEventListener('scroll', () => {
+		qnav?.classList.toggle('scrolled', window.scrollY > 40);
+	});
+
+	// Keep the same section when switching between the two static pages.
+	document.querySelectorAll<HTMLAnchorElement>('[data-language-link]').forEach((link) => {
+		link.addEventListener('click', () => { link.hash = window.location.hash; });
+	});
+
+	// Signup form — waitlist API
+	const SIGNUP_ENDPOINT = 'https://api.trophylog.com/api/v1/waitlist/subscribe';
+
+	const form = document.getElementById('signup-form') as HTMLFormElement;
+	const formError = document.getElementById('form-error') as HTMLElement;
+
+	form?.addEventListener('submit', async (e: Event) => {
+		e.preventDefault();
+		formError.textContent = '';
+
+		const nameInput = form.querySelector('input[name="name"]') as HTMLInputElement;
+		const emailInput = form.querySelector('input[name="email"]') as HTMLInputElement;
+		form.querySelectorAll('.invalid').forEach((el) => el.classList.remove('invalid'));
+
+		let valid = true;
+
+		if (!nameInput.value.trim()) {
+			nameInput.classList.add('invalid');
+			valid = false;
+		}
+
+		if (!emailInput.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) {
+			emailInput.classList.add('invalid');
+			valid = false;
+		}
+
+		if (!valid) {
+			formError.textContent = form.dataset.invalid ?? '';
+			return;
+		}
+
+		const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+		submitBtn.disabled = true;
+		submitBtn.textContent = form.dataset.pending ?? '';
+
+		try {
+			const res = await fetch(SIGNUP_ENDPOINT, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					name: nameInput.value.trim(),
+					email: emailInput.value.trim(),
+					betaTester: true,
+				}),
+			});
+
+			if (res.status === 429) {
+				formError.textContent = form.dataset.rateLimit ?? '';
+				submitBtn.disabled = false;
+				submitBtn.textContent = form.dataset.submit ?? '';
+				return;
+			}
+
+			if (!res.ok) throw new Error('Request failed');
+
+			const success = document.querySelector<HTMLTemplateElement>('#signup-success');
+			if (success) {
+				form.replaceChildren(success.content.cloneNode(true));
+				form.querySelector<HTMLElement>('[role="status"]')?.focus();
+			}
+		} catch {
+			formError.textContent = form.dataset.error ?? '';
+			submitBtn.disabled = false;
+			submitBtn.textContent = form.dataset.submit ?? '';
+		}
+	});
+</script>

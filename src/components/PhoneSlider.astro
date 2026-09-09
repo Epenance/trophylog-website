@@ -1,10 +1,14 @@
 ---
+import { homeCopy } from '../i18n/home';
+import type { Locale } from '../i18n/locales';
+
 interface Props {
   images: { src: string; alt: string }[];
   size?: 'default' | 'sm' | 'lg';
   glowColor?: 'green' | 'gold';
   class?: string;
   ariaLabel?: string;
+  locale?: Locale;
 }
 
 const {
@@ -12,8 +16,11 @@ const {
   size = 'default',
   glowColor = 'green',
   class: className = '',
-  ariaLabel = 'App screenshots',
+  locale = 'en',
+  ariaLabel = homeCopy[locale].slider.images,
 } = Astro.props;
+
+const t = homeCopy[locale].slider;
 
 const isSlider = images.length > 1;
 const frameClass =
@@ -33,7 +40,7 @@ const glowClass = `phone-glow phone-glow-${glowColor}`;
           <div
             class="slider-track"
             role="region"
-            aria-roledescription="carousel"
+            aria-roledescription={t.carousel}
             aria-label={ariaLabel}
             data-slide-count={images.length}
           >
@@ -41,7 +48,7 @@ const glowClass = `phone-glow phone-glow-${glowColor}`;
               <div
                 class="slider-slide"
                 role="tabpanel"
-                aria-label={`Slide ${i + 1} of ${images.length}`}
+                aria-label={t.slide(i + 1, images.length)}
               >
                 <img src={img.src} alt={img.alt} class="phone-screenshot" draggable="false" />
               </div>
@@ -56,23 +63,23 @@ const glowClass = `phone-glow phone-glow-${glowColor}`;
     </div>
   </div>
   {isSlider && (
-    <button class="slider-arrow slider-arrow-prev" aria-label="Previous slide">
+    <button class="slider-arrow slider-arrow-prev" aria-label={t.previous}>
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
   )}
   {isSlider && (
-    <button class="slider-arrow slider-arrow-next" aria-label="Next slide">
+    <button class="slider-arrow slider-arrow-next" aria-label={t.next}>
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
   )}
   {isSlider && (
-    <div class="slider-dots" role="tablist" aria-label="Slide navigation">
+    <div class="slider-dots" role="tablist" aria-label={t.navigation}>
       {images.map((_, i) => (
         <button
           class:list={['slider-dot', { active: i === 0 }]}
           role="tab"
           aria-selected={i === 0 ? 'true' : 'false'}
-          aria-label={`Slide ${i + 1} of ${images.length}`}
+          aria-label={t.slide(i + 1, images.length)}
           data-slide-index={i}
         />
       ))}
@@ -408,9 +415,9 @@ const glowClass = `phone-glow phone-glow-${glowColor}`;
 <script>
   function initSliders() {
     document.querySelectorAll('.slider-track').forEach((track) => {
-      const wrap = track.closest('.phone-slider-wrap');
-      if (!wrap || (wrap as HTMLElement).dataset.sliderInit) return;
-      (wrap as HTMLElement).dataset.sliderInit = 'true';
+      const wrap = track.closest<HTMLElement>('.phone-slider-wrap');
+      if (!wrap || wrap.dataset.sliderInit) return;
+      wrap.dataset.sliderInit = 'true';
 
       const slideCount = parseInt((track as HTMLElement).dataset.slideCount || '1', 10);
       if (slideCount <= 1) return;
