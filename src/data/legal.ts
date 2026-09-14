@@ -18,7 +18,7 @@ export type LegalLocale = 'en' | 'da';
 export interface LegalDocument {
 	/** Opaque revision identifier shared with the backend descriptor. */
 	version: string;
-	/** ISO 8601 date (YYYY-MM-DD) the revision takes effect. */
+	/** ISO 8601 effective date; Terms requires a full timestamp with a timezone. */
 	effectiveAt: string;
 	/** Human-readable effective date per locale. */
 	effectiveDate: Record<LegalLocale, string>;
@@ -31,7 +31,7 @@ export const TERMS: LegalDocument & {
 	requiresReacceptance: boolean;
 } = {
 	version: '2.0',
-	effectiveAt: '2026-09-01',
+	effectiveAt: '2026-09-01T00:00:00.000Z',
 	effectiveDate: {
 		en: '1 September 2026',
 		da: '1. september 2026',
