@@ -43,7 +43,7 @@ The backend descriptor and the app must use these fields verbatim from
 | Field | Meaning |
 | --- | --- |
 | `version` | Opaque, immutable identifier of the published revision |
-| `effectiveAt` | ISO date (`YYYY-MM-DD`) the revision takes effect |
+| `effectiveAt` | Full ISO-8601 timestamp with `Z` or an explicit timezone offset when the revision takes effect (for example, `2026-09-01T00:00:00.000Z`); date-only values are not accepted |
 | `urls.en` / `urls.da` | Stable locale-specific links the app opens |
 | `requiresReacceptance` | Whether all existing users must re-accept |
 
