@@ -9,11 +9,11 @@ const paidGroupNames = { 'konsortium-10': 'The Camp', 'konsortium-20': 'The Lodg
 const en = {
 	meta: {
 		title: 'TrophyLog — Your Hunt. Remembered.',
-		description: 'Record hunts and trophies, manage hunting grounds, and compare Free, personal Premium and hunting group plans. Discover TrophyLog and request beta access.',
+		description: 'Record hunts and trophies, manage hunting grounds, and plan with your hunting group. Download TrophyLog for iPhone on the App Store.',
 	},
 	common: {
 		chapters: 'Chapters', medal: 'Medal', pricing: 'Pricing', faq: 'FAQ',
-		betaShort: 'Beta signup', beta: 'Request beta access',
+		downloadShort: 'Get the iOS app', download: 'Download on the App Store', beta: 'Request Android beta access',
 		language: 'Choose language',
 		privacy: 'Privacy', privacyPolicy: 'Privacy Policy', terms: 'Terms', contact: 'Contact', country: 'Denmark',
 	},
@@ -87,7 +87,7 @@ const en = {
 		currencyNote: 'Launch prices in EUR.',
 		purchaseNote: 'Paid plans are purchased in the app through the Apple App Store or Google Play. Your local price and billing period are shown in the store before you buy.',
 		termsLead: 'See our',
-		betaNote: 'The links above request beta access. Signing up here does not start a subscription or guarantee immediate access.',
+		downloadNote: 'Download TrophyLog for iPhone to get started for free. Paid plans are optional and purchased in the app.',
 	},
 	faq: {
 		chapter: 'Questions', title: 'Fine print,', emphasis: 'plain spoken.',
@@ -104,13 +104,15 @@ const en = {
 		],
 	},
 	signup: {
-		chapter: '— Final Chapter', title: 'Your next chapter.', emphasis: 'Request beta access.',
-		intro: "TrophyLog is coming soon. Leave your name and email to register your interest in the beta, and we'll contact you about access.",
+		chapter: '— Final Chapter', title: 'Your next chapter.', emphasis: 'Now on iPhone.',
+		intro: 'TrophyLog is now available on the App Store. Download the app and start recording your hunts, trophies and memories.',
+		androidTitle: 'Using Android?',
+		androidIntro: "Leave your name and email to register your interest in the Android beta, and we'll contact you about access.",
 		name: 'Your name', email: 'Email address', emailPlaceholder: 'hunter@example.com',
 		privacyLead: 'Read how we handle your details in our',
 		invalid: 'Please enter your name and a valid email.', pending: 'Requesting…',
 		rateLimit: 'Too many requests. Please wait a moment and try again.', error: 'Something went wrong. Please try again.',
-		successTitle: "You're on the list.", successBody: "Thanks for your interest. We'll contact you about beta access.",
+		successTitle: "You're on the list.", successBody: "Thanks for your interest. We'll contact you about Android beta access.",
 		sticky: 'A field journal for your season.',
 	},
 	slider: {
@@ -123,11 +125,11 @@ const en = {
 const da: typeof en = {
 	meta: {
 		title: 'TrophyLog — Din jagtdagbog til jagter, trofæer og revirer',
-		description: 'Gem dine jagter og trofæer, få overblik over reviret, og planlæg sammen med jagtkammeraterne. Se priser på gratis brug, Premium og gruppepakker hos TrophyLog.',
+		description: 'Gem dine jagter og trofæer, få overblik over reviret, og planlæg sammen med jagtkammeraterne. Hent TrophyLog til iPhone i App Store.',
 	},
 	common: {
 		chapters: 'Funktioner', medal: 'Medaljen', pricing: 'Priser', faq: 'Spørgsmål',
-		betaShort: 'Betatilmelding', beta: 'Skriv dig op til betaen',
+		downloadShort: 'Hent til iOS', download: 'Hent i App Store', beta: 'Skriv dig op til Android-betaen',
 		language: 'Vælg sprog',
 		privacy: 'Privatliv', privacyPolicy: 'privatlivspolitik', terms: 'Vilkår', contact: 'Kontakt', country: 'Danmark',
 	},
@@ -201,7 +203,7 @@ const da: typeof en = {
 		currencyNote: 'Danske lanceringspriser i DKK.',
 		purchaseNote: 'Betalte abonnementer købes i appen gennem Apple App Store eller Google Play. Du ser den gældende lokale pris og betalingsperiode i appbutikken, før du køber.',
 		termsLead: 'Se vores',
-		betaNote: 'Brug linkene ovenfor til at skrive dig op til betaen. En tilmelding opretter ikke et abonnement og giver ikke garanti for adgang med det samme.',
+		downloadNote: 'Hent TrophyLog til iPhone, og kom gratis i gang. Betalte abonnementer er valgfrie og købes i appen.',
 	},
 	faq: {
 		chapter: 'Spørgsmål', title: 'Det med småt.', emphasis: 'Helt enkelt.',
@@ -218,13 +220,15 @@ const da: typeof en = {
 		],
 	},
 	signup: {
-		chapter: '— Sidste kapitel', title: 'Din næste sæson.', emphasis: 'Skriv dig op til betaen.',
-		intro: 'TrophyLog kommer snart. Skriv dit navn og din e-mail, hvis du vil med i betaen, så kontakter vi dig om adgang.',
+		chapter: '— Sidste kapitel', title: 'Din næste sæson.', emphasis: 'Nu på iPhone.',
+		intro: 'TrophyLog er nu i App Store. Hent appen, og begynd at gemme dine jagter, trofæer og minder.',
+		androidTitle: 'Bruger du Android?',
+		androidIntro: 'Skriv dit navn og din e-mail, hvis du vil med i Android-betaen, så kontakter vi dig om adgang.',
 		name: 'Dit navn', email: 'E-mailadresse', emailPlaceholder: 'jaeger@eksempel.dk',
 		privacyLead: 'Læs, hvordan vi behandler dine oplysninger, i vores',
 		invalid: 'Skriv dit navn og en gyldig e-mailadresse.', pending: 'Sender…',
 		rateLimit: 'For mange forsøg. Vent et øjeblik, og prøv igen.', error: 'Noget gik galt. Prøv igen.',
-		successTitle: 'Du er på listen.', successBody: 'Tak for din interesse. Vi kontakter dig om adgang til betaen.',
+		successTitle: 'Du er på listen.', successBody: 'Tak for din interesse. Vi kontakter dig om adgang til Android-betaen.',
 		sticky: 'En jagtdagbog til din sæson.',
 	},
 	slider: {

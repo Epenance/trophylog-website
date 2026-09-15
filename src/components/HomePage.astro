@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import PhoneSlider from './PhoneSlider.astro';
 import Pricing from './Pricing.astro';
 import Faq from './Faq.astro';
+import { APP_STORE_URL } from '../data/store-links';
 import { homeCopy } from '../i18n/home';
 import { homePaths, type Locale } from '../i18n/locales';
 
@@ -16,8 +17,8 @@ const bookingShots = [
 ];
 const chapters = [
 	{ number: 'I.', id: 'chapters', copy: t.grounds, reverse: false, secondTitle: '', image: { src: '/screenshots/screen-map.jpg', alt: t.grounds.image }, link: '#pricing', linkText: t.grounds.link },
-	{ number: 'II.', id: 'booking', copy: t.booking, reverse: true, secondTitle: '', image: null, link: '#signup', linkText: t.common.beta },
-	{ number: 'III.', id: 'hunts', copy: t.hunt, reverse: false, secondTitle: t.hunt.titleSecond, image: { src: '/screenshots/screen-hunt-detail.jpg', alt: t.hunt.image }, link: '#signup', linkText: t.common.beta },
+	{ number: 'II.', id: 'booking', copy: t.booking, reverse: true, secondTitle: '', image: null, link: APP_STORE_URL, linkText: t.common.download },
+	{ number: 'III.', id: 'hunts', copy: t.hunt, reverse: false, secondTitle: t.hunt.titleSecond, image: { src: '/screenshots/screen-hunt-detail.jpg', alt: t.hunt.image }, link: APP_STORE_URL, linkText: t.common.download },
 	{ number: 'IV.', id: 'trophies', copy: t.trophy, reverse: true, secondTitle: '', image: { src: '/screenshots/screen-trophies.jpg', alt: t.trophy.image }, link: '#medal', linkText: t.trophy.link },
 ];
 ---
@@ -44,7 +45,7 @@ const chapters = [
 					<span aria-hidden="true">/</span>
 					<a href={homePaths.da} hreflang="da" lang="da" aria-label="Dansk" aria-current={locale === 'da' ? 'page' : undefined} data-language-link>DA</a>
 				</div>
-				<a href="#signup" class="q-nav-cta">{t.common.betaShort}</a>
+				<a href={APP_STORE_URL} class="q-nav-cta">{t.common.downloadShort}</a>
 			</div>
 		</div>
 	</nav>
@@ -61,8 +62,8 @@ const chapters = [
 			<h1>{t.hero.title}<br /><em>{t.hero.emphasis}</em></h1>
 			<div class="q-hero-sub">{t.hero.intro}</div>
 			<div class="q-ctas">
-				<a href="#signup" class="q-btn q-btn-primary">
-					{t.common.beta}
+				<a href={APP_STORE_URL} class="q-btn q-btn-primary">
+					{t.common.download}
 					<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 				</a>
 				<a href="#chapters" class="q-btn q-btn-ghost">{t.hero.read}</a>
@@ -119,6 +120,9 @@ const chapters = [
 			<div class="q-hero-num">{t.signup.chapter}</div>
 			<h2>{t.signup.title}<br /><em>{t.signup.emphasis}</em></h2>
 			<p>{t.signup.intro}</p>
+			<a href={APP_STORE_URL} class="q-btn q-btn-primary">{t.common.download}</a>
+			<h3 class="q-android-heading">{t.signup.androidTitle}</h3>
+			<p>{t.signup.androidIntro}</p>
 			<form id="signup-form" novalidate data-invalid={t.signup.invalid} data-pending={t.signup.pending} data-rate-limit={t.signup.rateLimit} data-error={t.signup.error} data-submit={t.common.beta}>
 				<input type="text" name="name" placeholder={t.signup.name} aria-label={t.signup.name} autocomplete="name" required />
 				<input type="email" name="email" placeholder={t.signup.emailPlaceholder} aria-label={t.signup.email} autocomplete="email" required />
@@ -148,7 +152,7 @@ const chapters = [
 
 	<div class="sticky-cta" id="stickyCta">
 		<span class="sticky-cta-label"><b>{t.signup.sticky}</b></span>
-		<a href="#signup" class="sticky-cta-btn">{t.common.beta}</a>
+		<a href={APP_STORE_URL} class="sticky-cta-btn">{t.common.download}</a>
 	</div>
 </Layout>
 
@@ -178,7 +182,7 @@ const chapters = [
 	}
 
 	/* ——————————————————————————————————————
-	   STICKY SIGNUP STRIP
+	   STICKY DOWNLOAD STRIP
 	   —————————————————————————————————————— */
 
 	.sticky-cta {
@@ -914,6 +918,13 @@ const chapters = [
 		gap: 10px;
 		max-width: 480px;
 		margin: 0 auto;
+	}
+
+	.q-android-heading {
+		margin: 56px 0 16px;
+		font-family: var(--font-display);
+		font-size: 28px;
+		font-weight: 400;
 	}
 
 	.q-signup form .q-btn {
