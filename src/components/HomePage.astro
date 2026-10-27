@@ -1,9 +1,11 @@
 ---
+import { Image } from 'astro:assets';
+import qrMedals from '../assets/qr-medals-lumcq0ev.png';
 import Layout from '../layouts/Layout.astro';
 import PhoneSlider from './PhoneSlider.astro';
 import Pricing from './Pricing.astro';
 import Faq from './Faq.astro';
-import { APP_STORE_URL } from '../data/store-links';
+import StoreBadges from './StoreBadges.astro';
 import { homeCopy } from '../i18n/home';
 import { homePaths, type Locale } from '../i18n/locales';
 
@@ -17,8 +19,8 @@ const bookingShots = [
 ];
 const chapters = [
 	{ number: 'I.', id: 'chapters', copy: t.grounds, reverse: false, secondTitle: '', image: { src: '/screenshots/screen-map.jpg', alt: t.grounds.image }, link: '#pricing', linkText: t.grounds.link },
-	{ number: 'II.', id: 'booking', copy: t.booking, reverse: true, secondTitle: '', image: null, link: APP_STORE_URL, linkText: t.common.download },
-	{ number: 'III.', id: 'hunts', copy: t.hunt, reverse: false, secondTitle: t.hunt.titleSecond, image: { src: '/screenshots/screen-hunt-detail.jpg', alt: t.hunt.image }, link: APP_STORE_URL, linkText: t.common.download },
+	{ number: 'II.', id: 'booking', copy: t.booking, reverse: true, secondTitle: '', image: null, link: '#signup', linkText: t.common.download },
+	{ number: 'III.', id: 'hunts', copy: t.hunt, reverse: false, secondTitle: t.hunt.titleSecond, image: { src: '/screenshots/screen-hunt-detail.jpg', alt: t.hunt.image }, link: '#signup', linkText: t.common.download },
 	{ number: 'IV.', id: 'trophies', copy: t.trophy, reverse: true, secondTitle: '', image: { src: '/screenshots/screen-trophies.jpg', alt: t.trophy.image }, link: '#medal', linkText: t.trophy.link },
 ];
 ---
@@ -45,7 +47,7 @@ const chapters = [
 					<span aria-hidden="true">/</span>
 					<a href={homePaths.da} hreflang="da" lang="da" aria-label="Dansk" aria-current={locale === 'da' ? 'page' : undefined} data-language-link>DA</a>
 				</div>
-				<a href={APP_STORE_URL} class="q-nav-cta">{t.common.downloadShort}</a>
+				<a href="#signup" class="q-nav-cta">{t.common.downloadShort}</a>
 			</div>
 		</div>
 	</nav>
@@ -61,11 +63,9 @@ const chapters = [
 			<div class="q-hero-num">{t.hero.chapter}</div>
 			<h1>{t.hero.title}<br /><em>{t.hero.emphasis}</em></h1>
 			<div class="q-hero-sub">{t.hero.intro}</div>
+			<p class="q-availability">{t.common.availability}</p>
 			<div class="q-ctas">
-				<a href={APP_STORE_URL} class="q-btn q-btn-primary">
-					{t.common.download}
-					<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-				</a>
+				<StoreBadges locale={locale} />
 				<a href="#chapters" class="q-btn q-btn-ghost">{t.hero.read}</a>
 			</div>
 		</div>
@@ -108,7 +108,21 @@ const chapters = [
 				<p class="q-medal-body">{t.medal.outro}</p>
 				<div class="q-medal-ctas"><span class="q-medal-note">{t.medal.availability}</span></div>
 			</div>
-			<div class="q-story-visual reveal"><img src="/screenshots/qr-trophy.jpg" alt={t.medal.image} class="q-medal-photo" loading="lazy" /></div>
+			<figure class="q-medal-visual reveal">
+				<Image
+					src={qrMedals}
+					alt={t.medal.image}
+					class="q-medal-photo"
+					widths={[480, 768, 1200, 1536]}
+					sizes="(max-width: 860px) calc(100vw - 40px), (max-width: 1500px) 50vw, 660px"
+					format="webp"
+					loading="lazy"
+				/>
+				<figcaption>
+					{t.medal.caption}
+					<a href={qrMedals.src}>{t.medal.viewImage}</a>
+				</figcaption>
+			</figure>
 		</div>
 	</section>
 
@@ -120,22 +134,9 @@ const chapters = [
 			<div class="q-hero-num">{t.signup.chapter}</div>
 			<h2>{t.signup.title}<br /><em>{t.signup.emphasis}</em></h2>
 			<p>{t.signup.intro}</p>
-			<a href={APP_STORE_URL} class="q-btn q-btn-primary">{t.common.download}</a>
-			<h3 class="q-android-heading">{t.signup.androidTitle}</h3>
-			<p>{t.signup.androidIntro}</p>
-			<form id="signup-form" novalidate data-invalid={t.signup.invalid} data-pending={t.signup.pending} data-rate-limit={t.signup.rateLimit} data-error={t.signup.error} data-submit={t.common.beta}>
-				<input type="text" name="name" placeholder={t.signup.name} aria-label={t.signup.name} autocomplete="name" required />
-				<input type="email" name="email" placeholder={t.signup.emailPlaceholder} aria-label={t.signup.email} autocomplete="email" required />
-				<button type="submit" class="q-btn q-btn-primary">{t.common.beta}</button>
-			</form>
-			<template id="signup-success">
-				<div class="q-signup-success" role="status" tabindex="-1">
-					<div class="success-title">{t.signup.successTitle}</div>
-					<div class="success-body">{t.signup.successBody}</div>
-				</div>
-			</template>
-			<p class="q-form-error" id="form-error" role="status" aria-live="polite"></p>
-			<small>{t.signup.privacyLead} <a href={`/privacy/?lang=${locale}`}>{t.common.privacyPolicy}</a>.</small>
+			<div class="q-ctas">
+				<StoreBadges locale={locale} centered />
+			</div>
 		</div>
 	</section>
 
@@ -148,11 +149,12 @@ const chapters = [
 				<a href="mailto:contact@trophylog.com">{t.common.contact}</a>
 			</div>
 		</div>
+		<p class="q-store-credits">{t.common.storeCredits}</p>
 	</footer>
 
 	<div class="sticky-cta" id="stickyCta">
 		<span class="sticky-cta-label"><b>{t.signup.sticky}</b></span>
-		<a href={APP_STORE_URL} class="sticky-cta-btn">{t.common.download}</a>
+		<a href="#signup" class="sticky-cta-btn">{t.common.download}</a>
 	</div>
 </Layout>
 
@@ -375,7 +377,7 @@ const chapters = [
 		overflow: hidden;
 		display: flex;
 		align-items: flex-end;
-		padding: 80px var(--page-pad);
+		padding: 180px var(--page-pad) 112px;
 	}
 
 	.q-hero-bg {
@@ -486,6 +488,12 @@ const chapters = [
 		flex-wrap: wrap;
 	}
 
+	.q-availability {
+		margin-bottom: 20px;
+		font-size: 14px;
+		color: var(--accent);
+	}
+
 	.q-btn {
 		display: inline-flex;
 		align-items: center;
@@ -499,22 +507,6 @@ const chapters = [
 		border-radius: 2px;
 	}
 
-	.q-btn-primary {
-		background: var(--accent);
-		color: var(--accent-text);
-	}
-
-	.q-btn-primary:hover {
-		transform: translateY(-2px);
-		letter-spacing: 0.18em;
-	}
-
-	.q-btn-disabled {
-		background: var(--surface-2);
-		color: var(--text-3);
-		cursor: default;
-	}
-
 	.q-btn-ghost {
 		color: #fff;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -525,11 +517,6 @@ const chapters = [
 	.q-btn-ghost:hover {
 		border-bottom-color: var(--accent);
 		color: var(--accent);
-	}
-
-	.q-btn svg {
-		width: 14px;
-		height: 14px;
 	}
 
 	.q-hero-scroll {
@@ -764,6 +751,7 @@ const chapters = [
 
 	.q-medal-showcase {
 		padding: clamp(100px, 15vh, 180px) var(--page-pad);
+		scroll-margin-top: 80px;
 		background: linear-gradient(180deg, var(--bg) 0%, #0B0F0C 50%, var(--bg) 100%);
 		position: relative;
 		overflow: hidden;
@@ -839,11 +827,30 @@ const chapters = [
 		color: var(--text-2);
 	}
 
+	.q-medal-visual {
+		min-width: 0;
+	}
+
+	.q-medal-visual figcaption {
+		margin-top: 16px;
+		color: var(--text-2);
+		font-size: 13px;
+		text-align: center;
+	}
+
 	.q-medal-photo {
 		width: 100%;
-		max-width: 520px;
+		height: auto;
 		border-radius: 4px;
 		box-shadow: 0 60px 120px -20px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(201, 160, 78, 0.15);
+	}
+
+	.q-medal-visual figcaption a {
+		display: inline-block;
+		margin-left: 0.35em;
+		color: var(--green);
+		text-decoration: underline;
+		text-underline-offset: 3px;
 	}
 
 	@media (max-width: 860px) {
@@ -852,7 +859,7 @@ const chapters = [
 			gap: 60px;
 			text-align: center;
 		}
-		.q-medal-inner .q-story-visual {
+		.q-medal-visual {
 			order: -1;
 		}
 		.q-medal-body {
@@ -865,7 +872,7 @@ const chapters = [
 	}
 
 	/* ——————————————————————————————————————
-	   SIGNUP
+	   DOWNLOAD
 	   —————————————————————————————————————— */
 
 	.q-signup {
@@ -913,86 +920,8 @@ const chapters = [
 		line-height: 1.6;
 	}
 
-	.q-signup form {
-		display: grid;
-		gap: 10px;
-		max-width: 480px;
-		margin: 0 auto;
-	}
-
-	.q-android-heading {
-		margin: 56px 0 16px;
-		font-family: var(--font-display);
-		font-size: 28px;
-		font-weight: 400;
-	}
-
-	.q-signup form .q-btn {
+	.q-signup .q-ctas {
 		justify-content: center;
-	}
-
-	.q-signup input {
-		width: 100%;
-		padding: 18px 22px;
-		border: 1px solid var(--line-2);
-		background: var(--surface);
-		color: var(--text);
-		font-size: 16px;
-		border-radius: 2px;
-		font-family: inherit;
-		transition: border-color 0.2s ease;
-	}
-
-	.q-signup input:focus {
-		border-color: var(--accent);
-	}
-
-	.q-signup input::placeholder {
-		color: var(--text-3);
-	}
-
-	.q-signup input.invalid {
-		border-color: #DC6A5A;
-	}
-
-	.q-signup small {
-		display: block;
-		margin-top: 20px;
-		font-size: 12px;
-		color: var(--text-2);
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-	}
-
-	.q-signup small a {
-		text-decoration: underline;
-		text-underline-offset: 4px;
-	}
-
-	.q-form-error {
-		font-size: 14px;
-		color: #DC6A5A;
-		margin-top: 16px;
-		min-height: 0;
-	}
-
-	.q-signup-success {
-		padding: 32px;
-		text-align: center;
-		background: var(--accent-soft);
-		border-radius: 10px;
-	}
-
-	.q-signup-success .success-title {
-		font-family: var(--font-display);
-		font-size: 28px;
-		margin-bottom: 10px;
-		color: var(--text);
-	}
-
-	.q-signup-success .success-body {
-		color: var(--text-2);
-		font-size: 15px;
 	}
 
 	/* ——————————————————————————————————————
@@ -1022,6 +951,15 @@ const chapters = [
 		gap: 20px;
 	}
 
+	.q-store-credits {
+		max-width: var(--maxw);
+		margin: 24px auto 0;
+		color: var(--text-2);
+		font-size: 11px;
+		letter-spacing: normal;
+		text-transform: none;
+	}
+
 	.q-foot a {
 		transition: color 0.2s ease;
 	}
@@ -1043,7 +981,7 @@ const chapters = [
 	);
 	document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 
-	// Sticky CTA — visible mid-page, hidden near hero and signup
+	// Sticky CTA — visible mid-page, hidden near hero and download section
 	const sticky = document.getElementById('stickyCta');
 	const signup = document.getElementById('signup');
 	window.addEventListener('scroll', () => {
@@ -1066,70 +1004,4 @@ const chapters = [
 		link.addEventListener('click', () => { link.hash = window.location.hash; });
 	});
 
-	// Signup form — waitlist API
-	const SIGNUP_ENDPOINT = 'https://api.trophylog.com/api/v1/waitlist/subscribe';
-
-	const form = document.getElementById('signup-form') as HTMLFormElement;
-	const formError = document.getElementById('form-error') as HTMLElement;
-
-	form?.addEventListener('submit', async (e: Event) => {
-		e.preventDefault();
-		formError.textContent = '';
-
-		const nameInput = form.querySelector('input[name="name"]') as HTMLInputElement;
-		const emailInput = form.querySelector('input[name="email"]') as HTMLInputElement;
-		form.querySelectorAll('.invalid').forEach((el) => el.classList.remove('invalid'));
-
-		let valid = true;
-
-		if (!nameInput.value.trim()) {
-			nameInput.classList.add('invalid');
-			valid = false;
-		}
-
-		if (!emailInput.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) {
-			emailInput.classList.add('invalid');
-			valid = false;
-		}
-
-		if (!valid) {
-			formError.textContent = form.dataset.invalid ?? '';
-			return;
-		}
-
-		const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
-		submitBtn.disabled = true;
-		submitBtn.textContent = form.dataset.pending ?? '';
-
-		try {
-			const res = await fetch(SIGNUP_ENDPOINT, {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({
-					name: nameInput.value.trim(),
-					email: emailInput.value.trim(),
-					betaTester: true,
-				}),
-			});
-
-			if (res.status === 429) {
-				formError.textContent = form.dataset.rateLimit ?? '';
-				submitBtn.disabled = false;
-				submitBtn.textContent = form.dataset.submit ?? '';
-				return;
-			}
-
-			if (!res.ok) throw new Error('Request failed');
-
-			const success = document.querySelector<HTMLTemplateElement>('#signup-success');
-			if (success) {
-				form.replaceChildren(success.content.cloneNode(true));
-				form.querySelector<HTMLElement>('[role="status"]')?.focus();
-			}
-		} catch {
-			formError.textContent = form.dataset.error ?? '';
-			submitBtn.disabled = false;
-			submitBtn.textContent = form.dataset.submit ?? '';
-		}
-	});
 </script>

@@ -1,0 +1,48 @@
+---
+import { APP_STORE_URL, GOOGLE_PLAY_URL } from '../data/store-links';
+import { homeCopy } from '../i18n/home';
+import type { Locale } from '../i18n/locales';
+
+interface Props {
+	locale: Locale;
+	centered?: boolean;
+}
+
+const { locale, centered = false } = Astro.props;
+const t = homeCopy[locale].common;
+---
+
+<div class:list={['store-badges', { centered }]} role="group" aria-label={t.download}>
+	<a href={APP_STORE_URL}>
+		<img src={`/store-badges/app-store-${locale}.svg`} alt={t.appStore} width="144" height="48" />
+	</a>
+	<a href={GOOGLE_PLAY_URL}>
+		<img src={`/store-badges/google-play-${locale}.svg`} alt={t.googlePlay} width="162" height="48" />
+	</a>
+</div>
+
+<style>
+	.store-badges {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 24px;
+		max-width: 100%;
+	}
+
+	.centered {
+		justify-content: center;
+	}
+
+	.store-badges a {
+		display: block;
+		flex: 0 0 auto;
+		border-radius: 7px;
+	}
+
+	.store-badges img {
+		display: block;
+		height: 48px;
+		width: auto;
+	}
+</style>

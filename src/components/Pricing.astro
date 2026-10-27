@@ -1,6 +1,5 @@
 ---
 import { formatPrice, formatLimit, groupPlans, personalPlans } from '../data/plans';
-import { APP_STORE_URL } from '../data/store-links';
 import { homeCopy } from '../i18n/home';
 import type { Locale } from '../i18n/locales';
 
@@ -40,7 +39,7 @@ const common = homeCopy[locale].common;
 						<div><dt>{t.companions}</dt><dd>{formatLimit(plan.companionsPerTrip, locale)}</dd></div>
 						<div><dt>{t.watermark}</dt><dd>{plan.watermark ? t.yes : t.no}</dd></div>
 					</dl>
-					<a href={APP_STORE_URL} class="plan-cta" aria-label={`${common.download} — ${t.personal[plan.id].name}`}>{common.download} <span aria-hidden="true">→</span></a>
+					<a href="#signup" class="plan-cta" aria-label={`${common.download} — ${t.personal[plan.id].name}`}>{common.download} <span aria-hidden="true">→</span></a>
 				</article>
 			))}
 		</div>
@@ -63,14 +62,14 @@ const common = homeCopy[locale].common;
 						<div><dt>{t.markers}</dt><dd>{formatLimit(plan.markersPerRegion, locale)}</dd></div>
 						<div><dt>{t.contacts}</dt><dd>{formatLimit(plan.contacts, locale)}</dd></div>
 					</dl>
-					<a href={APP_STORE_URL} class="plan-cta" aria-label={`${common.download} — ${t.groupNames[plan.id]}`}>{common.download} <span aria-hidden="true">→</span></a>
+					<a href="#signup" class="plan-cta" aria-label={`${common.download} — ${t.groupNames[plan.id]}`}>{common.download} <span aria-hidden="true">→</span></a>
 				</article>
 			))}
 		</div>
 		<div class="pricing-notes">
 			<p>{t.ownership}</p>
 			<p><strong>{t.currencyNote}</strong> {t.purchaseNote} {t.termsLead} <a href={`/terms/?lang=${locale}`}>{common.terms}</a>.</p>
-			<p>{t.downloadNote} <a href="#signup">{common.beta}</a>.</p>
+			<p>{t.downloadNote}</p>
 		</div>
 	</div>
 </section>
